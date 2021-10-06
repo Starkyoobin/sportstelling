@@ -33,4 +33,12 @@ public class SignBO {
 			return true;
 		}
 	}
+	//닉네임 중복체크
+	public boolean isDuplicateNickName(String nickName) {
+		if(signDAO.selectCountByNickName(nickName) == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

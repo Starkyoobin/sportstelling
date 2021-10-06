@@ -50,4 +50,17 @@ public class SignRestController {
 		
 		return result;
 	}
+	
+	@GetMapping("/is_duplicate_nickname")
+	public Map<String, Boolean> isDuplicateNickName(@RequestParam("nickName") String nickName) {
+		Map<String, Boolean> result = new HashMap<>();
+		
+		if(signBO.isDuplicateNickName(nickName)) {
+			result.put("is_duplicate_nickname", true);
+		} else {
+			result.put("is_duplicate_nickname", false);
+		}
+		
+		return result;
+	}
 }

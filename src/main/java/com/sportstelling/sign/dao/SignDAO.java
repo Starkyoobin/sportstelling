@@ -5,12 +5,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SignDAO {
+	//회원가입
 	public int insertSign(
 			@Param("loginId") String loginId
 			, @Param("password") String password
 			, @Param("name") String name
 			, @Param("nickName") String nickName
 			, @Param("email") String email);
-	
+	//ID 중복체크
 	public int selectCountById(@Param("loginId") String loginId);
+	//닉네임 중복체크
+	public int selectCountByNickName(@Param("nickName") String nickName);
 }

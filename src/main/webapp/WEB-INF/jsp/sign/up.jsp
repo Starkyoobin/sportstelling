@@ -33,7 +33,7 @@
 						<input type="password" id="passwordInput" class="form-control mt-3" placeholder="비밀번호">
 						<input type="password" id="passwordConfirmInput" class="form-control mt-3" placeholder="비밀번호 확인">
 						
-						<input type="text" id="nickNameInput" class="form-control mt-3" placeholder="이름">
+						<input type="text" id="nameInput" class="form-control mt-3" placeholder="이름">
 						<div class="d-flex mt-3">
 							<input type="text" id="nickNameInput" class="form-control" placeholder="닉네임">
 							<span class="input-group-addon">							
@@ -104,6 +104,11 @@
 					alert("이메일을 입력해주세요");
 					return;
 				}
+				//비밀번호 일치 불일치
+				if(password != passwordConfirm) {
+					alert("비밀번호가 일치하지않습니다");
+					return;
+				}
 				
 				//ID 중복체크 확인
 				if(isIdCheck == false) {
@@ -156,6 +161,8 @@
 					url:"/sign/is_duplicate_id",
 					data:{"loginId":loginId},
 					success:function(data) {
+						isIdCheck = true;
+						
 						if(data.is_duplicate_id) {
 							isDuplicateId = true;
 							$("#idDuplicateDiv").removeClass("d-none");
@@ -172,7 +179,9 @@
 				});
 			});
 			//닉네임 중복체크
-			$("#nickNameIsDuplicateBtn").on("click", function() {
+			$("#nickNameIsDuplicateBtn").on("click", function(e) {
+				e.preventDefault();
+				
 				var nickName = $("#nickNameInput").val();
 				
 				if(nickName == null || nickName == "") {
@@ -185,7 +194,17 @@
 					url:"/sign/is_duplicate_nickname",
 					data:{"nickName":nickName},
 					success:function(data) {
+						isNickNameCheck = true;
 						
+						if(data.is_duplicate_nickname) {
+							isDuplicateNickName = true;
+							$("#nickNameDuplicateDiv").removeClass("d-none");
+							$("#nickNameNoneDuplicateDiv").addClass("d-none");
+						} else {
+							isDuplicateNickName = false;
+							$("#nickNameDuplicateDiv").addClass("d-none");
+							$("#nickNameNoneDuplicateDiv").removeClass("d-none");
+						}
 					},
 					error:function(e) {
 						alert("error");
