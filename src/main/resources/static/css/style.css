@@ -1,0 +1,19 @@
+#wrap {
+	width:1200px;
+	height:800px;
+	margin:auto;
+}
+
+header{
+	height:100px;
+	background-color:skyblue;
+}
+
+footer{
+	height:75px;
+	background-color:skyblue;
+}
+
+.login-section{
+	height:625px;
+}
