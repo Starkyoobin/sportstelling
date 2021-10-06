@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sportstelling.common.EncryptUtils;
 import com.sportstelling.sign.dao.SignDAO;
+import com.sportstelling.sign.model.Sign;
 
 @Service
 public class SignBO {
@@ -40,5 +41,10 @@ public class SignBO {
 		} else {
 			return true;
 		}
+	}
+	//로그인
+	public Sign getSign(String loginId, String password) {
+		String encryptPassword = EncryptUtils.md5(password);
+		return signDAO.selectSignByLoginIdPassword(loginId, encryptPassword);
 	}
 }

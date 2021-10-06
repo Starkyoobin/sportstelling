@@ -3,6 +3,9 @@ package com.sportstelling.sign;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sportstelling.sign.bo.SignBO;
+import com.sportstelling.sign.model.Sign;
 
 @RestController
 @RequestMapping("/sign")
@@ -59,6 +63,29 @@ public class SignRestController {
 			result.put("is_duplicate_nickname", true);
 		} else {
 			result.put("is_duplicate_nickname", false);
+		}
+		
+		return result;
+	}
+	
+	@PostMapping("/in")
+	public Map<String, String> signIn(
+			@RequestParam("loginId") String loginId
+			, @RequestParam("password") String password
+			, HttpServletRequest request) {
+		Sign user = signBO.getSign(loginId, password);
+				
+		Map<String, String> result = new HashMap<>();
+		
+		if(user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("userLoginId", user.getLoginId());
+			session.setAttribute("userNickName", user.getNickName());
+			
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
 		}
 		
 		return result;

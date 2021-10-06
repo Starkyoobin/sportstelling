@@ -45,6 +45,39 @@
 			$("#joinBtn").on("click", function() {
 				location.href="/sign/up_view";
 			});
+			//로그인
+			$("#signInForm").on("submit", function(e) {
+				e.preventDefault();
+				
+				var loginId = $("#idInput").val();
+				var password = $("#passwordInput").val();
+				
+				if(loginId == null || loginId == "") {
+					alert("아이디를 입력해주세요");
+					return;
+				}
+				
+				if(password == null || password == "") {
+					alert("비밀번호를 입력해주세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/sign/in",
+					data:{"loginId":loginId, "password":password},
+					success:function(data) {
+						if(data.result == "success") {
+							alert("로그인 성공");
+						} else {
+							alert("로그인 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
 		});
 	</script>
 </body>
