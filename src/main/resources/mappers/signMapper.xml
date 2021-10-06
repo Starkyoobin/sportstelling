@@ -1,1 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sportstelling.sign.dao.SignDAO">
+	<!-- 회원가입 -->
+	<insert id="insertSign">
+		INSERT INTO `user`
+		(
+			`loginId`
+			, `password`
+			, `name`
+			, `nickName`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		) VALUES (
+			#{loginId }
+			, #{password }
+			, #{name }
+			, #{nickName }
+			, #{email}
+			, now()
+			, now()
+		);
+	</insert>
+	<!-- ID 중복체크 -->
+	<select id="selectCountById" resultType="int" parameterType="string">
+		SELECT
+			count(*)
+		FROM
+			`user`
+		WHERE
+			`loginId` = #{loginId };
+	</select>
+</mapper>

@@ -63,7 +63,7 @@
 			var isDuplicateId =true;
 			var isNickNameCheck = false;
 			var isDuplicateNickName = true;
-			
+			//회원가입
 			$("#signUpForm").on("submit", function(e) {
 				e.preventDefault();
 				
@@ -128,7 +128,68 @@
 				
 				$.ajax({
 					type:"post",
-					
+					url:"/sign/up",
+					data:{"loginId":loginId, "password":password, "name":name, "nickName":nickName, "email":email},
+					success:function(data) {
+						if(data.result == "success") {
+							alert("회원가입 성공");
+						} else {
+							alert("회원가입 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+			//ID 중복체크
+			$("#idIsDuplicateBtn").on("click", function() {
+				var loginId = $("#loginIdInput").val();
+				
+				if(loginId == null || loginId == "") {
+					alert("아이디를 입력해주세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"get",
+					url:"/sign/is_duplicate_id",
+					data:{"loginId":loginId},
+					success:function(data) {
+						if(data.is_duplicate_id) {
+							isDuplicateId = true;
+							$("#idDuplicateDiv").removeClass("d-none");
+							$("#idNoneDuplicateDiv").addClass("d-none");
+						} else {
+							isDuplicateId = false;
+							$("#idDuplicateDiv").addClass("d-none");
+							$("#idNoneDuplicateDiv").removeClass("d-none");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+			//닉네임 중복체크
+			$("#nickNameIsDuplicateBtn").on("click", function() {
+				var nickName = $("#nickNameInput").val();
+				
+				if(nickName == null || nickName == "") {
+					alert("닉네임을 입력해주세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"get",
+					url:"/sign/is_duplicate_nickname",
+					data:{"nickName":nickName},
+					success:function(data) {
+						
+					},
+					error:function(e) {
+						alert("error");
+					}
 				});
 			});
 		});
