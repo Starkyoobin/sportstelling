@@ -17,17 +17,21 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
-		<section class="d-flex justify-content-center login-section my-5">
+		<section class="signin-section my-5">
 			<div class="d-flex justify-content-center align-items-center">
-				<div class="w-100">			
+				<div class="col-5">			
 					<h2 class="text-center">로그인</h2>
-					<form id="loginForm">
-						<input type="text" id="idInput" class="form-control mt-2" placeholder="아이디를 입력해주세요">
-						<input type="password" id="passwordInput" class="form-control mt-2" placeholder="비밀번호를 입력해주세요">
-						<input type="button" id="loginBtn" class="btn form-control btn-info mt-2" value="로그인">
+					<form id="signInForm">
+						<input type="text" id="idInput" class="form-control mt-4" placeholder="아이디를 입력해주세요">
+						<input type="password" id="passwordInput" class="form-control mt-4" placeholder="비밀번호를 입력해주세요">
+						<input type="button" id="loginBtn" class="btn form-control btn-info mt-4" value="로그인">
 					</form>
-					<div class="text-center mt-3">
+					<button class="btn btn-success form-control mt-4" id="joinBtn">회원가입</button>
+					<div class="text-center mt-4">
 						<a href="#">아이디 / 비밀번호 찾기</a>
+					</div>
+					<div class="text-center mt-4">
+						<a href="#" id="non-member-login">비회원 로그인</a>
 					</div>
 				</div>
 			</div>
@@ -35,5 +39,13 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#joinBtn").on("click", function() {
+				location.href="/sign/up_view";
+			});
+		});
+	</script>
 </body>
 </html>

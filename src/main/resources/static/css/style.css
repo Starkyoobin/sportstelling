@@ -14,6 +14,15 @@ footer{
 	background-color:skyblue;
 }
 
-.login-section{
-	height:625px;
+.signin-section{
+	height:400px;
+}
+
+.signup-section{
+	height:500px;
+}
+
+
+#non-member-login{
+	color:gray;
 }

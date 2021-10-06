@@ -11,4 +11,9 @@ public class SignController {
 	public String signinView() {
 		return "sign/in";
 	}
+	
+	@GetMapping("/up_view")
+	public String signupView() {
+		return "sign/up";
+	}
 }
