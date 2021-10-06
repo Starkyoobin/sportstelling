@@ -24,11 +24,11 @@
 					<form id="signInForm">
 						<input type="text" id="idInput" class="form-control mt-4" placeholder="아이디를 입력해주세요">
 						<input type="password" id="passwordInput" class="form-control mt-4" placeholder="비밀번호를 입력해주세요">
-						<input type="button" id="loginBtn" class="btn form-control btn-info mt-4" value="로그인">
+						<input type="submit" id="loginBtn" class="btn form-control btn-info mt-4" value="로그인">
 					</form>
 					<button class="btn btn-success form-control mt-4" id="joinBtn">회원가입</button>
 					<div class="text-center mt-4">
-						<a href="#">아이디 / 비밀번호 찾기</a>
+						<a href="/sign/find_view">아이디 / 비밀번호 찾기</a>
 					</div>
 					<div class="text-center mt-4">
 						<a href="#" id="non-member-login">비회원 로그인</a>
