@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/sign")
-public class SignController {
+public class UserController {
 	//로그인 화면
 	@GetMapping("/in_view")
 	public String signinView() {

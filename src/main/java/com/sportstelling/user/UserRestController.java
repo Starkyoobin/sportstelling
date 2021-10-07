@@ -19,7 +19,7 @@ import com.sportstelling.user.model.User;
 
 @RestController
 @RequestMapping("/sign")
-public class SignRestController {
+public class UserRestController {
 	@Autowired
 	private UserBO signBO;
 	//회원가입
