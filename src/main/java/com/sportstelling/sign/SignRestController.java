@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ import com.sportstelling.sign.model.Sign;
 public class SignRestController {
 	@Autowired
 	private SignBO signBO;
-	
+	//회원가입
 	@PostMapping("/up")
 	public Map<String, String> signUp(
 			@RequestParam("loginId") String loginId
@@ -42,7 +41,7 @@ public class SignRestController {
 		
 		return result;
 	}
-	
+	//아이디 중복체크
 	@GetMapping("/is_duplicate_id")
 	public Map<String, Boolean> isDuplicateLoginId(@RequestParam("loginId") String loginId) {
 		Map<String, Boolean> result = new HashMap<>();
@@ -55,7 +54,7 @@ public class SignRestController {
 		
 		return result;
 	}
-	
+	//닉네임 중복체크
 	@GetMapping("/is_duplicate_nickname")
 	public Map<String, Boolean> isDuplicateNickName(@RequestParam("nickName") String nickName) {
 		Map<String, Boolean> result = new HashMap<>();
@@ -68,7 +67,7 @@ public class SignRestController {
 		
 		return result;
 	}
-	
+	//로그인
 	@PostMapping("/in")
 	public Map<String, String> signIn(
 			@RequestParam("loginId") String loginId
@@ -91,7 +90,7 @@ public class SignRestController {
 		
 		return result;
 	}
-	
+	//아이디 찾기
 	@PostMapping("/find_id")
 	public Map<String, String> loginIdFind(
 			@RequestParam("name") String name
@@ -102,10 +101,11 @@ public class SignRestController {
 		Map<String, String> result = new HashMap<>();
 		
 		if(user != null) {
-			request.setAttribute("loginId", user.getLoginId());
+			String loginId = (String)request.getAttribute(user.getLoginId());
 			
 			if(user.getLoginId() != null) {
 				result.put("result", "success");
+				result.put("loginId", loginId);
 			} else {
 				result.put("result", "fail");
 			}
@@ -113,7 +113,7 @@ public class SignRestController {
 		
 		return result;
 	}
-	
+	//비밀번호 찾기
 //	@PostMapping("/find_password")
 //	public Map<String, String> passwordFind(
 //			@RequestParam("loginId") String loginId

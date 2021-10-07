@@ -77,7 +77,7 @@
 					data:{"name":name, "email":email},
 					success:function(data) {
 						if(data.result == "success") {
-							alert(${loginId });
+							alert(data.loginId);
 						} else {
 							alert("회원정보 없음");
 						}
