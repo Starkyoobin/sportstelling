@@ -21,7 +21,7 @@
 			<div class="d-flex my-5">			
 				<div class="w-50">
 					<h2 class="text-center">아이디 찾기</h2>
-					<form action="">
+					<form>
 						<input type="text" id="nameInput" class="form-control mt-2 col-6" placeholder="이름">
 						<input type="text" id="idByEmailInput" class="form-control mt-2 col-6" placeholder="이메일">
 						
@@ -78,7 +78,7 @@
 					data:{"name":name, "email":email},
 					success:function(data) {
 						if(data.result == "success") {
-							alert(data.loginId);
+							alert(${data.loginId });
 						} else {
 							alert("회원정보 없음");
 						}
@@ -89,6 +89,7 @@
 				});
 			});
 			//비밀번호 찾기
+			/*
 			$("#passwordFindBtn").on("click", function(e) {
 				e.preventDefault();
 				
@@ -105,6 +106,7 @@
 					return;
 				}
 			});
+			*/
 		});
 	</script>
 </body>
