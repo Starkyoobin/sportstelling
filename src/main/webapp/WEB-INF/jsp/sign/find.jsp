@@ -26,23 +26,25 @@
 						<input type="text" id="idByEmailInput" class="form-control mt-2 col-6" placeholder="이메일">
 						
 						<button type="button" id="loginIdFindBtn" class="form-control btn btn-success mt-2 col-6">아이디 찾기</button>					
-					</form>
+					</form>					
 				</div>
 				
 				<div class="w-50">				
 					<h2 class="text-center">비밀번호 찾기</h2>
-					<form>
-						<input type="text" id="loginIdInput" class="form-control mt-2 col-6" placeholder="아이디">						
-						<input type="text" id="pwByEmailInput" class="form-control mt-2 col-6" placeholder="이메일">
-						
-						<div class="col-6 border mt-2">
-							<small class="text-secondary">
-							가입시 등록한 이메일로 임시 비밀번호를 발급합니다. 발급후 로그인하여 정보 변경을 통하여 비밀번호를 변경해주세요.
-							</small>
-						</div>
-						
-						<button type="button" id="passwordFindBtn" class="form-control btn btn-success mt-2 col-6">비밀번호 찾기</button>					
-					</form>
+					<div class="d-flex justify-content-center">
+						<form>
+							<input type="text" id="loginIdInput" class="form-control mt-2 col-6" placeholder="아이디">						
+							<input type="text" id="pwByEmailInput" class="form-control mt-2 col-6" placeholder="이메일">
+							
+							<div class="col-6 border mt-2">
+								<small class="text-secondary">
+								가입시 등록한 이메일로 임시 비밀번호를 발급합니다. 발급후 로그인하여 정보 변경을 통하여 비밀번호를 변경해주세요.
+								</small>
+							</div>
+							
+							<button type="button" id="passwordFindBtn" class="form-control btn btn-success mt-2 col-6">비밀번호 찾기</button>					
+						</form>
+					</div>
 				</div>
 			</div>
 			<div class="text-center mt-4">
