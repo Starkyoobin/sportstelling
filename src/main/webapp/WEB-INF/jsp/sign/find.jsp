@@ -55,6 +55,7 @@
 	
 	<script>
 		$(document).ready(function() {
+			//아이디 찾기
 			$("#loginIdFindBtn").on("click", function(e) {
 				e.preventDefault();
 				
@@ -86,6 +87,23 @@
 						alert("error");
 					}
 				});
+			});
+			//비밀번호 찾기
+			$("#passwordFindBtn").on("click", function(e) {
+				e.preventDefault();
+				
+				var loginId = $("#loginIdInput").val();
+				var email - $("#pwByEmailInput").val();
+				
+				if(loginId == null || loginId == "") {
+					alert("아이디를 입력해주세요");
+					return;
+				}
+				
+				if(email == null || email == "") {
+					alert("이메일을 입력해주세요");
+					return;
+				}
 			});
 		});
 	</script>
