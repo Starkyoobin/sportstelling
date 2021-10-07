@@ -1,4 +1,4 @@
-package com.sportstelling.sign;
+package com.sportstelling.user;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sportstelling.sign.bo.SignBO;
-import com.sportstelling.sign.model.Sign;
+import com.sportstelling.user.bo.UserBO;
+import com.sportstelling.user.model.User;
 
 @RestController
 @RequestMapping("/sign")
 public class SignRestController {
 	@Autowired
-	private SignBO signBO;
+	private UserBO signBO;
 	//회원가입
 	@PostMapping("/up")
 	public Map<String, String> signUp(
@@ -73,7 +74,7 @@ public class SignRestController {
 			@RequestParam("loginId") String loginId
 			, @RequestParam("password") String password
 			, HttpServletRequest request) {
-		Sign user = signBO.getSign(loginId, password);
+		User user = signBO.getSign(loginId, password);
 				
 		Map<String, String> result = new HashMap<>();
 		
@@ -95,13 +96,13 @@ public class SignRestController {
 	public Map<String, String> loginIdFind(
 			@RequestParam("name") String name
 			, @RequestParam("email") String email
-			, HttpServletRequest request) {
-		Sign user = signBO.getId(name, email);
+			, Model model) {
+		User user = signBO.getId(name, email);
 		
 		Map<String, String> result = new HashMap<>();
 		
 		if(user != null) {
-			String loginId = (String)request.getAttribute(user.getLoginId());
+			String loginId = (String)model.getAttribute(user.getLoginId());
 			
 			if(user.getLoginId() != null) {
 				result.put("result", "success");

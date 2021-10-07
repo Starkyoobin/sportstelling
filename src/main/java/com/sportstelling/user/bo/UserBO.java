@@ -1,4 +1,4 @@
-package com.sportstelling.sign.bo;
+package com.sportstelling.user.bo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sportstelling.common.EncryptUtils;
-import com.sportstelling.sign.dao.SignDAO;
-import com.sportstelling.sign.model.Sign;
+import com.sportstelling.user.dao.UserDAO;
+import com.sportstelling.user.model.User;
 
 @Service
-public class SignBO {
+public class UserBO {
 	@Autowired
-	private SignDAO signDAO;
+	private UserDAO signDAO;
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	//회원가입
@@ -43,16 +43,16 @@ public class SignBO {
 		}
 	}
 	//로그인
-	public Sign getSign(String loginId, String password) {
+	public User getSign(String loginId, String password) {
 		String encryptPassword = EncryptUtils.md5(password);
 		return signDAO.selectSignByLoginIdPassword(loginId, encryptPassword);
 	}
 	//아이디 찾기
-	public Sign getId(String name, String email) {
+	public User getId(String name, String email) {
 		return signDAO.selectByNameEmail(name, email);
 	}
 	//비밀번호 찾기
-	public Sign getPassword(String loginId, String email) {
+	public User getPassword(String loginId, String email) {
 		return signDAO.selectByLoginIdEmail(loginId, email);
 	}
 }

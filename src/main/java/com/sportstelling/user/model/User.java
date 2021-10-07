@@ -1,8 +1,8 @@
-package com.sportstelling.sign.model;
+package com.sportstelling.user.model;
 
 import java.sql.Date;
 
-public class Sign {
+public class User {
 	private int id;
 	private String loginId;
 	private String password;
