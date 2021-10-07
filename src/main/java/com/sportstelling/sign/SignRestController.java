@@ -96,18 +96,36 @@ public class SignRestController {
 	public Map<String, String> loginIdFind(
 			@RequestParam("name") String name
 			, @RequestParam("email") String email
-			, Model model) {
-		Sign user = signBO.idFind(name, email);
+			, HttpServletRequest request) {
+		Sign user = signBO.getId(name, email);
 		
 		Map<String, String> result = new HashMap<>();
 		
 		if(user != null) {
-			model.getAttribute(user.getLoginId());
-			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
+			request.setAttribute("loginId", user.getLoginId());
+			
+			if(user.getLoginId() != null) {
+				result.put("result", "success");
+			} else {
+				result.put("result", "fail");
+			}
 		}
 		
 		return result;
 	}
+	
+//	@PostMapping("/find_password")
+//	public Map<String, String> passwordFind(
+//			@RequestParam("loginId") String loginId
+//			, @RequestParam("email") String email
+//			) {
+//		
+//		Map<String, String> result = new HashMap<>();
+//		
+//		if() {
+//			result.put("result", "success");
+//		} else {
+//			result.put("result", "fail");
+//		}
+//	}
 }

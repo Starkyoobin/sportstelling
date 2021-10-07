@@ -61,7 +61,7 @@
 			AND `password` = #{password };
 	</select>
 	<!-- 아이디 찾기 -->
-	<select id="selectByNameEmail" resultType="int">
+	<select id="selectByNameEmail" resultType="int" parameterType="string">
 		SELECT
 			`id`
 			, `loginId`
@@ -75,6 +75,23 @@
 			`user`
 		WHERE
 			`name` = #{name }
+			AND `email` = #{email };
+	</select>	
+	<!-- 비밀번호 찾기 -->
+	<select id="selectByLoginIdEmail" resultType="int" parameterType="string">
+		SELECT
+			`id`
+			, `loginId`
+			, `password`
+			, `name`
+			, `nickName`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`user`
+		WHERE
+			`loginId` = #{loginId }
 			AND `email` = #{email };
 	</select>
 </mapper>
