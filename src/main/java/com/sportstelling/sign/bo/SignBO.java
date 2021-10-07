@@ -47,4 +47,8 @@ public class SignBO {
 		String encryptPassword = EncryptUtils.md5(password);
 		return signDAO.selectSignByLoginIdPassword(loginId, encryptPassword);
 	}
+	//아이디 찾기
+	public Sign idFind(String name, String email) {
+		return signDAO.selectByNameEmail(name, email);
+	}
 }

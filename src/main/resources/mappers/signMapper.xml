@@ -60,4 +60,21 @@
 			`loginId` = #{loginId }
 			AND `password` = #{password };
 	</select>
+	<!-- 아이디 찾기 -->
+	<select id="selectByNameEmail" resultType="int">
+		SELECT
+			`id`
+			, `loginId`
+			, `password`
+			, `name`
+			, `nickName`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`user`
+		WHERE
+			`name` = #{name }
+			AND `email` = #{email };
+	</select>
 </mapper>

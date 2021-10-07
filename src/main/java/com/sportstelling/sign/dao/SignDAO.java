@@ -22,4 +22,8 @@ public interface SignDAO {
 	public Sign selectSignByLoginIdPassword(
 			@Param("loginId") String loginId
 			, @Param("password") String password);
+	//아이디 찾기
+	public Sign selectByNameEmail(
+			@Param("name") String name
+			, @Param("email") String email);
 }

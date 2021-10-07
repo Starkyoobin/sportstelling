@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -83,6 +84,25 @@ public class SignRestController {
 			session.setAttribute("userLoginId", user.getLoginId());
 			session.setAttribute("userNickName", user.getNickName());
 			
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
+	
+	@PostMapping("/find_id")
+	public Map<String, String> loginIdFind(
+			@RequestParam("name") String name
+			, @RequestParam("email") String email
+			, Model model) {
+		Sign user = signBO.idFind(name, email);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(user != null) {
+			model.getAttribute(user.getLoginId());
 			result.put("result", "success");
 		} else {
 			result.put("result", "fail");
