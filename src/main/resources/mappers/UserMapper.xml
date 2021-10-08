@@ -78,7 +78,7 @@
 			AND `email` = #{email }
 	</select>	
 	<!-- 비밀번호 찾기 -->
-	<select id="selectByLoginIdEmail" resultType="int" parameterType="string">
+	<select id="selectByLoginIdEmail" resultType="com.sportstelling.user.model.User" parameterType="string">
 		SELECT
 			`id`
 			, `loginId`
@@ -94,11 +94,4 @@
 			`loginId` = #{loginId }
 			AND `email` = #{email }
 	</select>
-	<!-- 임시 비밀번호 변경 -->
-	<update id="updatePassword">
-		UPDATE
-			`user`
-		SET
-			`password` = #{password }
-	</update>
 </mapper>

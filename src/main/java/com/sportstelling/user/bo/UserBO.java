@@ -52,11 +52,14 @@ public class UserBO {
 		return signDAO.selectByNameEmail(name, email);
 	}
 	//비밀번호 찾기
-	public int getPassword(String loginId, String email) {
-		return signDAO.selectByLoginIdEmail(loginId, email);
+	public boolean getPassword(String loginId, String email) {
+		User user = signDAO.selectByLoginIdEmail(loginId, email);
+		
+		if(user != null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-	//임시 비밀번호 변경
-	public int changePassword(String password) {
-		return signDAO.updatePassword(password);
-	}
+	
 }
