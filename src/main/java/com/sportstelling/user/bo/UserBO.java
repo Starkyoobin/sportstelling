@@ -53,9 +53,9 @@ public class UserBO {
 	}
 	//비밀번호 찾기
 	public boolean getPassword(String loginId, String email) {
-		User user = signDAO.selectByLoginIdEmail(loginId, email);
+		int count = signDAO.selectByLoginIdEmail(loginId, email);
 		
-		if(user != null) {
+		if(count != 0) {
 			return true;
 		} else {
 			return false;
