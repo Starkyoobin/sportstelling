@@ -55,4 +55,8 @@ public class UserBO {
 	public int getPassword(String loginId, String email) {
 		return signDAO.selectByLoginIdEmail(loginId, email);
 	}
+	//임시 비밀번호 변경
+	public int changePassword(String password) {
+		return signDAO.updatePassword(password);
+	}
 }
