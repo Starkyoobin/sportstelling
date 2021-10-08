@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/main/sportsfeed")
-public class SportsfeedController {
+public class FeedController {
 	@GetMapping("/view")
 	public String sportsfeedView() {
 		return "main/sportsfeed/sportsfeed";
