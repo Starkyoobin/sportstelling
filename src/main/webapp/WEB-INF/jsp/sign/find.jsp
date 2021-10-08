@@ -25,7 +25,7 @@
 						<input type="text" id="nameInput" class="form-control mt-2 col-6" placeholder="이름">
 						<input type="text" id="idByEmailInput" class="form-control mt-2 col-6" placeholder="이메일">
 						
-						<button type="button" id="loginIdFindBtn" class="form-control btn btn-success mt-2 col-6">아이디 찾기</button>					
+						<button type="button" id="loginIdFindBtn" class="form-control btn btn-success mt-2 col-6">아이디 찾기</button>
 					</form>					
 				</div>
 				
@@ -58,8 +58,7 @@
 	<script>
 		$(document).ready(function() {
 			//아이디 찾기
-			$("#loginIdFindBtn").on("click", function(e) {
-				e.preventDefault();
+			$("#loginIdFindBtn").on("click", function() {
 				
 				var name = $("#nameInput").val();
 				var email = $("#idByEmailInput").val();
@@ -80,7 +79,7 @@
 					data:{"name":name, "email":email},
 					success:function(data) {
 						if(data.result == "success") {
-							alert();
+							alert("회원님의 아이디는 " + data.loginId + " 입니다");
 						} else {
 							alert("회원정보 없음");
 						}
@@ -91,12 +90,10 @@
 				});
 			});
 			//비밀번호 찾기
-			/*
-			$("#passwordFindBtn").on("click", function(e) {
-				e.preventDefault();
+			$("#passwordFindBtn").on("click", function() {
 				
 				var loginId = $("#loginIdInput").val();
-				var email - $("#pwByEmailInput").val();
+				var email = $("#pwByEmailInput").val();
 				
 				if(loginId == null || loginId == "") {
 					alert("아이디를 입력해주세요");
@@ -107,8 +104,20 @@
 					alert("이메일을 입력해주세요");
 					return;
 				}
+				
+				$.ajax({
+					type:"post",
+					url:"/sign/find_password",
+					data:{"loginId":loginId, "email":email},
+					success:function(data) {
+						
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
 			});
-			*/
+
 		});
 	</script>
 </body>

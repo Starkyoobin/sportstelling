@@ -95,14 +95,13 @@ public class UserRestController {
 	@PostMapping("/find_id")
 	public Map<String, String> loginIdFind(
 			@RequestParam("name") String name
-			, @RequestParam("email") String email
-			, Model model) {
+			, @RequestParam("email") String email) {
 		User user = signBO.getId(name, email);
 		
 		Map<String, String> result = new HashMap<>();
 		
 		if(user != null) {
-			String loginId = (String)model.getAttribute(user.getLoginId());
+			String loginId = user.getLoginId();
 			
 			if(user.getLoginId() != null) {
 				result.put("result", "success");
@@ -115,18 +114,20 @@ public class UserRestController {
 		return result;
 	}
 	//비밀번호 찾기
-//	@PostMapping("/find_password")
-//	public Map<String, String> passwordFind(
-//			@RequestParam("loginId") String loginId
-//			, @RequestParam("email") String email
-//			) {
-//		
-//		Map<String, String> result = new HashMap<>();
-//		
-//		if() {
-//			result.put("result", "success");
-//		} else {
-//			result.put("result", "fail");
-//		}
-//	}
+	@PostMapping("/find_password")
+	public Map<String, String> passwordFind(
+			@RequestParam("loginId") String loginId
+			, @RequestParam("email") String email) {
+		int count = signBO.getPassword(loginId, email);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
 }

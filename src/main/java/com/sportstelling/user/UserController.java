@@ -1,5 +1,8 @@
 package com.sportstelling.user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +24,17 @@ public class UserController {
 	@GetMapping("/find_view")
 	public String signfindView() {
 		return "sign/find";
+	}
+	//로그아웃
+	@GetMapping("/out")
+	public String signOut(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		
+		session.removeAttribute("userId");
+		session.removeAttribute("userLoginId");
+		session.removeAttribute("userName");
+		session.removeAttribute("userNickName");
+		
+		return "redirect:/sign/in_view";
 	}
 }

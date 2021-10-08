@@ -52,7 +52,7 @@ public class UserBO {
 		return signDAO.selectByNameEmail(name, email);
 	}
 	//비밀번호 찾기
-	public User getPassword(String loginId, String email) {
+	public int getPassword(String loginId, String email) {
 		return signDAO.selectByLoginIdEmail(loginId, email);
 	}
 }
