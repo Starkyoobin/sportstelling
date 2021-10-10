@@ -1,6 +1,6 @@
-package com.sportstelling.email.dto;
+package com.sportstelling.email.model;
 
-public class EmailDto {
+public class Email {
 	private String userEmailAddress;
 	private String title;
 	private String message;

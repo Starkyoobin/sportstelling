@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sportstelling.email.bo.EmailBO;
-import com.sportstelling.email.dto.EmailDto;
+import com.sportstelling.email.model.Email;
 import com.sportstelling.user.bo.UserBO;
 import com.sportstelling.user.model.User;
 
@@ -132,8 +132,9 @@ public class UserRestController {
 		return result;
 	}
 	//임시 비밀번호 생성하고 이메일로 보낸뒤 임시 비밀번호로 유저 pw를 바꾸기
+	@PostMapping("/find_password/sendEmail")
 	public void sendEmail(String loginId, String email) {
-		EmailDto dto = mailBO.sendMailAndChangePassword(loginId, email);
+		Email dto = mailBO.sendMailAndChangePassword(loginId, email);
 		
 	}
 }
