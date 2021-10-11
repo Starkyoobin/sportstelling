@@ -18,17 +18,26 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
-		<section class="d-flex">
+		<section class="d-flex create-content my-5">
 			<div class="col-2 bg-danger">
 			
 			</div>
 			
 			<div class="col-lg-8">
-				<div class="d-flex justify-content-center mt-5">
+				<div class="d-flex justify-content-center my-3">
 					<h2>스포츠피드 게시글 작성</h2>			
 				</div>
-				<div>
-					<textarea class="form-control"></textarea>
+				<div class="my-3">
+					<textarea class="form-control w-100 non-resize" rows="7" id="contentInput"></textarea>
+				</div>
+				<div class="d-flex justify-content-between m-3">
+					<a href="#" id="imageUploadBtn"><i class="bi bi-image"></i></a>
+					<input type="file" id="fileInput" class="d-none">
+					
+					<button class="btn btn-success">업로드</button>
+				</div>
+				<div class="d-flex justify-content-center align-items-center">
+					<a href="/main/sportsfeed/view" class="form-control btn btn-info">목록으로</a>
 				</div>
 			</div>
 			
@@ -39,5 +48,13 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#imageUploadBtn").on("click", function() {
+				$("#fileInput").click();
+			});
+		});
+	</script>
 </body>
 </html>

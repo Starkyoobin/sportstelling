@@ -32,3 +32,11 @@ footer{
 .feed-content{
 	height:auto;
 }
+
+.create-content{
+	height:600px;
+}
+
+.non-resize {
+	resize:none;		
+}

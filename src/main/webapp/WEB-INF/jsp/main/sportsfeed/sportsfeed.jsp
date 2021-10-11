@@ -18,7 +18,7 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
-		<section class="d-flex">
+		<section class="d-flex my-5">
 			<div class="col-2 bg-danger">
 			
 			</div>
