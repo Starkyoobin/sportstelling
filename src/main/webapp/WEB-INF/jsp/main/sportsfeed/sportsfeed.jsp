@@ -19,21 +19,23 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
 		<section class="d-flex">
-			<div class="col-3 bg-danger">
+			<div class="col-2 bg-danger">
 			
 			</div>
 			
-			<div class="col-lg-6">
-				<div class="d-flex justify-content-center">
+			<div class="col-lg-8">
+				<div class="d-flex justify-content-center mt-5">
 					<div>
 						<h2>스포츠피드</h2>
-						<button id="writeBtn" type="button" class="form-control btn btn-success">글쓰기</button>					
+						<a id="writeBtn" type="button" class="form-control btn btn-success text-white">글쓰기</a>					
 					</div>
+				</div>
+				<div>
 					<div class="card border rounded mt-3">
 						<!-- 타이틀 -->
 						<div class="d-flex justify-content-between p-2 border-bottom">
 							<div>
-								<span>userNickName</span>
+								<b>userNickName</b>
 							</div>
 							<div class="more-icon">
 								<a class="text-dark moreBtn" href="#" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#deleteModal">
@@ -43,18 +45,21 @@
 						</div>
 						<!-- 이미지 -->
 						<div>
-							<img src="" class="w-100 imageClick">
+							<img src="https://cdn.pixabay.com/photo/2020/10/21/18/07/laptop-5673901__340.jpg" class="w-100 imageClick">
 						</div>
 						<!-- 좋아요 -->
 						<div class="m-2">
-							
+							<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
+								<i class="bi bi-heart heart-icon text-dark"></i>		
+							</a>
+							<span class="middle-size ml-1">좋아요 N 개</span>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-3 bg-danger">
-			
+			<div class="col-2 bg-danger">
+				
 			</div>
 		</section>
 		
