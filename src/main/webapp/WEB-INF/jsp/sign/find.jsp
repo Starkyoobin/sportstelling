@@ -81,7 +81,7 @@
 						if(data.result == "success") {
 							alert("회원님의 아이디는 " + data.loginId + " 입니다");
 						} else {
-							alert("회원정보 없음");
+							alert("회원정보가 일치하지 않거나 없습니다");
 						}
 					},
 					error:function(e) {
@@ -110,7 +110,11 @@
 					url:"/sign/find_password",
 					data:{"loginId":loginId, "email":email},
 					success:function(data) {
-						
+						if(data.user_check) {
+							alert("임시 비밀번호를 이메일로 전송하였습니다. 확인후 로그인해주세요");
+						} else {
+							alert("회원정보가 일치하지 않거나 없습니다. 정보를 확인해주세요");
+						}
 					},
 					error:function(e) {
 						alert("error");

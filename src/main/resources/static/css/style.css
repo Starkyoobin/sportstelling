@@ -21,7 +21,10 @@ footer{
 	height:500px;
 }
 
-
 #non-member-login{
 	color:gray;
+}
+
+.more-icon{
+	font-size:18px;
 }

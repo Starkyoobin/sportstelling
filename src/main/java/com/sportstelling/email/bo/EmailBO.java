@@ -2,14 +2,13 @@ package com.sportstelling.email.bo;
 
 import java.security.SecureRandom;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.sportstelling.common.EncryptUtils;
 import com.sportstelling.email.dao.EmailDAO;
 import com.sportstelling.email.model.Email;
-import com.sportstelling.user.dao.UserDAO;
 
 import lombok.AllArgsConstructor;
 
@@ -17,14 +16,10 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class EmailBO {
 	@Autowired
-	UserDAO signDAO;
-	@Autowired
 	private EmailDAO emailDAO;
 	
-	private JavaMailSender mailSender;
-	private static final String emailAddress = "본인의 이메일 주소를 입력하세요";
 	//이메일 전송
-	public Email sendMailAndChangePassword(String loginId, String email) {
+	public Email sendEmail(String loginId, String email) {
 		String randomPassword = this.getRandomPassword(10);
 		Email dto = new Email();
 		dto.setUserEmailAddress(email);
@@ -60,9 +55,8 @@ public class EmailBO {
 		return sb.toString();
 	}
 	//임시 비밀번호로 변경
-	public void updatePassword(String loginId, String password, String email) {
+	public int updatePassword(String loginId, String password, String email) {
 		String randomPassword = EncryptUtils.md5(password);
-		int userId = ((Integer)signDAO.selectByLoginIdEmail(loginId, email)).getId();
-		emailDAO.updateUserPassword(userId, randomPassword, email);
+		return emailDAO.updateUserPassword(loginId, randomPassword, email);
 	}
 }
