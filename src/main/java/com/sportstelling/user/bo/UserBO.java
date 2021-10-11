@@ -1,6 +1,7 @@
 package com.sportstelling.user.bo;
 
 import org.slf4j.Logger;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,11 +52,11 @@ public class UserBO {
 	public User getId(String name, String email) {
 		return signDAO.selectByNameEmail(name, email);
 	}
-	//비밀번호 찾기
+	//비밀번호 찾기 (loginId, email 일치여부)
 	public boolean getPassword(String loginId, String email) {
-		int count = signDAO.selectByLoginIdEmail(loginId, email);
+		User user = signDAO.selectByLoginIdEmail(loginId, email);
 		
-		if(count != 0) {
+		if(user != null) {
 			return true;
 		} else {
 			return false;

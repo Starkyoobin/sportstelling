@@ -4,11 +4,8 @@ spring:
     port: 587
     username: yb010626@gmail.com
     password: dbqls1379!
-    properties:      mail:
-        smtp:
-          auth: true
-          starttls:
-            enables: true
+    properties:      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
   mvc:
     static-path-pattern: /static/**
     view:

@@ -77,8 +77,8 @@
 			`name` = #{name }
 			AND `email` = #{email }
 	</select>	
-	<!-- 비밀번호 찾기 -->
-	<select id="selectByLoginIdEmail" resultType="int" parameterType="string">
+	<!-- 비밀번호 찾기 (loginId, email 일치여부) -->
+	<select id="selectByLoginIdEmail" resultType="com.sportstelling.user.model.User" parameterType="string">
 		SELECT
 			`id`
 			, `loginId`

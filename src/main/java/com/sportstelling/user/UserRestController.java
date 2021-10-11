@@ -24,7 +24,7 @@ public class UserRestController {
 	@Autowired
 	private UserBO signBO;
 	@Autowired
-	private EmailBO mailBO;
+	private EmailBO emailBO;
 	//회원가입
 	@PostMapping("/up")
 	public Map<String, String> signUp(
@@ -124,17 +124,23 @@ public class UserRestController {
 		Map<String, Boolean> result = new HashMap<>();
 		
 		if(signBO.getPassword(loginId, email)) {
-			result.put("result", true);
+			result.put("user_check", true);
 		} else {
-			result.put("result", false);
+			result.put("user_check", false);
 		}
 		
 		return result;
 	}
 	//임시 비밀번호 생성하고 이메일로 보낸뒤 임시 비밀번호로 유저 pw를 바꾸기
 	@PostMapping("/find_password/sendEmail")
-	public void sendEmail(String loginId, String email) {
-		Email dto = mailBO.sendMailAndChangePassword(loginId, email);
+	public void sendEmail(
+			@RequestParam("loginId") String loginId
+			, @RequestParam("loginId") String email
+			, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String password = (String)session.getAttribute("password");
 		
+		Email dto = emailBO.sendEmail(loginId, email);
+		emailBO.updatePassword(loginId, password, email);
 	}
 }

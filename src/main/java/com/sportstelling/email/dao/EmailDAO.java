@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmailDAO {
-	public void updateUserPassword(
+	public int updateUserPassword(
 			@Param("loginId") String loginId
 			, @Param("password") String password
 			, @Param("email") String email);
