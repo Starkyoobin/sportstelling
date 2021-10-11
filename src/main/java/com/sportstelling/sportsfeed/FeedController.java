@@ -11,4 +11,9 @@ public class FeedController {
 	public String sportsfeedView() {
 		return "main/sportsfeed/sportsfeed";
 	}
+	
+	@GetMapping("/create_view")
+	public String sportsfeedCreateView() {
+		return "main/sportsfeed/feedcreate";
+	}
 }

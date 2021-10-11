@@ -25,36 +25,10 @@
 			
 			<div class="col-lg-8">
 				<div class="d-flex justify-content-center mt-5">
-					<div>
-						<h2>스포츠피드</h2>
-						<a href="/main/sportsfeed/create_view" id="writeBtn" type="button" class="form-control btn btn-success text-white">글쓰기</a>					
-					</div>
+					<h2>스포츠피드 게시글 작성</h2>			
 				</div>
 				<div>
-					<div class="card border rounded mt-3">
-						<!-- 타이틀 -->
-						<div class="d-flex justify-content-between p-2 border-bottom">
-							<div>
-								<b>userNickName</b>
-							</div>
-							<div class="more-icon">
-								<a class="text-dark moreBtn" href="#" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#deleteModal">
-									<i class="bi bi-three-dots"></i>
-								</a>
-							</div>
-						</div>
-						<!-- 이미지 -->
-						<div>
-							<img src="https://cdn.pixabay.com/photo/2020/10/21/18/07/laptop-5673901__340.jpg" class="w-100 imageClick">
-						</div>
-						<!-- 좋아요 -->
-						<div class="m-2">
-							<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
-								<i class="bi bi-heart heart-icon text-dark"></i>		
-							</a>
-							<span class="middle-size ml-1">좋아요 N 개</span>
-						</div>
-					</div>
+					<textarea class="form-control"></textarea>
 				</div>
 			</div>
 			
@@ -64,19 +38,6 @@
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
-	</div>
-	
-	<!-- Modal -->
-	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
-	      
-	      <div class="modal-body text-center">
-	        <a href="#" id="deleteBtn">삭제하기</a>
-	      </div>
-	      
-	    </div>
-	  </div>
 	</div>
 </body>
 </html>
