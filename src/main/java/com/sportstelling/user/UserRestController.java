@@ -1,6 +1,7 @@
 package com.sportstelling.user;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sportstelling.email.bo.EmailBO;
-import com.sportstelling.email.model.Email;
 import com.sportstelling.user.bo.UserBO;
+import com.sportstelling.user.model.Email;
 import com.sportstelling.user.model.User;
 
 @RestController
@@ -23,8 +23,7 @@ import com.sportstelling.user.model.User;
 public class UserRestController {
 	@Autowired
 	private UserBO signBO;
-	@Autowired
-	private EmailBO emailBO;
+
 	//회원가입
 	@PostMapping("/up")
 	public Map<String, String> signUp(
@@ -125,6 +124,7 @@ public class UserRestController {
 		
 		if(signBO.getPassword(loginId, email)) {
 			result.put("user_check", true);
+			this.sendEmail(loginId, email);
 		} else {
 			result.put("user_check", false);
 		}
@@ -135,12 +135,9 @@ public class UserRestController {
 	@PostMapping("/find_password/sendEmail")
 	public void sendEmail(
 			@RequestParam("loginId") String loginId
-			, @RequestParam("loginId") String email
-			, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String password = (String)session.getAttribute("password");
+			, @RequestParam("loginId") String email) {
 		
-		Email dto = emailBO.sendEmail(loginId, email);
-		emailBO.updatePassword(loginId, password, email);
+		Email dto = signBO.sendEmail(loginId, email);
+		signBO.mailSend(dto);
 	}
 }

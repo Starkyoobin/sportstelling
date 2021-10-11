@@ -1,15 +1,11 @@
 spring:
   mail:
-<<<<<<< HEAD
     host: smtp.gamil.com
-=======
-    host: smtp.gmail.com
->>>>>>> 9c6ba2f0b69044e518c44d40e8f2aed289679291
     port: 587
     username: yb010626@gmail.com
     password: dbqls1379!
-    properties:      mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
+    properties:     mail.smtp.auth: true
+     mail.smtp.starttls.enable: true
   mvc:
     static-path-pattern: /static/**
     view:

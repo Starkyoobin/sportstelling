@@ -1,4 +1,4 @@
-package com.sportstelling.email.model;
+package com.sportstelling.user.model;
 
 public class Email {
 	private String userEmailAddress;

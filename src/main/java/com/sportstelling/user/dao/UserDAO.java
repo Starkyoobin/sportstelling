@@ -29,5 +29,10 @@ public interface UserDAO {
 	//비밀번호 찾기 (loginId, email 일치여부)
 	public User selectByLoginIdEmail(
 			@Param("loginId") String loginId
-			, @Param("email") String email);	
+			, @Param("email") String email);
+	//임시 비밀번호 변경
+	public int updateUserPassword(
+			@Param("loginId") String loginId
+			, @Param("password") String password
+			, @Param("email") String email);
 }
