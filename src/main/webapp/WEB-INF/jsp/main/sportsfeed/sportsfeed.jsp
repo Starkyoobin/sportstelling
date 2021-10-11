@@ -32,31 +32,34 @@
 						<a href="/main/sportsfeed/create_view" id="writeBtn" type="button" class="form-control btn btn-success text-white">글쓰기</a>					
 					</div>
 				</div>
+				<!-- 피드 -->
 				<div>
-					<div class="card border rounded mt-3">
-						<!-- 타이틀 -->
-						<div class="d-flex justify-content-between p-2 border-bottom">
+					<c:forEach var="post" items="${postList }">
+						<div class="card border rounded mt-3">
+							<!-- 타이틀 -->
+							<div class="d-flex justify-content-between p-2 border-bottom">
+								<div>
+									<b>${post.userNickName }</b>
+								</div>
+								<div class="more-icon">
+									<a class="text-dark moreBtn" href="#" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#deleteModal">
+										<i class="bi bi-three-dots"></i>
+									</a>
+								</div>
+							</div>
+							<!-- 이미지 -->
 							<div>
-								<b>userNickName</b>
+								<img src="${post.imagePath }" class="w-100">
 							</div>
-							<div class="more-icon">
-								<a class="text-dark moreBtn" href="#" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#deleteModal">
-									<i class="bi bi-three-dots"></i>
+							<!-- 좋아요 -->
+							<div class="m-2">
+								<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
+									<i class="bi bi-heart heart-icon text-dark"></i>		
 								</a>
-							</div>
+								<span class="middle-size ml-1">좋아요 N 개</span>
+							</div>					
 						</div>
-						<!-- 이미지 -->
-						<div>
-							<img src="https://cdn.pixabay.com/photo/2020/10/21/18/07/laptop-5673901__340.jpg" class="w-100 imageClick">
-						</div>
-						<!-- 좋아요 -->
-						<div class="m-2">
-							<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
-								<i class="bi bi-heart heart-icon text-dark"></i>		
-							</a>
-							<span class="middle-size ml-1">좋아요 N 개</span>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			
