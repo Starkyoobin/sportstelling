@@ -18,9 +18,11 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
+		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
+		
 		<section class="d-flex my-5">
 			<div class="col-2 bg-danger">
-			
+				
 			</div>
 			
 			<div class="col-lg-8">

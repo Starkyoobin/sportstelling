@@ -40,3 +40,23 @@ footer{
 .non-resize {
 	resize:none;		
 }
+
+nav{
+	height:50px;
+}
+
+.nav > .nav-item > .nav-link {
+    background-color:blue; 
+    color:white; 
+    font-size:15px;
+    font-weight: bold;
+}
+
+.nav > .nav-item > a:hover {
+    background-color:rgb(125,232,132);
+}
+
+.image-upload-icon{
+	font-size:20px;
+	color:black;
+}

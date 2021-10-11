@@ -18,6 +18,8 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
+		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
+		
 		<section class="d-flex create-content my-5">
 			<div class="col-2 bg-danger">
 			
@@ -28,13 +30,13 @@
 					<h2>스포츠피드 게시글 작성</h2>			
 				</div>
 				<div class="my-3">
-					<textarea class="form-control w-100 non-resize" rows="7" id="contentInput"></textarea>
+					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput"></textarea>
 				</div>
 				<div class="d-flex justify-content-between m-3">
-					<a href="#" id="imageUploadBtn"><i class="bi bi-image"></i></a>
+					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
 					<input type="file" id="fileInput" class="d-none">
 					
-					<button class="btn btn-success">업로드</button>
+					<button type="button" id="uploadBtn" class="btn btn-success">업로드</button>
 				</div>
 				<div class="d-flex justify-content-center align-items-center">
 					<a href="/main/sportsfeed/view" class="form-control btn btn-info">목록으로</a>
@@ -53,6 +55,43 @@
 		$(document).ready(function() {
 			$("#imageUploadBtn").on("click", function() {
 				$("#fileInput").click();
+			});
+			
+			$("#uploadBtn").on("click", function() {
+				var content = $("#contentInput").val().trim();
+				
+				if(content == null || content == "") {
+					alert("내용을 입력해주세요");
+					return;
+				}
+				
+				if($("#fileInput")[0].files.length == 0) {
+					alert("이미지 파일을 추가해주세요");
+					return;
+				}
+				
+				var formData = new FormData();
+				formData.append("content", content);
+				formData.append("file", $("#fileInput")[0].files[0]);
+				
+				$.ajax({
+					enctype:"multipart/form-data",
+					processData:false,
+					contentType:false,
+					type:"post",
+					url:"/main/sportsfeed/create",
+					data:formData,
+					success:function(data) {
+						if(data.result == "success") {
+							location.href = "/main/sportsfeed/view";
+						} else {
+							alert("게시물 등록 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
 			});
 		});
 	</script>

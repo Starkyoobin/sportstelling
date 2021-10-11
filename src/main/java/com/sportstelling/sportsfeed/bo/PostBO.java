@@ -14,14 +14,15 @@ public class PostBO {
 	
 	//스포츠피드 게시물 작성
 	public int addPost(int userId, String userNickName, MultipartFile file, String content) {
-		String imagePath = null;
+		String filePath = null;
 		if(file != null) {
-			imagePath = FileManagerService.saveFile(userId, file);
-			if(imagePath == null) {
+			filePath = FileManagerService.saveFile(userId, file);
+			
+			if(filePath == null) {
 				return 0;
 			}
 		}
 		
-		return postDAO.insertPost(userId, userNickName, imagePath, content);
+		return postDAO.insertPost(userId, userNickName, filePath, content);
 	}
 }

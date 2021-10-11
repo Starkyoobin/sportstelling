@@ -23,14 +23,14 @@ public class FeedRestController {
 	
 	@PostMapping("/create")
 	public Map<String, String> sportsfeedCreate(
-			@RequestParam("file") String file
-			, @RequestParam("content") MultipartFile content
+			@RequestParam(value = "file") MultipartFile file
+			, @RequestParam("content") String content
 			, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		String userNickName = (String)session.getAttribute("userNickName");
 		
-		int count = postBO.addPost(userId, userNickName, content, userNickName);
+		int count = postBO.addPost(userId, userNickName, file, content);
 		
 		Map<String, String> result = new HashMap<>();
 		
