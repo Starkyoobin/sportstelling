@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sportstelling.sportsfeed.bo.PostBO;
-import com.sportstelling.sportsfeed.model.Post;
+import com.sportstelling.sportsfeed.model.PostDetail;
 
 @Controller
 @RequestMapping("/main/sportsfeed")
@@ -27,7 +27,7 @@ public class FeedController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		List<Post> postList = postBO.getPostList(userId);
+		List<PostDetail> postList = postBO.getPostList(userId);
 		
 		model.addAttribute("postList", postList);
 		

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sportstelling.sportsfeed.like.dao.LikeDAO">
+	<!-- 좋아요 추가 -->
+	<insert id="insertLike" parameterType="int">
+		INSERT INTO `like`
+		(
+			`userId`
+			, `postId`
+			, `userNickName`
+			, `createdAt`
+		) VALUES (
+			#{userId }
+			, #{postId }
+			, #{userNickName }
+			, now()
+		)
+	</insert>
+	<!-- 좋아요 여부 확인 -->
+	<select id="selectCountLikeByUserId" resultType="int" parameterType="string">
+		SELECT
+			count(*)
+		FROM
+			`like`
+		WHERE
+			`userId` = #{userId }
+			AND `postId` = #{postId }
+	</select>
+	<!-- 좋아요 취소 -->
+	<delete id="deleteLike">
+		DELETE
+		FROM
+			`like`
+		WHERE
+			`userId` = #{userId }
+			AND `postId` = #{postId }
+	</delete>
+	<!-- 게시물 좋아요 카운팅 -->
+	<select id="countLikeByPostId" resultType="int">
+		SELECT
+			count(*)
+		FROM
+			`like`
+		WHERE
+			`postId` = #{postId }
+	</select>
+</mapper>

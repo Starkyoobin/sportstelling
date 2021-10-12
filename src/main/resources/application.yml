@@ -1,6 +1,6 @@
 spring:
   mail:
-    host: smtp.gamil.com
+    host: smtp.gmail.com
     port: 587
     username: yb010626@gmail.com
     password: dbqls1379!
