@@ -49,7 +49,7 @@
 							</div>
 							<!-- 이미지 -->
 							<div>
-								<img src="${post.imagePath }" class="w-100">
+								<img src="${post.imagePath }" alt="사용자가 등록한 이미지" class="w-100">
 							</div>
 							<!-- 좋아요 -->
 							<div class="m-2">
@@ -64,7 +64,8 @@
 			</div>
 			
 			<div class="col-2 bg-danger">
-				
+				<h4 class="text-center">유저 정보</h4>
+				<i class="bi bi-person-circle user-icon"></i>
 			</div>
 		</section>
 		

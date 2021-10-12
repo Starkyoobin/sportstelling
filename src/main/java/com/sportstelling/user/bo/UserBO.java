@@ -115,7 +115,7 @@ public class UserBO {
 	}
 	//STMP mailSend
 	public void mailSend(Email email) {
-		System.out.println("이메일 전송 완료!");
+
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(email.getUserEmailAddress());
 		message.setFrom(UserBO.FROM_ADDRESS);
