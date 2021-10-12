@@ -17,7 +17,7 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
-		<section class="signin-section my-5">
+		<section class="sign-section my-5">
 			<div class="d-flex justify-content-center align-items-center">
 				<div class="col-5">			
 					<h2 class="text-center">로그인</h2>
@@ -70,7 +70,7 @@
 						if(data.result == "success") {
 							location.href = "/main/sportsfeed/view";
 						} else {
-							alert("로그인 실패");
+							alert("회원정보가 일치하지 않습니다. 다시 시도해주세요");
 						}
 					},
 					error:function(e) {

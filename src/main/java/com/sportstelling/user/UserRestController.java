@@ -124,7 +124,8 @@ public class UserRestController {
 		
 		if(signBO.getPassword(loginId, email)) {
 			result.put("user_check", true);
-			this.sendEmail(loginId, email);
+			Email dto = signBO.sendEmail(loginId, email);
+			signBO.mailSend(dto);
 		} else {
 			result.put("user_check", false);
 		}
@@ -132,10 +133,10 @@ public class UserRestController {
 		return result;
 	}
 	//임시 비밀번호 생성하고 이메일로 보낸뒤 임시 비밀번호로 유저 pw를 바꾸기
-	@PostMapping("/find_password/sendEmail")
+	@PostMapping("/find_password/send_email")
 	public void sendEmail(
 			@RequestParam("loginId") String loginId
-			, @RequestParam("loginId") String email) {
+			, @RequestParam("email") String email) {
 		
 		Email dto = signBO.sendEmail(loginId, email);
 		signBO.mailSend(dto);

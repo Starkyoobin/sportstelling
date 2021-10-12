@@ -13,12 +13,8 @@ footer{
 	height:75px;
 }
 
-.signin-section{
-	height:400px;
-}
-
-.signup-section{
-	height:500px;
+.sign-section{
+	height:600px;
 }
 
 #non-member-login{

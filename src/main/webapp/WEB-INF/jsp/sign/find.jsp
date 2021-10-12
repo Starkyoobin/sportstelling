@@ -17,32 +17,32 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
-		<section class="signin-section">
+		<section class="sign-section">
 			<div class="d-flex my-5">			
 				<div class="w-50">
 					<h2 class="text-center">아이디 찾기</h2>
 					<form>
-						<input type="text" id="nameInput" class="form-control mt-2 col-6" placeholder="이름">
-						<input type="text" id="idByEmailInput" class="form-control mt-2 col-6" placeholder="이메일">
+						<input type="text" id="nameInput" class="form-control mt-4 col-6" placeholder="이름">
+						<input type="text" id="idByEmailInput" class="form-control mt-4 col-6" placeholder="이메일">
 						
-						<button type="button" id="loginIdFindBtn" class="form-control btn btn-success mt-2 col-6">아이디 찾기</button>
-					</form>					
+						<button type="button" id="loginIdFindBtn" class="form-control btn btn-success mt-4 col-6">아이디 찾기</button>
+					</form>				
 				</div>
 				
 				<div class="w-50">				
 					<h2 class="text-center">비밀번호 찾기</h2>
 					<div class="d-flex justify-content-center">
 						<form>
-							<input type="text" id="loginIdInput" class="form-control mt-2 col-6" placeholder="아이디">						
-							<input type="text" id="pwByEmailInput" class="form-control mt-2 col-6" placeholder="이메일">
+							<input type="text" id="loginIdInput" class="form-control mt-4 col-6" placeholder="아이디">						
+							<input type="text" id="pwByEmailInput" class="form-control mt-4 col-6" placeholder="이메일">
 							
-							<div class="col-6 border mt-2">
+							<div class="col-6 border mt-3">
 								<small class="text-secondary">
 								가입시 등록한 이메일로 임시 비밀번호를 발급합니다. 발급후 로그인하여 정보 변경을 통하여 비밀번호를 변경해주세요.
 								</small>
 							</div>
 							
-							<button type="button" id="passwordFindBtn" class="form-control btn btn-success mt-2 col-6">비밀번호 찾기</button>					
+							<button type="button" id="passwordFindBtn" class="form-control btn btn-success mt-4 col-6">비밀번호 찾기</button>					
 						</form>
 					</div>
 				</div>
@@ -112,6 +112,7 @@
 					success:function(data) {
 						if(data.user_check) {
 							alert("임시 비밀번호를 이메일로 전송하였습니다. 확인후 로그인해주세요");
+							location.href = "/sign/in_view";
 						} else {
 							alert("회원정보가 일치하지 않거나 없습니다. 정보를 확인해주세요");
 						}

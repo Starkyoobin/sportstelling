@@ -17,14 +17,14 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
-		<section class="login-section my-5">
+		<section class="sign-section my-5">
 			<div class="d-flex justify-content-center align-items-center">
 				<div class="col-5">			
 					<h2 class="text-center">회원가입</h2>
 					<form id="signUpForm">
 						<div class="d-flex mt-3">
 							<input type="text" id="loginIdInput" class="form-control" placeholder="아이디">
-							<span class="input-group-addon">							
+							<span class="d-flex align-items-center input-group-addon">							
 								<button type="button" id="idIsDuplicateBtn" class="btn btn-primary btn-sm ml-2">중복체크</button>
 							</span>								
 						</div>
@@ -36,7 +36,7 @@
 						<input type="text" id="nameInput" class="form-control mt-3" placeholder="이름">
 						<div class="d-flex mt-3">
 							<input type="text" id="nickNameInput" class="form-control" placeholder="닉네임">
-							<span class="input-group-addon">							
+							<span class="d-flex align-items-center input-group-addon">							
 								<button type="button" id="nickNameIsDuplicateBtn" class="btn btn-primary btn-sm ml-2">중복체크</button>
 							</span>								
 						</div>

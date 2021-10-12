@@ -14,11 +14,14 @@ import com.sportstelling.user.dao.UserDAO;
 import com.sportstelling.user.model.Email;
 import com.sportstelling.user.model.User;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class UserBO {
 	@Autowired
 	private UserDAO signDAO;
-	
+	@Autowired
 	private JavaMailSender mailSender;
 	private static final String FROM_ADDRESS = "yb010626@gmail.com";
 	
@@ -115,7 +118,7 @@ public class UserBO {
 		System.out.println("이메일 전송 완료!");
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(email.getUserEmailAddress());
-		message.setFrom(FROM_ADDRESS);
+		message.setFrom(UserBO.FROM_ADDRESS);
 		message.setSubject(email.getTitle());
 		message.setText(email.getMessage());
 		

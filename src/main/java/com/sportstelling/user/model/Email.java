@@ -1,5 +1,8 @@
 package com.sportstelling.user.model;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Email {
 	private String userEmailAddress;
 	private String title;
