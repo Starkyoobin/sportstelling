@@ -21,9 +21,7 @@
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
 		<section class="d-flex my-5">
-			<div class="col-2 bg-danger">
-				
-			</div>
+			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
 				<div class="d-flex justify-content-center mt-5">
@@ -63,10 +61,7 @@
 				</div>
 			</div>
 			
-			<div class="col-2 bg-danger">
-				<h4 class="text-center">유저 정보</h4>
-				<i class="bi bi-person-circle user-icon"></i>
-			</div>
+			<c:import url="/WEB-INF/jsp/include/information.jsp" />
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />

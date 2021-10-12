@@ -1,6 +1,7 @@
 package com.sportstelling.user.bo;
 
 import java.security.SecureRandom;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -123,5 +124,10 @@ public class UserBO {
 		message.setText(email.getMessage());
 		
 		mailSender.send(message);
+	}
+	//유저 정보 불러오기
+	public List<User> getUser(String loginId) {
+		List<User> userInfo = signDAO.selectUserByLoginId();
+		return userInfo;
 	}
 }

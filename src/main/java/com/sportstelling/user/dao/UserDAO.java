@@ -1,5 +1,7 @@
 package com.sportstelling.user.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -35,4 +37,6 @@ public interface UserDAO {
 			@Param("loginId") String loginId
 			, @Param("password") String password
 			, @Param("email") String email);
+	//유저 정보 불러오기
+	public List<User> selectUserByLoginId();
 }

@@ -21,9 +21,7 @@
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
 		<section class="d-flex create-content my-5">
-			<div class="col-2 bg-danger">
-			
-			</div>
+			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
 				<div class="d-flex justify-content-center my-3">
@@ -43,9 +41,7 @@
 				</div>
 			</div>
 			
-			<div class="col-2 bg-danger">
-				
-			</div>
+			<c:import url="/WEB-INF/jsp/include/information.jsp" />
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />

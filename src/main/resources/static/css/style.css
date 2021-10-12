@@ -52,8 +52,8 @@ nav{
     background-color:rgb(125,232,132);
 }
 
-.user-icon{
-	height:100px;
+.person-icon{
+	font-size:100px;
 }
 
 .image-upload-icon{

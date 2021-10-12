@@ -104,4 +104,19 @@
 			`loginId` = #{loginId }
 			AND `email` = #{email }
 	</update>
+	<!-- 유저 정보 불러오기 -->
+	<select id="selectUserByLoginId" resultType="com.sportstelling.user.model.User">
+		SELECT
+			`loginId`
+			, `password`
+			, `name`
+			, `nickName`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`user`
+		WHERE
+			`loginId` = #{loginId }
+	</select>
 </mapper>
