@@ -9,7 +9,11 @@ import java.nio.file.Paths;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileManagerService {
+<<<<<<< HEAD
 	public static final String FILE_UPLOAD_PATH = "D:\\web개발_1300\\images/";
+=======
+	public final static String FILE_UPLOAD_PATH = "C:\\Users\\yb010\\Desktop\\Web\\WebProject\\images/";
+>>>>>>> 669e973bd1440c1fef455d6e0d2979a6d8561711
 	
 	public static String saveFile(int userId, MultipartFile file) {
 		//파일 경로

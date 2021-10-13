@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="text-center mt-4">
+			<div class="text-center mt-2">
 				<a href="/sign/in_view">로그인으로 돌아가기</a>
 			</div>
 		</section>

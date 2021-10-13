@@ -32,12 +32,12 @@
 				</div>
 				<!-- 피드 -->
 				<div>
-					<c:forEach var="post" items="${postList }">
+					<c:forEach var="postDetail" items="${postList }">
 						<div class="card border rounded mt-3">
 							<!-- 타이틀 -->
 							<div class="d-flex justify-content-between p-2 border-bottom">
 								<div>
-									<b>${post.userNickName }</b>
+									<b>${postDetail.post.userNickName }</b>
 								</div>
 								<div class="more-icon">
 									<a class="text-dark moreBtn" href="#" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#deleteModal">
@@ -47,14 +47,23 @@
 							</div>
 							<!-- 이미지 -->
 							<div>
-								<img src="${post.imagePath }" alt="사용자가 등록한 이미지" class="w-100">
+								<img src="${postDetail.post.imagePath }" alt="사용자가 등록한 이미지" class="w-100">
 							</div>
 							<!-- 좋아요 -->
 							<div class="m-2">
-								<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
-									<i class="bi bi-heart heart-icon text-dark"></i>		
-								</a>
-								<span class="middle-size ml-1">좋아요 N 개</span>
+								<c:choose>
+									<c:when test="${postDetail.like }">
+										<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
+											<i class="bi bi-heart-fill heart-icon text-danger"></i>		
+										</a>
+									</c:when>
+									<c:otherwise>
+										<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
+											<i class="bi bi-heart heart-icon text-dark"></i>		
+										</a>
+									</c:otherwise>
+								</c:choose>
+								<span class="middle-size ml-1">좋아요 ${postDetail.likeCount } 개</span>
 							</div>					
 						</div>
 					</c:forEach>
@@ -79,5 +88,31 @@
 	    </div>
 	  </div>
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#likeBtn").on("click", function(e) {
+				e.preventDefault();
+				
+				var postId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/main/sportsfeed/like",
+					data:{"postId":postId},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("좋아요 등록 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
