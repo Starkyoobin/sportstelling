@@ -1,18 +1,21 @@
 spring:
   mail:
-    host: smtp.gamil.com
+    host: smtp.gmail.com
     port: 587
     username: yb010626@gmail.com
     password: dbqls1379!
-    properties:     mail.smtp.auth: true
-     mail.smtp.starttls.enable: true
+    properties:     mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
   mvc:
     static-path-pattern: /static/**
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
   datasource:    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/web_sportstelling?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/sportstelling_starkyb?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
-    password: dbqls1379!
+    password: root
     
