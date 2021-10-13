@@ -37,4 +37,5 @@ public class UserController {
 		
 		return "redirect:/sign/in_view";
 	}
+	//유저 정보
 }

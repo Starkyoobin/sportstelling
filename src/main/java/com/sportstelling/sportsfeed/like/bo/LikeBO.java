@@ -45,4 +45,8 @@ public class LikeBO {
 	public int likeCount(int postId) {
 		return likeDAO.countLikeByPostId(postId);
 	}
+	//게시물 삭제시 모든 좋아요 삭제
+	public int removeByPostId(int postId) {
+		return likeDAO.deleteByPostId(postId);
+	}
 }

@@ -53,4 +53,21 @@ public class PostBO {
 		}
 		return postDetailList;
 	}
+	//스포츠피드 게시물 삭제
+	public boolean removePost(int userId, int postId) {
+		Post post = postDAO.selectPost(postId);
+		
+		int count = postDAO.deletePost(userId, postId);
+		
+		if(count != 1) {
+			return false;
+		}
+		
+		FileManagerService fileManagerService = new FileManagerService();
+		fileManagerService.deleteFile(post.getImagePath());
+		//좋아요 삭제
+		likeBO.removeByPostId(postId);
+		
+		return true;
+	}
 }

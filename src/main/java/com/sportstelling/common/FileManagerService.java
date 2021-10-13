@@ -9,12 +9,8 @@ import java.nio.file.Paths;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileManagerService {
-<<<<<<< HEAD
 	public static final String FILE_UPLOAD_PATH = "D:\\web개발_1300\\images/";
-=======
-	public final static String FILE_UPLOAD_PATH = "C:\\Users\\yb010\\Desktop\\Web\\WebProject\\images/";
->>>>>>> 669e973bd1440c1fef455d6e0d2979a6d8561711
-	
+	//이미지 파일 저장
 	public static String saveFile(int userId, MultipartFile file) {
 		//파일 경로
 		String directoryName = userId + "_" + System.currentTimeMillis() + "/";
@@ -39,8 +35,8 @@ public class FileManagerService {
 		//파일을 접근할수있는 경로
 		return "/images/" + directoryName + file.getOriginalFilename();
 	}
-	
-	public static void deleteFile(String filePath) {
+	//이미지 파일 삭제
+	public void deleteFile(String filePath) {
 		//삭제할 파일 경로
 		String realFilePath = FILE_UPLOAD_PATH + filePath.replace("/images/", "");
 		//파일 지우기

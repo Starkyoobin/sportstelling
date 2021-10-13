@@ -36,14 +36,12 @@
 						<div class="card border rounded mt-3">
 							<!-- 타이틀 -->
 							<div class="d-flex justify-content-between p-2 border-bottom">
-								<div>
-									<b>${postDetail.post.userNickName }</b>
-								</div>
-								<div class="more-icon">
+								<h4>${postDetail.post.userNickName }</h4>
+								<c:if test="${postDetail.post.userId eq userId }">
 									<a class="text-dark moreBtn" href="#" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#deleteModal">
-										<i class="bi bi-three-dots"></i>
+										<i class="bi bi-three-dots more-icon"></i>
 									</a>
-								</div>
+								</c:if>
 							</div>
 							<!-- 이미지 -->
 							<div>
@@ -79,12 +77,10 @@
 	<!-- Modal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
-	      
+	    <div class="modal-content bg-danger">		      
 	      <div class="modal-body text-center">
-	        <a href="#" id="deleteBtn">삭제하기</a>
+	        <a href="#" class="btn btn-danger form-control" id="deleteBtn">삭제하기</a>
 	      </div>
-	      
 	    </div>
 	  </div>
 	</div>
@@ -105,6 +101,35 @@
 							location.reload();
 						} else {
 							alert("좋아요 등록 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+			
+			$(".moreBtn").on("click", function(e) {
+				e.preventDefault();
+				
+				var postId = $(this).data("post-id");
+				$("#deleteBtn").data("post-id", postId);
+			});
+			
+			$("#deleteBtn").on("click", function(e) {
+				e.preventDefault();
+				
+				var postId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/main/sportsfeed/delete",
+					data:{"postId":postId},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("게시물 삭제 실패");
 						}
 					},
 					error:function(e) {

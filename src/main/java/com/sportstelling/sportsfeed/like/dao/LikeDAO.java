@@ -21,4 +21,6 @@ public interface LikeDAO {
 			, @Param("userNickName") String userNickName);
 	//게시물 좋아요 개수 세기
 	public int countLikeByPostId(@Param("postId") int postId);
+	//게시물 삭제시 모든 좋아요 삭제
+	public int deleteByPostId(@Param("postId") int postId);
 }

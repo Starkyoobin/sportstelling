@@ -36,4 +36,28 @@
 			`post`
 		ORDER BY `id` DESC
 	</select>
+	<!-- 게시물 선택 -->
+	<select id="selectPost" resultType="com.sportstelling.sportsfeed.model.Post" parameterType="int">
+		SELECT
+			`id`
+			, `userId`
+			, `userNickName`
+			, `imagePath`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id` = #{id };
+	</select>
+	<!-- 게시물 삭제 -->
+	<delete id="deletePost" parameterType="map">
+		DELETE
+		FROM
+			`post`
+		WHERE
+			`userId` = #{userId }
+			AND `id`= #{id }
+	</delete>
 </mapper>

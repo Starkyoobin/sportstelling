@@ -32,7 +32,7 @@
 				</div>
 				<div class="d-flex justify-content-between m-3">
 					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
-					<input type="file" id="fileInput" class="d-none">
+					<input type="file" id="fileInput" class="d-none" multiple>
 					
 					<button type="button" id="uploadBtn" class="btn btn-success">업로드</button>
 				</div>
