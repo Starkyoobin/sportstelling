@@ -17,7 +17,8 @@ public interface LikeDAO {
 	//피드 좋아요 취소
 	public int deleteLike(
 			@Param("userId") int userId
-			, @Param("postId") int postId);
+			, @Param("postId") int postId
+			, @Param("userNickName") String userNickName);
 	//게시물 좋아요 개수 세기
 	public int countLikeByPostId(@Param("postId") int postId);
 }

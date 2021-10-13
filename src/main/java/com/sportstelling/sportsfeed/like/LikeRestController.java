@@ -28,9 +28,9 @@ public class LikeRestController {
 		int userId = (Integer)session.getAttribute("userId");
 		String userNickName = (String)session.getAttribute("userNickName");
 		
-		Map<String, String> result = new HashMap<>();
-		
 		boolean isLike = likeBO.addLike(userId, postId, userNickName);
+		
+		Map<String, String> result = new HashMap<>();
 		
 		if(isLike) {
 			result.put("result", "success");

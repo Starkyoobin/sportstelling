@@ -14,7 +14,7 @@ public class LikeBO {
 	public boolean addLike(int userId, int postId, String userNickName) {
 		//좋아요 상태면 좋아요 취소
 		if(this.checkLikeByUserIdPostId(userId, postId)) {
-			int count = likeDAO.deleteLike(userId, postId);
+			int count = likeDAO.deleteLike(userId, postId, userNickName);
 			
 			if(count == 0) {
 				return false;

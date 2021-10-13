@@ -50,20 +50,20 @@
 								<img src="${postDetail.post.imagePath }" alt="사용자가 등록한 이미지" class="w-100">
 							</div>
 							<!-- 좋아요 -->
-							<div class="m-2">
+							<div class="m-2 d-flex justify-content-center">
 								<c:choose>
 									<c:when test="${postDetail.like }">
-										<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
-											<i class="bi bi-heart-fill heart-icon text-danger"></i>		
+										<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }">
+											<i class="bi bi-heart-fill heart-icon text-danger"></i>
 										</a>
 									</c:when>
 									<c:otherwise>
-										<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }" >
+										<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }">
 											<i class="bi bi-heart heart-icon text-dark"></i>		
 										</a>
 									</c:otherwise>
 								</c:choose>
-								<span class="middle-size ml-1">좋아요 ${postDetail.likeCount } 개</span>
+								<span class="middle-size ml-1"><b>좋아요 ${postDetail.likeCount } 개</b></span>
 							</div>					
 						</div>
 					</c:forEach>
@@ -91,7 +91,7 @@
 	
 	<script>
 		$(document).ready(function() {
-			$("#likeBtn").on("click", function(e) {
+			$(".likeBtn").on("click", function(e) {
 				e.preventDefault();
 				
 				var postId = $(this).data("post-id");

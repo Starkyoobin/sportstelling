@@ -47,6 +47,7 @@ public class PostBO {
 			PostDetail postDetail = new PostDetail();
 			postDetail.setLike(isLike);
 			postDetail.setLikeCount(likeCount);
+			postDetail.setPost(post);
 			
 			postDetailList.add(postDetail);
 		}
