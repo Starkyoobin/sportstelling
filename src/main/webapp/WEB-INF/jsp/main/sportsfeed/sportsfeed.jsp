@@ -24,10 +24,10 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<div class="d-flex justify-content-center mt-5">
+				<div class="d-flex justify-content-center my-3">
 					<div>
 						<h2>스포츠피드</h2>
-						<a href="/main/sportsfeed/create_view" id="writeBtn" type="button" class="form-control btn btn-success text-white">글쓰기</a>					
+						<a href="/main/sportsfeed/create_view" type="button" class="form-control btn btn-success text-white">글쓰기</a>					
 					</div>
 				</div>
 				<!-- 피드 -->

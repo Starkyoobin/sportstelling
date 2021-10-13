@@ -11,4 +11,9 @@ public class QnAController {
 	public String qnaView() {
 		return "main/sportsqna/list";
 	}
+	
+	@GetMapping("create_view")
+	public String qnaCreateView() {
+		return "main/sportsqna/create";
+	}
 }

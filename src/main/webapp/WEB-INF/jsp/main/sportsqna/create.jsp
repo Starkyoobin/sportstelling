@@ -20,11 +20,30 @@
 		
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<section class="d-flex my-5">
+		<section class="d-flex create-content my-5">
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">스포츠경기</h2>
+				<h2 class="text-center my-3">스포츠Q&A 게시글 작성</h2>
+				<div class="d-flex justify-content-center my-3">
+					<h4>제목</h4>
+					<input type="text" id="titleInput" class="form-control">
+				</div>
+				
+				<div class="my-3">
+					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput"></textarea>
+				</div>
+				
+				<div class="d-flex justify-content-between m-3">
+					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
+					<input type="file" id="fileInput" class="d-none" multiple>
+					
+					<button type="button" id="uploadBtn" class="btn btn-success">업로드</button>
+				</div>
+				
+				<div class="d-flex justify-content-center align-items-center">
+					<a href="/main/sportsqna/list_view" class="form-control btn btn-info">목록으로</a>
+				</div>
 			</div>
 			
 			<c:import url="/WEB-INF/jsp/include/information.jsp" />

@@ -20,7 +20,7 @@
 		<section class="sign-section my-5">
 			<div class="d-flex justify-content-center align-items-center">
 				<div class="col-5">			
-					<h2 class="text-center">로그인</h2>
+					<h2 class="text-center my-3">로그인</h2>
 					<form id="signInForm">
 						<input type="text" id="idInput" class="form-control mt-4" placeholder="아이디를 입력해주세요">
 						<input type="password" id="passwordInput" class="form-control mt-4" placeholder="비밀번호를 입력해주세요">

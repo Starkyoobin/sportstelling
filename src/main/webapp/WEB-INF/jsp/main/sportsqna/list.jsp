@@ -24,11 +24,39 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<div class="d-flex justify-content-center">
-					<div>
-						<h2 class="text-center">스포츠Q&A</h2>
-						<a href="#" id="writeBtn" type="button" class="form-control btn btn-success text-white">글쓰기</a>						
-					</div>
+				<h2 class="text-center my-3">스포츠Q&A</h2>
+				<div class="m-5 d-flex justify-content-center">
+					<select>
+						<option value="all">전체</option>
+						<option value="nickName">닉네임</option>
+						<option value="title">제목</option>
+					</select>
+					<input type="text" id="searchInput" class="form-control">
+					<button class="btn btn-info">검색</button>
+				</div>
+				
+				<table class="table">
+					<thead class="text-center">
+						<tr>
+							<th class="col-1">No.</th>
+							<th class="col-3">닉네임</th>
+							<th class="col-5">제목</th>
+							<th class="col-3">작성날짜</th>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+						<tr>
+							<td class="col-1">1</td>
+							<td class="col-3">닉닉</td>
+							<td class="col-5">title</td>
+							<td class="col-3">createdAt</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<div class="d-flex justify-content-between m-2">
+					<button type="button" id="myPostView" class="btn btn-secondary">내 글만 보기</button>
+					<a type="button" href="/main/sportsqna/create_view" class="btn btn-success">글쓰기</a>
 				</div>
 			</div>
 			
