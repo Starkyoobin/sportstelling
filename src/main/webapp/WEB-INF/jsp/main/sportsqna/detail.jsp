@@ -64,5 +64,34 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#commentBtn").on("click", function() {
+				var comment = $("#commentInput").val();
+				
+				if(comment == null || comment == "") {
+					alert("댓글을 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/main/sportsqna/comment/create",
+					data:{"comment":comment},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("댓글 등록 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
