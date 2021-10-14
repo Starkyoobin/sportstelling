@@ -25,8 +25,8 @@
 			
 			<div class="col-lg-8">
 				<h2 class="text-center my-3">스포츠Q&A 게시글 작성</h2>
-				<div class="d-flex justify-content-center my-3">
-					<h4>제목</h4>
+				<div class="d-flex form-group m-4">
+					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
 					<input type="text" id="titleInput" class="form-control">
 				</div>
 				
@@ -51,5 +51,52 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#imageUploadBtn").on("click", function() {
+				$("#fileInput").click();
+			});
+			
+			$("#uploadBtn").on("click", function() {
+				var subject = $("#titleInput").val();
+				var content = $("#contentInput").val().trim();
+				
+				if(subject == null || subject == "") {
+					alert("제목을 입력해주세요");
+					return;
+				}
+				
+				if(content == null || content == "") {
+					alert("내용을 입력해주세요");
+					return;
+				}
+				
+				var formData = new FormData();
+				formData.append("subject", subject);
+				formData.append("file", $("#fileInput")[0].files[0]);
+				formData.append("content", content);
+				
+				$.ajax({
+					enctype:"multipart/form-data",
+					processData:false,
+					contentType:false,
+					type:"post",
+					url:"/main/sportsqna/create",
+					data:formData,
+					success:function(data) {
+						if(data.result == "success") {
+							location.href = "/main/sportsqna/list_view";
+						} else {
+							alert("게시물 등록 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

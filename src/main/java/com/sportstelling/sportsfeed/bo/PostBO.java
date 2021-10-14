@@ -27,7 +27,7 @@ public class PostBO {
 			filePath = FileManagerService.saveFile(userId, file);
 			
 			if(filePath == null) {
-				return 0;
+				return -1;
 			}
 		}
 		

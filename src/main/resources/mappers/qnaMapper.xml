@@ -26,4 +26,22 @@
 			, now()
 		)
 	</insert>
+	<!-- 게시물 리스트 -->
+	<select id="selectQnAList" resultType="com.sportstelling.sportsqna.model.QnA">
+		SELECT
+			`id`
+			, `type`
+			, `userId`
+			, `userNickName`
+			, `subject`
+			, `imagePath`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'qna'
+		ORDER BY `id` DESC
+	</select>
 </mapper>

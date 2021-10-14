@@ -25,7 +25,7 @@
 			
 			<div class="col-lg-8">
 				<h2 class="text-center my-3">스포츠Q&A</h2>
-				<div class="m-5 d-flex justify-content-center">
+				<div class="m-4 d-flex justify-content-center">
 					<select>
 						<option value="all">전체</option>
 						<option value="nickName">닉네임</option>
@@ -45,12 +45,14 @@
 						</tr>
 					</thead>
 					<tbody class="text-center">
-						<tr>
-							<td class="col-1">1</td>
-							<td class="col-3">닉닉</td>
-							<td class="col-5">title</td>
-							<td class="col-3">createdAt</td>
-						</tr>
+						<c:forEach var="qna" items="${qnaList }">
+							<tr>
+								<td class="col-1">${qna.id }</td>
+								<td class="col-3">${qna.userNickName }</td>
+								<td class="col-5">${qna.subject }</td>
+								<td class="col-3">${qna.createdAt }</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				

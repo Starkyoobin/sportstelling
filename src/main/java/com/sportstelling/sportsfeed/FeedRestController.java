@@ -24,7 +24,7 @@ public class FeedRestController {
 	
 	@PostMapping("/create")
 	public Map<String, String> sportsfeedCreate(
-			@RequestParam(value = "file") MultipartFile file
+			@RequestParam(value = "file", required = false) MultipartFile file
 			, @RequestParam("content") String content
 			, HttpServletRequest request) {
 		HttpSession session = request.getSession();
