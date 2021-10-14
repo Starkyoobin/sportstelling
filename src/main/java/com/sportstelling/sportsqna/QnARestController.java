@@ -24,7 +24,7 @@ public class QnARestController {
 	@PostMapping("/create")
 	public Map<String, String> qnaCreate(
 			@RequestParam("subject") String subject
-			, @RequestParam("file") MultipartFile file
+			, @RequestParam(value = "file", required = false) MultipartFile file
 			, @RequestParam("content") String content
 			, HttpServletRequest request) {
 		HttpSession session = request.getSession();

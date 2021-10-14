@@ -18,4 +18,6 @@ public interface QnADAO {
 			, @Param("content") String content);
 	//스포츠Q&A 게시물 리스트
 	public List<QnA> selectQnAList();
+	//스포츠Q&A 게시물 상세
+	public QnA selectQnAByQnAId(@Param("id") int id);
 }

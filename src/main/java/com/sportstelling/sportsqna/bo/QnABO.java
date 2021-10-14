@@ -26,10 +26,14 @@ public class QnABO {
 				return -1;
 			}
 		}
-		return qnaDAO.insertQnA(userId, userNickName, subject, subject, content);
+		return qnaDAO.insertQnA(userId, userNickName, subject, filePath, content);
 	}
 	//스포츠Q&A 게시물 리스트
 	public List<QnA> getQnAList() {
 		return qnaDAO.selectQnAList();
+	}
+	//스포츠Q&A 게시물 상세
+	public QnA getQnA(int id) {
+		return qnaDAO.selectQnAByQnAId(id);
 	}
 }

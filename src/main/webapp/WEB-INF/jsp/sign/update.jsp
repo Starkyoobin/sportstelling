@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,45 +24,37 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">스포츠Q&A</h2>
-				<div class="m-4 d-flex justify-content-center">
-					<select>
-						<option value="all">전체</option>
-						<option value="nickName">닉네임</option>
-						<option value="title">제목</option>
-					</select>
-					<input type="text" id="searchInput" class="form-control">
-					<button class="btn btn-info" id="searchBtn">검색</button>
-				</div>
-				
-				<table class="table">
-					<thead class="text-center">
-						<tr>
-							<th class="col-1">No.</th>
-							<th class="col-3">닉네임</th>
-							<th class="col-5">제목</th>
-							<th class="col-3">작성날짜</th>
-						</tr>
-					</thead>
-					<tbody class="text-center">
-						<c:forEach var="qna" items="${qnaList }">
-							<tr>
-								<td class="col-1">${qna.id }</td>
-								<td class="col-3">${qna.userNickName }</td>
-								<td class="col-5"><a href="/main/sportsqna/detail_view?id=${qna.id }" class="text-dark">${qna.subject }</a></td>
-								<td class="col-3">
-									<fmt:formatDate var="createdAt" value="${qna.createdAt }" pattern="yyyy-MM-dd" />
-									${createdAt }
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				
-				<div class="d-flex justify-content-between m-2">
-					<button type="button" id="myPostView" class="btn btn-secondary">내 글만 보기</button>
-					<a type="button" href="/main/sportsqna/create_view" class="btn btn-success">글쓰기</a>
-				</div>
+				<h2 class="text-center my-3">정보 변경</h2>
+				<form class="p-4">
+					<div class="mt-3 d-flex form-group">
+						<label class="col-sm-2 control-label d-flex align-items-center"><b>아이디 : </b></label>							
+					</div>
+					
+					<div class="mt-3 d-flex form-group">
+						<label class="col-sm-2 control-label d-flex align-items-center"><b>비밀번호 : </b></label>
+						<input type="password" id="passwordInput" class="form-control" placeholder="비밀번호">
+					</div>
+					
+					<div class="mt-3 d-flex form-group">
+						<label class="col-sm-3 control-label d-flex align-items-center"><b>비밀번호 확인 : </b></label>
+						<input type="password" id="passwordConfirmInput" class="form-control" placeholder="비밀번호 확인">
+					</div>
+					
+					<div class="mt-3 d-flex form-group">					
+						<label class="col-sm-2 control-label d-flex align-items-center"><b>이름 : </b></label>
+					</div>
+					
+					<div class="mt-3 d-flex form-group">
+						<label class="col-sm-2 control-label d-flex align-items-center"><b>닉네임 : </b></label>
+					</div>
+					
+					<div class="mt-3 d-flex form-group">
+						<label class="col-sm-2 control-label d-flex align-items-center"><b>이메일 : </b></label>					
+						<input type="text" id="emailInput" class="form-control" placeholder="이메일">						
+					</div>
+					
+					<button class="btn btn-success form-control mt-3" id="updateBtn">정보 수정</button>
+				</form>
 			</div>
 			
 			<c:import url="/WEB-INF/jsp/include/information.jsp" />

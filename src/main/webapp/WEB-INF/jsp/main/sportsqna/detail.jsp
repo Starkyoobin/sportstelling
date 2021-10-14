@@ -21,48 +21,41 @@
 		
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<section class="d-flex my-5">
+		<section class="d-flex detail-box my-5">
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
 				<h2 class="text-center my-3">스포츠Q&A</h2>
-				<div class="m-4 d-flex justify-content-center">
-					<select>
-						<option value="all">전체</option>
-						<option value="nickName">닉네임</option>
-						<option value="title">제목</option>
-					</select>
-					<input type="text" id="searchInput" class="form-control">
-					<button class="btn btn-info" id="searchBtn">검색</button>
+				<div class="d-flex form-group m-4">
+					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
+					<span>${qnaPost.subject }</span>
+				</div>
+				<div class="d-flex justify-content-end">				
+					<c:if test="${qnaPost.userId eq userId }">
+						<a type="button" href="#" class="btn btn-secondary"><small>수정하기</small></a>
+					</c:if>
 				</div>
 				
-				<table class="table">
-					<thead class="text-center">
-						<tr>
-							<th class="col-1">No.</th>
-							<th class="col-3">닉네임</th>
-							<th class="col-5">제목</th>
-							<th class="col-3">작성날짜</th>
-						</tr>
-					</thead>
-					<tbody class="text-center">
-						<c:forEach var="qna" items="${qnaList }">
-							<tr>
-								<td class="col-1">${qna.id }</td>
-								<td class="col-3">${qna.userNickName }</td>
-								<td class="col-5"><a href="/main/sportsqna/detail_view?id=${qna.id }" class="text-dark">${qna.subject }</a></td>
-								<td class="col-3">
-									<fmt:formatDate var="createdAt" value="${qna.createdAt }" pattern="yyyy-MM-dd" />
-									${createdAt }
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<div class="d-flex justify-content-center">
+					<c:if test="${not empty qnaPost.imagePath }">
+						<img src="${qnaPost.imagePath }" alt="업로드한 이미지">
+					</c:if>
+				</div>
 				
-				<div class="d-flex justify-content-between m-2">
-					<button type="button" id="myPostView" class="btn btn-secondary">내 글만 보기</button>
-					<a type="button" href="/main/sportsqna/create_view" class="btn btn-success">글쓰기</a>
+				<div class="m-5">
+					<span>${qnaPost.content }</span>
+				</div>
+				
+				<div class="d-flex form-group">
+					<label class="col-sm-1 control-label d-flex align-items-center"><b>댓글</b></label>
+					<input type="text" id="commentInput" class="form-control">
+					<button class="btn btn-success" id="commentBtn">게시</button>
+				</div>
+				
+				
+				
+				<div class="d-flex justify-content-center align-items-center">
+					<a href="/main/sportsqna/list_view" class="form-control btn btn-info">목록으로</a>
 				</div>
 			</div>
 			

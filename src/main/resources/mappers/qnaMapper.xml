@@ -44,4 +44,22 @@
 			`type` = 'qna'
 		ORDER BY `id` DESC
 	</select>
+	<!-- 게시물 상세보기 -->
+	<select id="selectQnAByQnAId" resultType="com.sportstelling.sportsqna.model.QnA">
+		SELECT
+			`id`
+			, `type`
+			, `userId`
+			, `userNickName`
+			, `subject`
+			, `imagePath`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'qna'
+			AND `id` = #{id }
+	</select>
 </mapper>

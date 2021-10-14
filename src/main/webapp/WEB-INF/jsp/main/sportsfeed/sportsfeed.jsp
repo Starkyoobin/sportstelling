@@ -35,7 +35,7 @@
 					<c:forEach var="postDetail" items="${postList }">
 						<div class="card border rounded mt-3">
 							<!-- 타이틀 -->
-							<div class="d-flex justify-content-between p-2 border-bottom">
+							<div class="d-flex justify-content-between p-3 border-bottom">
 								<h4>${postDetail.post.userNickName }</h4>
 								<c:if test="${postDetail.post.userId eq userId }">
 									<a class="text-dark moreBtn" href="#" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#deleteModal">
@@ -46,6 +46,11 @@
 							<!-- 이미지 -->
 							<div>
 								<img src="${postDetail.post.imagePath }" alt="사용자가 등록한 이미지" class="w-100">
+							</div>
+							<!-- 내용 -->
+							<div class="d-flex p-3 border-bottom">
+								<b class="mr-4">${postDetail.post.userNickName }</b>
+								<span>${postDetail.post.content }</span>
 							</div>
 							<!-- 좋아요 -->
 							<div class="m-2 d-flex justify-content-center">

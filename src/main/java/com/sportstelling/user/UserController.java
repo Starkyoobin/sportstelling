@@ -38,4 +38,8 @@ public class UserController {
 		return "redirect:/sign/in_view";
 	}
 	//유저 정보
+	@GetMapping("/user/update_view")
+	public String userUpdateView() {
+		return "sign/update";
+	}
 }
