@@ -47,4 +47,19 @@ public class QnABO {
 		
 		return qnaDetail;
 	}
+	//스포츠Q&A 게시물 수정 삭제 데이터 불러오기
+	public QnA getQnAByIdUserId(int id, int userId) {
+		return qnaDAO.selectQnAByIdUserId(id, userId);
+	}
+	//게시물 수정
+//	public int updateQnA(int id, int userId, String subject, MultipartFile file, String content) {
+//		
+//		return qnaDAO.updateQnA(id, userId, subject, filePath, content);
+//	}
+	//게시물 삭제
+//	public int deleteQnA(int id, int userId) {
+//		commentBO.deleteByQnAId(id);
+//		
+//		return qnaDAO.deleteQnA(id, userId);
+//	}
 }

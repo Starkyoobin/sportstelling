@@ -62,4 +62,45 @@
 			`type` = 'qna'
 			AND `id` = #{id }
 	</select>
+	<!-- 데이터 불러오기 -->
+	<select id="selectQnAByIdUserId" resultType="com.sportstelling.sportsqna.model.QnA" parameterType="map">
+		SELECT
+			`id`
+			, `type`
+			, `userId`
+			, `userNickName`
+			, `subject`
+			, `imagePath`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'qna'
+			AND `id` = #{id }
+			AND `userId` = #{userId }
+	</select>
+	<!-- 게시물 수정 -->
+	<update id="updateQnA" parameterType="map">
+		UPDATE
+			`notice_board`
+		SET
+			`subject` = #{subject }
+			, `content` = #{content }
+		WHERE
+			`type` = 'qna'
+			AND `id` = #{id }
+			AND `userId` = #{userId }
+	</update>
+	<!-- 게시물 삭제 -->
+	<delete id="deleteQnA">
+		DELETE
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'qna'
+			AND `id` = #{id }
+			AND `userId` = #{userId }
+	</delete>
 </mapper>

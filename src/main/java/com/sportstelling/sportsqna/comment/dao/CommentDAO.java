@@ -17,4 +17,6 @@ public interface CommentDAO {
 			, @Param("content") String content);
 	//등록된 댓글 보이기
 	public List<Comment> selectCommentListByQnAId(@Param("qnaId") int qnaId);
+	//게시물 삭제시 모든 댓글 삭제
+	public int deleteCommentByQnAId(@Param("qnaId") int qnaId);
 }

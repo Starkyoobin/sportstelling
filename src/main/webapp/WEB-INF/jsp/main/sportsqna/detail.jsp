@@ -26,13 +26,14 @@
 			
 			<div class="col-lg-8">
 				<h2 class="text-center my-3">스포츠Q&A</h2>
+				<!-- 제목 -->
 				<div class="d-flex form-group m-4">
 					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
 					<span>${qnaDetail.qna.subject }</span>
 				</div>
 				<div class="d-flex justify-content-end">				
 					<c:if test="${qnaDetail.qna.userId eq userId }">
-						<a type="button" href="#" class="btn btn-secondary"><small>수정하기</small></a>
+						<a type="button" href="/main/sportsqna/update_view?qnaId=${qnaDetail.qna.id }" id="updateBtn" class="btn btn-secondary"><small>수정하기</small></a>
 					</c:if>
 				</div>
 				<!-- 이미지 -->

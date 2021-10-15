@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +21,7 @@ import com.sportstelling.sportsqna.bo.QnABO;
 public class QnARestController {
 	@Autowired
 	private QnABO qnaBO;
-	
+	//게시물 등록
 	@PostMapping("/create")
 	public Map<String, String> qnaCreate(
 			@RequestParam("subject") String subject
@@ -43,4 +44,39 @@ public class QnARestController {
 		
 		return result;
 	}
+	//게시물 수정
+//	@PostMapping("/update")
+//	public Map<String, String> updateQnA(
+//			@RequestParam("id") int id
+//			, @RequestParam("subject") String subject
+//			, @RequestParam(value="file") MultipartFile file
+//			, @RequestParam("content") String content
+//			, HttpServletRequest request) {
+//		HttpSession session = request.getSession();
+//		int userId = (Integer)session.getAttribute("userId");
+//		
+//		Map<String, String> result = new HashMap<>();
+//		
+//		int count = qnaBO.updateQnA(id, userId, subject, file, content);
+//		
+//		if(count != 0) {
+//			result.put("result", "success");
+//		} else {
+//			result.put("result", "fail");
+//		}
+//		
+//		return result;
+//	}
+	//게시물 삭제
+//	@GetMapping("/delete")
+//	public Map<String, String> deleteQnA(
+//			@RequestParam("id") int id
+//			, HttpServletRequest request) {
+//		HttpSession session = request.getSession();
+//		int userId = (Integer)session.getAttribute("userId");
+//		
+//		Map<String, String> result = new HashMap<>();
+//		
+//		
+//	}
 }

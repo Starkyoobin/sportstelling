@@ -20,31 +20,36 @@
 		
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<section class="d-flex create-content my-5">
+		<section class="d-flex update-content my-5">
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<div class="d-flex justify-content-center my-3">
-					<h2>스포츠피드 게시글 작성</h2>			
+				<h2 class="text-center my-3">스포츠Q&A 게시글 수정 / 삭제</h2>
+				<!-- 제목 -->
+				<div class="d-flex form-group m-4">
+					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
+					<input type="text" id="titleInput" class="form-control" value="${qna.subject }">
 				</div>
-				<!-- 업로드할 이미지 미리보기 -->
-				<div class="d-flex justify-content-center" id="image-box">
-					<img id="image" alt="업로드할 이미지">
+				<!-- 이미지 -->
+				<div class="d-flex justify-content-center">
+					<c:if test="${not empty qna.imagePath }">
+						<img src="${qna.imagePath }" alt="업로드한 이미지">
+					</c:if>
 				</div>
 				<!-- 내용 -->
 				<div class="my-3">
-					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput"></textarea>
+					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput">${qna.content }</textarea>
 				</div>
 				
 				<div class="d-flex justify-content-between m-3">
 					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
 					<input type="file" id="fileInput" class="d-none" multiple>
 					
-					<button type="button" id="uploadBtn" class="btn btn-success">업로드</button>
+					<button type="button" id="uploadBtn" class="btn btn-success">수정하기</button>
 				</div>
 				
 				<div class="d-flex justify-content-center align-items-center">
-					<a href="/main/sportsfeed/view" class="form-control btn btn-info">목록으로</a>
+					<a href="/main/sportsqna/list_view" class="form-control btn btn-info">목록으로</a>
 				</div>
 			</div>
 			
@@ -58,43 +63,6 @@
 		$(document).ready(function() {
 			$("#imageUploadBtn").on("click", function() {
 				$("#fileInput").click();
-			});
-			
-			$("#uploadBtn").on("click", function() {
-				var content = $("#contentInput").val().trim();
-				
-				if(content == null || content == "") {
-					alert("내용을 입력해주세요");
-					return;
-				}
-				
-				if($("#fileInput")[0].files.length == 0) {
-					alert("이미지 파일을 추가해주세요");
-					return;
-				}
-				
-				var formData = new FormData();
-				formData.append("content", content);
-				formData.append("file", $("#fileInput")[0].files[0]);
-				
-				$.ajax({
-					enctype:"multipart/form-data",
-					processData:false,
-					contentType:false,
-					type:"post",
-					url:"/main/sportsfeed/create",
-					data:formData,
-					success:function(data) {
-						if(data.result == "success") {
-							location.href = "/main/sportsfeed/view";
-						} else {
-							alert("게시물 등록 실패");
-						}
-					},
-					error:function(e) {
-						alert("error");
-					}
-				});
 			});
 		});
 	</script>

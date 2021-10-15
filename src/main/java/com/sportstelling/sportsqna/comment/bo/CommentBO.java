@@ -21,4 +21,8 @@ public class CommentBO {
 	public List<Comment> getCommentList(int qnaId) {
 		return commentDAO.selectCommentListByQnAId(qnaId);
 	}
+	//게시물 삭제시 모든 댓글 삭제
+	public int deleteByQnAId(int qnaId) {
+		return commentDAO.deleteCommentByQnAId(qnaId);
+	}
 }

@@ -37,4 +37,12 @@
 		WHERE
 			`qnaId` = #{qnaId }
 	</select>
+	<!-- 게시물 삭제와 동시에 댓글 모두 삭제 -->
+	<delete id="deleteCommentByQnAId">
+		DELETE
+		FROM
+			`qna_comment`
+		WHERE
+			`qnaId` = #{qnaId }
+	</delete>
 </mapper>
