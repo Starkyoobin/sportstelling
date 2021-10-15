@@ -22,4 +22,19 @@
 		, now()
 	)
 	</insert>
+	<!-- 등록된 댓글 보이기 -->
+	<select id="selectCommentListByQnAId" resultType="com.sportstelling.sportsqna.comment.model.Comment">
+		SELECT
+			`id`
+			, `qnaId`
+			, `userId`
+			, `userNickName`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`qna_comment`
+		WHERE
+			`qnaId` = #{qnaId }
+	</select>
 </mapper>

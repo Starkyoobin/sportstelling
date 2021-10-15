@@ -28,30 +28,38 @@
 				<h2 class="text-center my-3">스포츠Q&A</h2>
 				<div class="d-flex form-group m-4">
 					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
-					<span>${qnaPost.subject }</span>
+					<span>${qnaDetail.qna.subject }</span>
 				</div>
 				<div class="d-flex justify-content-end">				
-					<c:if test="${qnaPost.userId eq userId }">
+					<c:if test="${qnaDetail.qna.userId eq userId }">
 						<a type="button" href="#" class="btn btn-secondary"><small>수정하기</small></a>
 					</c:if>
 				</div>
-				
+				<!-- 이미지 -->
 				<div class="d-flex justify-content-center">
-					<c:if test="${not empty qnaPost.imagePath }">
-						<img src="${qnaPost.imagePath }" alt="업로드한 이미지">
+					<c:if test="${not empty qnaDetail.qna.imagePath }">
+						<img src="${qnaDetail.qna.imagePath }" alt="업로드한 이미지">
 					</c:if>
 				</div>
-				
-				<div class="m-5">
-					<span>${qnaPost.content }</span>
+				<!-- 내용 -->
+				<div class="m-3 d-flex">
+					<h5>${qnaDetail.qna.userNickName }</h5>
+					<span class="ml-5">${qnaDetail.qna.content }</span>
 				</div>
-				
+				<hr>
+				<!-- 댓글 작성 -->
 				<div class="d-flex form-group">
 					<label class="col-sm-1 control-label d-flex align-items-center"><b>댓글</b></label>
 					<input type="text" id="commentInput" class="form-control">
-					<button class="btn btn-success" id="commentBtn">게시</button>
+					<button class="btn btn-success" id="commentBtn" data-qna-id="${qnaDetail.qna.id }">게시</button>
 				</div>
-				
+				<!-- 댓글 목록 -->
+				<c:forEach var="comment" items="${qnaDetail.commentList }">
+					<div class="m-3 d-flex">
+						<b>${comment.userNickName }</b>
+						<span class="ml-4">${comment.content }</span>
+					</div>
+				</c:forEach>
 				
 				
 				<div class="d-flex justify-content-center align-items-center">
@@ -68,9 +76,10 @@
 	<script>
 		$(document).ready(function() {
 			$("#commentBtn").on("click", function() {
-				var comment = $("#commentInput").val();
+				var qnaId = $(this).data("qna-id");
+				var content = $("#commentInput").val();
 				
-				if(comment == null || comment == "") {
+				if(content == null || content == "") {
 					alert("댓글을 입력하세요");
 					return;
 				}
@@ -78,7 +87,7 @@
 				$.ajax({
 					type:"post",
 					url:"/main/sportsqna/comment/create",
-					data:{"comment":comment},
+					data:{"qnaId":qnaId, "content":content},
 					success:function(data) {
 						if(data.result == "success") {
 							location.reload();

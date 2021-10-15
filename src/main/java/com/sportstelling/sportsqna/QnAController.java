@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sportstelling.sportsqna.bo.QnABO;
 import com.sportstelling.sportsqna.model.QnA;
+import com.sportstelling.sportsqna.model.QnADetail;
 
 @Controller
 @RequestMapping("/main/sportsqna")
@@ -38,9 +39,9 @@ public class QnAController {
 	public String qnaDetailView(
 			@RequestParam("id") int id
 			, Model model) {
-		QnA qnaPost = qnaBO.getQnA(id);
+		QnADetail qnaDetail = qnaBO.getQnA(id);
 		
-		model.addAttribute("qnaPost", qnaPost);
+		model.addAttribute("qnaDetail", qnaDetail);
 		
 		return "main/sportsqna/detail";
 	}

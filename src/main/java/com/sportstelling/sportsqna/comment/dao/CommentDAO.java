@@ -1,7 +1,11 @@
 package com.sportstelling.sportsqna.comment.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import com.sportstelling.sportsqna.comment.model.Comment;
 
 @Repository
 public interface CommentDAO {
@@ -11,4 +15,6 @@ public interface CommentDAO {
 			, @Param("userId") int userId
 			, @Param("userNickName") String userNickName
 			, @Param("content") String content);
+	//등록된 댓글 보이기
+	public List<Comment> selectCommentListByQnAId(@Param("qnaId") int qnaId);
 }

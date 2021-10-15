@@ -22,7 +22,7 @@ public class CommentRestController {
 	
 	@PostMapping("/create")
 	public Map<String, String> commentCreate(
-			@RequestParam("id") int qnaId
+			@RequestParam("qnaId") int qnaId
 			, @RequestParam("content") String content
 			, HttpServletRequest request) {
 		HttpSession session = request.getSession();
