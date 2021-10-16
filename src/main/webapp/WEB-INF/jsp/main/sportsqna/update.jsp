@@ -45,7 +45,11 @@
 					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
 					<input type="file" id="fileInput" class="d-none" multiple>
 					
-					<button type="button" id="uploadBtn" class="btn btn-success">수정하기</button>
+					<button type="button" id="uploadBtn" class="btn btn-success" data-post-id="${qna.id }">수정하기</button>
+				</div>
+				
+				<div class="d-flex justify-content-end m-3">
+					<button type="button" id="deleteBtn" class="btn btn-danger" data-post-id="${qna.id }">삭제하기</button>
 				</div>
 				
 				<div class="d-flex justify-content-center align-items-center">
@@ -61,8 +65,26 @@
 	
 	<script>
 		$(document).ready(function() {
-			$("#imageUploadBtn").on("click", function() {
-				$("#fileInput").click();
+			$("#uploadBtn").on("click", function() {
+				var postId = $(this).data("post-id");
+				var subject = $("#titleInput").val();
+				var content = $("#contentInput").val();
+				
+				$.ajax({
+					type:"post",
+					url:"/main/sportsqna/update",
+					data:{"id":id, "subject":subject, "content":content},
+					success:function(data) {
+						if(data.result == "success") {
+							location.href = "/main/sportsqna/list_view";
+						} else {
+							alert("수정 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
 			});
 		});
 	</script>

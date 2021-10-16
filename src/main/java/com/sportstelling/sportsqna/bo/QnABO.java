@@ -52,10 +52,10 @@ public class QnABO {
 		return qnaDAO.selectQnAByIdUserId(id, userId);
 	}
 	//게시물 수정
-//	public int updateQnA(int id, int userId, String subject, MultipartFile file, String content) {
-//		
-//		return qnaDAO.updateQnA(id, userId, subject, filePath, content);
-//	}
+	public int updateQnA(int id, int userId, String subject, String content) {
+		
+		return qnaDAO.updateQnA(id, userId, subject, content);
+	}
 	//게시물 삭제
 //	public int deleteQnA(int id, int userId) {
 //		commentBO.deleteByQnAId(id);

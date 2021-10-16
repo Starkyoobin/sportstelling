@@ -25,11 +25,11 @@ public interface QnADAO {
 			@Param("id") int id
 			, @Param("userId") int userId);
 	//게시물 수정
-//	public int updateQnA(
-//			@Param("id") int id
-//			, @Param("userId") int userId
-//			, @Param("subject") String subject
-//			, @Param("content") String content);
+	public int updateQnA(
+			@Param("id") int id
+			, @Param("userId") int userId
+			, @Param("subject") String subject
+			, @Param("content") String content);
 	//게시물 삭제
 //	public int deleteQnA(
 //			@Param("id") int id
