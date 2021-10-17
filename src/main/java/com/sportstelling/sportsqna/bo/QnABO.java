@@ -57,9 +57,9 @@ public class QnABO {
 		return qnaDAO.updateQnA(id, userId, subject, content);
 	}
 	//게시물 삭제
-//	public int deleteQnA(int id, int userId) {
-//		commentBO.deleteByQnAId(id);
-//		
-//		return qnaDAO.deleteQnA(id, userId);
-//	}
+	public int deleteQnA(int id, int userId) {
+		commentBO.deleteByQnAId(id);
+		
+		return qnaDAO.deleteQnA(id, userId);
+	}
 }

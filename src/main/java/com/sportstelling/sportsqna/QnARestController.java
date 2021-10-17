@@ -67,15 +67,23 @@ public class QnARestController {
 		return result;
 	}
 	//게시물 삭제
-//	@GetMapping("/delete")
-//	public Map<String, String> deleteQnA(
-//			@RequestParam("id") int id
-//			, HttpServletRequest request) {
-//		HttpSession session = request.getSession();
-//		int userId = (Integer)session.getAttribute("userId");
-//		
-//		Map<String, String> result = new HashMap<>();
-//		
-//		
-//	}
+	@GetMapping("/delete")
+	public Map<String, String> deleteQnA(
+			@RequestParam("id") int id
+			, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = qnaBO.deleteQnA(id, userId);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(count != 0) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
 }

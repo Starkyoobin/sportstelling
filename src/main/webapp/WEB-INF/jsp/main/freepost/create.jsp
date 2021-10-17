@@ -20,40 +20,29 @@
 		
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<section class="d-flex update-content my-5">
+		<section class="d-flex create-content my-5">
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">스포츠Q&A 게시글 수정 / 삭제</h2>
-				<!-- 제목 -->
+				<h2 class="text-center my-3">자유게시판 게시글 작성</h2>
 				<div class="d-flex form-group m-4">
 					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
-					<input type="text" id="titleInput" class="form-control" value="${qna.subject }">
+					<input type="text" id="titleInput" class="form-control">
 				</div>
-				<!-- 이미지 -->
-				<div class="d-flex justify-content-center">
-					<c:if test="${not empty qna.imagePath }">
-						<img src="${qna.imagePath }" alt="업로드한 이미지">
-					</c:if>
-				</div>
-				<!-- 내용 -->
+				
 				<div class="my-3">
-					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput">${qna.content }</textarea>
+					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput"></textarea>
 				</div>
 				
 				<div class="d-flex justify-content-between m-3">
 					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
 					<input type="file" id="fileInput" class="d-none" multiple>
 					
-					<button type="button" id="uploadBtn" class="btn btn-success" data-qna-id="${qna.id }">수정하기</button>
-				</div>
-				
-				<div class="d-flex justify-content-end m-3">
-					<button type="button" id="deleteBtn" class="btn btn-danger" data-qna-id="${qna.id }">삭제하기</button>
+					<button type="button" id="uploadBtn" class="btn btn-success">업로드</button>
 				</div>
 				
 				<div class="d-flex justify-content-center align-items-center">
-					<a href="/main/sportsqna/list_view" class="form-control btn btn-info">목록으로</a>
+					<a href="/main/freepost/list_view" class="form-control btn btn-info">목록으로</a>
 				</div>
 			</div>
 			
@@ -62,51 +51,5 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-	
-	<script>
-		$(document).ready(function() {
-			$("#uploadBtn").on("click", function() {
-				var id = $(this).data("qna-id");
-				var subject = $("#titleInput").val();
-				var content = $("#contentInput").val();
-				
-				$.ajax({
-					type:"post",
-					url:"/main/sportsqna/update",
-					data:{"id":id, "subject":subject, "content":content},
-					success:function(data) {
-						if(data.result == "success") {
-							location.href = "/main/sportsqna/list_view";
-						} else {
-							alert("수정 실패");
-						}
-					},
-					error:function(e) {
-						alert("error");
-					}
-				});
-			});
-			
-			$("#deleteBtn").on("click", function() {
-				var id = $(this).data("qna-id");
-				
-				$.ajax({
-					type:"get",
-					url:"/main/sportsqna/delete",
-					data:{"id":id},
-					success:function(data) {
-						if(data.result == "success") {
-							location.href = "/main/sportsqna/list_view";
-						} else {
-							alert("게시물 삭제 실패");
-						}
-					},
-					error:function(e) {
-						alert("error");
-					}
-				});
-			});
-		});
-	</script>
 </body>
 </html>
