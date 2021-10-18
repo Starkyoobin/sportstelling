@@ -22,7 +22,7 @@
 				<div class="w-50">
 					<h2 class="text-center">아이디 찾기</h2>
 					<form>
-						<div class="d-flex justify-content-center">						
+						<div class="d-flex justify-content-center">				
 							<input type="text" id="nameInput" class="form-control mt-4 col-6" placeholder="이름">
 						</div>
 						<div class="d-flex justify-content-center">						

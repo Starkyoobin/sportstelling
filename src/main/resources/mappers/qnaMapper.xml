@@ -103,4 +103,22 @@
 			AND `id` = #{id }
 			AND `userId` = #{userId }
 	</delete>
+	<!-- 내 게시물만 보기 -->
+	<select id="selectQnAByUserId" resultType="com.sportstelling.sportsqna.model.QnA">
+		SELECT
+			`id`
+			, `type`
+			, `userId`
+			, `userNickName`
+			, `subject`
+			, `imagePath`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'qna'
+			AND `userId` = #{userId }
+	</select>
 </mapper>

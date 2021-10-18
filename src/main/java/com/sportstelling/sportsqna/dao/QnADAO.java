@@ -34,4 +34,6 @@ public interface QnADAO {
 	public int deleteQnA(
 			@Param("id") int id
 			, @Param("userId") int userId);
+	//내 글만 보기
+	public List<QnA> selectQnAByUserId(@Param("userId") int userId);
 }

@@ -61,4 +61,16 @@ public class QnAController {
 		
 		return "main/sportsqna/update";
 	}
+	//내 글만 보기
+	@GetMapping("/myqna")
+	public void myqnaView(
+			Model model
+			, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		List<QnA> myQnAList = qnaBO.getQnAListByUserId(userId);
+		
+		model.addAttribute("myQnAList", myQnAList);
+	}
 }

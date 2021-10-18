@@ -62,4 +62,8 @@ public class QnABO {
 		
 		return qnaDAO.deleteQnA(id, userId);
 	}
+	//내 글만 보기
+	public List<QnA> getQnAListByUserId(int userId) {
+		return qnaDAO.selectQnAByUserId(userId);
+	}
 }

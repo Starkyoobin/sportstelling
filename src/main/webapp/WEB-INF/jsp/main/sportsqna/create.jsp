@@ -35,9 +35,11 @@
 				</div>
 				
 				<div class="d-flex justify-content-between m-3">
-					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
-					<input type="file" id="fileInput" class="d-none" multiple>
-					
+					<div>					
+						<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
+						<input type="file" id="fileInput" class="d-none" multiple>
+						<small class="ml-3 text-secondary">※첨부파일은 최대 10개까지 등록이 가능합니다.</small>
+					</div>
 					<button type="button" id="uploadBtn" class="btn btn-success">업로드</button>
 				</div>
 				

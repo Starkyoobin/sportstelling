@@ -31,6 +31,7 @@ public class UserBO {
 	public int addSign(String loginId, String password, String name, String nickName, String email) {
 		//password 암호화
 		String encryptPassword = EncryptUtils.md5(password);
+		
 		if(encryptPassword.equals("")) {
 			logger.error("[SignBO signUp] 암호화 실패");
 			return 0;
@@ -80,8 +81,8 @@ public class UserBO {
 		dto.setUserEmailAddress(email);
 		dto.setTitle(loginId + "님의 SportsTelling 임시 비밀번호 안내 이메일입니다.");
 		dto.setMessage(
-				"안녕하세요. SportsTelling 임시 비밀번호 안내 관련 이메일입니다. ["
-				+ loginId + "] 님의 임시 비밀번호는 "+ randomPassword + " 입니다."
+				"안녕하세요. SportsTelling 임시 비밀번호 안내 관련 이메일입니다. \n["
+				+ loginId + "] 님의 임시 비밀번호는 "+ randomPassword + " 입니다.\n"
 				+ "로그인후 정보변경을 통해 비밀번호를 교체해주세요.");
 		
 		this.updatePassword(loginId, randomPassword, email);
@@ -125,9 +126,25 @@ public class UserBO {
 		
 		mailSender.send(message);
 	}
-	//유저 정보 불러오기
+	//이메일 전송을 위한 유저 정보 불러오기
 	public List<User> getUser(String loginId) {
 		List<User> userInfo = signDAO.selectUserByLoginId();
 		return userInfo;
+	}
+	//정보 변경
+	public int updateUser(String password, String email) {
+		//password 암호화
+		String encryptPassword = EncryptUtils.md5(password);
+		
+		if(encryptPassword.equals("")) {
+			logger.error("[SignBO signUp] 암호화 실패");
+			return 0;
+		}
+		
+		return signDAO.updateUser(encryptPassword, email);
+	}
+	//회원 탈퇴
+	public int deleteUser(int id) {
+		return signDAO.deleteUser(id);
 	}
 }

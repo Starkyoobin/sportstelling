@@ -37,6 +37,12 @@ public interface UserDAO {
 			@Param("loginId") String loginId
 			, @Param("password") String password
 			, @Param("email") String email);
-	//유저 정보 불러오기
+	//이메일 전송을 위한 유저 정보 불러오기
 	public List<User> selectUserByLoginId();
+	//정보 변경
+	public int updateUser(
+			@Param("password") String password
+			, @Param("email") String email);
+	//회원 탈퇴
+	public int deleteUser(@Param("id") int id);
 }

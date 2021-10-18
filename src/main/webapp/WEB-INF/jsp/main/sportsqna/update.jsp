@@ -20,7 +20,7 @@
 		
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<section class="d-flex update-content my-5">
+		<section class="d-flex detail-box my-5">
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
