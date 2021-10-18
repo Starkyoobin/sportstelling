@@ -22,11 +22,11 @@
 				<div class="col-5">			
 					<h2 class="text-center">회원가입</h2>
 					<form id="signUpForm">
-						<div class="d-flex mt-3">
+						<div class="input-group mt-3">
 							<input type="text" id="loginIdInput" class="form-control" placeholder="아이디">
-							<span class="d-flex align-items-center input-group-addon">							
-								<button type="button" id="idIsDuplicateBtn" class="btn btn-primary btn-sm ml-2">중복체크</button>
-							</span>								
+							<div class="input-group-addon">							
+								<button type="button" id="idIsDuplicateBtn" class="btn btn-primary input-group-button">중복체크</button>
+							</div>								
 						</div>
 						<div id="idDuplicateDiv" class="d-none"><small class="text-danger">중복된 ID 입니다.</small></div>
 						<div id="idNoneDuplicateDiv" class="d-none"><small class="text-success">사용 가능한 ID 입니다.</small></div>
@@ -34,11 +34,11 @@
 						<input type="password" id="passwordConfirmInput" class="form-control mt-3" placeholder="비밀번호 확인">
 						
 						<input type="text" id="nameInput" class="form-control mt-3" placeholder="이름">
-						<div class="d-flex mt-3">
+						<div class="input-group mt-3">
 							<input type="text" id="nickNameInput" class="form-control" placeholder="닉네임">
-							<span class="d-flex align-items-center input-group-addon">							
-								<button type="button" id="nickNameIsDuplicateBtn" class="btn btn-primary btn-sm ml-2">중복체크</button>
-							</span>								
+							<div class="input-group-addon">							
+								<button type="button" id="nickNameIsDuplicateBtn" class="btn btn-primary input-group-button">중복체크</button>
+							</div>								
 						</div>
 						<div id="nickNameDuplicateDiv" class="d-none"><small class="text-danger">중복된 닉네임 입니다.</small></div>
 						<div id="nickNameNoneDuplicateDiv" class="d-none"><small class="text-success">사용 가능한 닉네임 입니다.</small></div>
