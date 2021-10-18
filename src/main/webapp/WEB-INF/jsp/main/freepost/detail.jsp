@@ -48,7 +48,12 @@
 					<span class="ml-5">${freepost.content }</span>
 				</div>
 				<hr>
-				
+				<!-- 댓글 작성 -->
+				<div class="d-flex form-group">
+					<label class="col-sm-1 control-label d-flex align-items-center"><b>댓글</b></label>
+					<input type="text" id="commentInput" class="form-control">
+					<button class="btn btn-success" id="commentBtn" data-free-id="${freepost.id }">게시</button>
+				</div>
 				
 				
 				<div class="d-flex justify-content-center align-items-center">
@@ -61,5 +66,16 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#commentBtn").on("click", function() {
+				var freeId = $(this).data("free-id");
+				var content = $("#commentInput").val();
+				
+				
+			});
+		});
+	</script>
 </body>
 </html>
