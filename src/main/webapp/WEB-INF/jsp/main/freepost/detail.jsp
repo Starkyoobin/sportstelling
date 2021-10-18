@@ -25,46 +25,34 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">자유게시판</h2>
+				<h2 class="text-center my-3">스포츠Q&A</h2>
 				<!-- 제목 -->
 				<div class="d-flex form-group m-4">
 					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
-					<span>${qnaDetail.qna.subject }</span>
+					<span>${freepost.subject }</span>
 				</div>
 				<div class="d-flex justify-content-end">				
-					<c:if test="${qnaDetail.qna.userId eq userId }">
-						<a type="button" href="/main/sportsqna/update_view?qnaId=${qnaDetail.qna.id }" id="updateBtn" class="btn btn-secondary"><small>수정하기</small></a>
+					<c:if test="${freepost.userId eq userId }">
+						<a type="button" href="/main/sportsqna/update_view?qnaId=${freepost.id }" id="updateBtn" class="btn btn-secondary"><small>수정하기</small></a>
 					</c:if>
 				</div>
 				<!-- 이미지 -->
 				<div class="d-flex justify-content-center">
-					<c:if test="${not empty qnaDetail.qna.imagePath }">
-						<img src="${qnaDetail.qna.imagePath }" alt="업로드한 이미지">
+					<c:if test="${not empty freepost.imagePath }">
+						<img src="${freepost.imagePath }" alt="업로드한 이미지">
 					</c:if>
 				</div>
 				<!-- 내용 -->
 				<div class="m-3 d-flex">
-					<h5>${qnaDetail.qna.userNickName }</h5>
-					<span class="ml-5">${qnaDetail.qna.content }</span>
+					<h5>${freepost.userNickName }</h5>
+					<span class="ml-5">${freepost.content }</span>
 				</div>
 				<hr>
-				<!-- 댓글 작성 -->
-				<div class="d-flex form-group">
-					<label class="col-sm-1 control-label d-flex align-items-center"><b>댓글</b></label>
-					<input type="text" id="commentInput" class="form-control">
-					<button class="btn btn-success" id="commentBtn" data-qna-id="${qnaDetail.qna.id }">게시</button>
-				</div>
-				<!-- 댓글 목록 -->
-				<c:forEach var="comment" items="${qnaDetail.commentList }">
-					<div class="m-3 d-flex">
-						<b>${comment.userNickName }</b>
-						<span class="ml-4">${comment.content }</span>
-					</div>
-				</c:forEach>
+				
 				
 				
 				<div class="d-flex justify-content-center align-items-center">
-					<a href="/main/sportsqna/list_view" class="form-control btn btn-info">목록으로</a>
+					<a href="/main/freepost/list_view" class="form-control btn btn-info">목록으로</a>
 				</div>
 			</div>
 			
@@ -73,35 +61,5 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-	
-	<script>
-		$(document).ready(function() {
-			$("#commentBtn").on("click", function() {
-				var qnaId = $(this).data("qna-id");
-				var content = $("#commentInput").val();
-				
-				if(content == null || content == "") {
-					alert("댓글을 입력하세요");
-					return;
-				}
-				
-				$.ajax({
-					type:"post",
-					url:"/main/sportsqna/comment/create",
-					data:{"qnaId":qnaId, "content":content},
-					success:function(data) {
-						if(data.result == "success") {
-							location.reload();
-						} else {
-							alert("댓글 등록 실패");
-						}
-					},
-					error:function(e) {
-						alert("error");
-					}
-				});
-			});
-		});
-	</script>
 </body>
 </html>

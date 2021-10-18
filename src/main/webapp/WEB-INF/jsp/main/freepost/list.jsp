@@ -46,17 +46,17 @@
 						</tr>
 					</thead>
 					<tbody class="text-center">
-
+						<c:forEach var="freepost" items="${freepostList }">
 							<tr>
-								<td class="col-1"></td>
-								<td class="col-3"></td>
-								<td class="col-5"><a href="/main/freepost/detail_view" class="text-dark"></a></td>
+								<td class="col-1">${freepost.id }</td>
+								<td class="col-3">${freepost.userNickName }</td>
+								<td class="col-5"><a href="/main/freepost/detail_view?id=${freepost.id }" class="text-dark">${freepost.subject }</a></td>
 								<td class="col-3">
-									<fmt:formatDate var="createdAt" value="" pattern="yyyy-MM-dd" />
-									
+									<fmt:formatDate var="createdAt" value="${freepost.createdAt }" pattern="yyyy-MM-dd" />
+									${createdAt }
 								</td>
 							</tr>
-
+						</c:forEach>
 					</tbody>
 				</table>
 				

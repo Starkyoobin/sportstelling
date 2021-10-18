@@ -51,5 +51,52 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#imageUploadBtn").on("click", function() {
+				$("#fileInput").click();
+			});
+			
+			$("#uploadBtn").on("click", function() {
+				var subject = $("#titleInput").val();
+				var content = $("#contentInput").val();
+				
+				if(subject == null || subject == "") {
+					alert("제목을 입력해주세요");
+					return;
+				}
+				
+				if(content == null || content == "") {
+					alert("내용을 입력해주세요");
+					return;
+				}
+				
+				var formData = new FormData();
+				formData.append("subject", subject);
+				formData.append("file", $("#fileInput")[0].files[0]);
+				formData.append("content", content);
+				
+				$.ajax({
+					enctype:"multipart/form-data",
+					processData:false,
+					contentType:false,
+					type:"post",
+					url:"/main/freepost/create",
+					data:formData,
+					success:function(data) {
+						if(data.result == "success") {
+							location.href = "/main/freepost/list_view";
+						} else {
+							alert("게시물 등록 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

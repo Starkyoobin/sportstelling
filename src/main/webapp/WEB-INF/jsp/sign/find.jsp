@@ -47,7 +47,7 @@
 							<div class="d-flex justify-content-center">
 								<div class="col-6 border mt-3">
 									<small class="text-secondary">
-									가입시 등록한 이메일로 임시 비밀번호를 발급합니다. 발급후 로그인하여 정보 변경을 통하여 비밀번호를 변경해주세요.
+									가입시 등록한 이메일로 임시 비밀번호를 발급합니다. 발급후 로그인하여 회원정보 변경을 통하여 비밀번호를 변경해주세요.
 									</small>
 								</div>
 							</div>
