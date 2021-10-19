@@ -2,7 +2,7 @@ package com.sportstelling.sportsqna.comment.model;
 
 import java.util.Date;
 
-public class Comment {
+public class QnAComment {
 	private int id;
 	private int qnaId;
 	private int userId;

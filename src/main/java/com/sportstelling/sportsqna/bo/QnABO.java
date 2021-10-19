@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.sportstelling.common.FileManagerService;
 import com.sportstelling.sportsqna.comment.bo.QnACommentBO;
-import com.sportstelling.sportsqna.comment.model.Comment;
+import com.sportstelling.sportsqna.comment.model.QnAComment;
 import com.sportstelling.sportsqna.dao.QnADAO;
 import com.sportstelling.sportsqna.model.QnA;
 import com.sportstelling.sportsqna.model.QnADetail;
@@ -39,7 +39,7 @@ public class QnABO {
 	}
 	//스포츠Q&A 게시물 상세
 	public QnADetail getQnA(int id) {
-		List<Comment> commentList = commentBO.getCommentList(id);
+		List<QnAComment> commentList = commentBO.getCommentList(id);
 		
 		QnADetail qnaDetail = new QnADetail();
 		qnaDetail.setQna(qnaDAO.selectQnAByQnAId(id));

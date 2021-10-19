@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.sportstelling.sportsqna.comment.model.Comment;
+import com.sportstelling.sportsqna.comment.model.QnAComment;
 
 @Repository
 public interface QnACommentDAO {
@@ -16,7 +16,7 @@ public interface QnACommentDAO {
 			, @Param("userNickName") String userNickName
 			, @Param("content") String content);
 	//등록된 댓글 보이기
-	public List<Comment> selectCommentListByQnAId(@Param("qnaId") int qnaId);
+	public List<QnAComment> selectCommentListByQnAId(@Param("qnaId") int qnaId);
 	//게시물 삭제시 모든 댓글 삭제
 	public int deleteCommentByQnAId(@Param("qnaId") int qnaId);
 }

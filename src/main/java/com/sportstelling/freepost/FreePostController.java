@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sportstelling.freepost.bo.FreeBO;
 import com.sportstelling.freepost.model.Free;
+import com.sportstelling.freepost.model.FreeDetail;
 
 @Controller
 @RequestMapping("/main/freepost")
@@ -40,9 +41,9 @@ public class FreePostController {
 	public String freeDetailView(
 			@RequestParam("id") int id
 			, Model model) {		
-		Free freepost = freeBO.getFreepost(id);
+		FreeDetail freeDetail = freeBO.getFreepost(id);
 		
-		model.addAttribute("freepost", freepost);
+		model.addAttribute("freeDetail", freeDetail);
 		
 		return "main/freepost/detail";
 	}

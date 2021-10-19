@@ -23,7 +23,7 @@
 		)
 	</insert>
 	<!-- 등록된 댓글 보이기 -->
-	<select id="selectCommentListByQnAId" resultType="com.sportstelling.sportsqna.comment.model.Comment">
+	<select id="selectCommentListByQnAId" resultType="com.sportstelling.sportsqna.comment.model.QnAComment">
 		SELECT
 			`id`
 			, `qnaId`

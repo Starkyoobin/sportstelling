@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sportstelling.sportsqna.comment.dao.QnACommentDAO;
-import com.sportstelling.sportsqna.comment.model.Comment;
+import com.sportstelling.sportsqna.comment.model.QnAComment;
 
 @Service
 public class QnACommentBO {
@@ -18,7 +18,7 @@ public class QnACommentBO {
 		return commentDAO.insertComment(qnaId, userId, userNickName, content);
 	}
 	//등록된 댓글 보이기
-	public List<Comment> getCommentList(int qnaId) {
+	public List<QnAComment> getCommentList(int qnaId) {
 		return commentDAO.selectCommentListByQnAId(qnaId);
 	}
 	//게시물 삭제시 모든 댓글 삭제

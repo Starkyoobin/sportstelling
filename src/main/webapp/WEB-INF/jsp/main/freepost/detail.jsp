@@ -29,31 +29,38 @@
 				<!-- 제목 -->
 				<div class="d-flex form-group m-4">
 					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
-					<span>${freepost.subject }</span>
+					<span>${freeDetail.free.subject }</span>
 				</div>
 				<div class="d-flex justify-content-end">				
-					<c:if test="${freepost.userId eq userId }">
-						<a type="button" href="/main/freepost/update_view?freeId=${freepost.id }" id="updateBtn" class="btn btn-secondary"><small>수정하기</small></a>
+					<c:if test="${freeDetail.free.userId eq userId }">
+						<a type="button" href="/main/freepost/update_view?freeId=${freeDetail.free.id }" id="updateBtn" class="btn btn-secondary"><small>수정하기</small></a>
 					</c:if>
 				</div>
 				<!-- 이미지 -->
 				<div class="d-flex justify-content-center mt-2">
-					<c:if test="${not empty freepost.imagePath }">
-						<img src="${freepost.imagePath }" alt="업로드한 이미지">
+					<c:if test="${not empty freeDetail.free.imagePath }">
+						<img src="${freeDetail.free.imagePath }" alt="업로드한 이미지">
 					</c:if>
 				</div>
 				<!-- 내용 -->
 				<div class="m-3 d-flex">
-					<h5>${freepost.userNickName }</h5>
-					<span class="ml-5">${freepost.content }</span>
+					<h5>${freeDetail.free.userNickName }</h5>
+					<span class="ml-5">${freeDetail.free.content }</span>
 				</div>
 				<hr>
 				<!-- 댓글 작성 -->
-				<form id="commentForm" class="d-flex form-group">
+				<div id="commentForm" class="d-flex form-group">
 					<label class="col-sm-1 control-label d-flex align-items-center"><b>댓글</b></label>
 					<input type="text" id="commentInput" class="form-control">
-					<button class="btn btn-success" id="commentBtn" data-free-id="${freepost.id }">게시</button>
-				</form>
+					<button class="btn btn-success" id="commentBtn" data-free-id="${freeDetail.free.id }">게시</button>
+				</div>
+				<!-- 댓글 목록 -->
+				<c:forEach var="comment" items="${freeDetail.commentList }">
+					<div class="m-3 d-flex">
+						<b>${comment.userNickName }</b>
+						<span class="ml-4">${comment.content }</span>
+					</div>
+				</c:forEach>
 				
 				
 				<div class="d-flex justify-content-center align-items-center">

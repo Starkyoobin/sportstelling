@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sportstelling.freepost.comment.dao.FreeCommentDAO">
+	<!-- 댓글 등록 -->
 	<insert id="insertComment">
 		INSERT INTO `free_comment`
 		(
@@ -21,4 +22,19 @@
 			, now()
 		)
 	</insert>
+	<!-- 댓글 보이기 -->
+	<select id="selectCommentListByFreeId" resultType="com.sportstelling.freepost.comment.model.FreeComment">
+		SELECT
+			`id`
+			, `freeId`
+			, `userId`
+			, `userNickName`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`free_comment`
+		WHERE
+			`freeId` = #{freeId }
+	</select>
 </mapper>
