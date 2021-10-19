@@ -3,14 +3,21 @@ package com.sportstelling.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sportstelling.user.bo.UserBO;
+import com.sportstelling.user.model.User;
+
 @Controller
 @RequestMapping("/sign")
 public class UserController {
+	@Autowired
+	private UserBO signBO;
+	
 	//로그인 화면
 	@GetMapping("/in_view")
 	public String signinView() {
@@ -39,8 +46,17 @@ public class UserController {
 		return "redirect:/sign/in_view";
 	}
 	//유저 정보
-	@GetMapping("/user/update_view")
-	public String userUpdateView() {
+	@GetMapping("/update_view")
+	public String userUpdateView(
+			Model model
+			, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String loginId = (String)session.getAttribute("loginId");
+		
+		User user = signBO.getUserInformation(loginId);
+		
+		model.addAttribute("user", user);
+		
 		return "sign/update";
 	}
 }

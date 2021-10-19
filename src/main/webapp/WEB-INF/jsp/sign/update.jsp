@@ -24,13 +24,13 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">정보 변경</h2>
+				<h2 class="text-center my-3">회원정보 변경</h2>
 				<form class="p-4">
 					<div class="mt-3 input-group">
 						<div class="input-group-prepend">						
 							<div class="input-group-text"><b>아이디</b></div>
 						</div>
-						<input type="text" class="form-control" placeholder="${loginId }" disabled>
+						<input type="text" class="form-control" placeholder="${user.loginId }" disabled>
 					</div>
 					
 					<div class="mt-3 input-group">
@@ -51,14 +51,14 @@
 						<div class="input-group-prepend">						
 							<div class="input-group-text"><b>이름</b></div>
 						</div>
-						<input type="text" class="form-control" placeholder="${name }" disabled>
+						<input type="text" class="form-control" placeholder="${user.name }" disabled>
 					</div>
 					
 					<div class="mt-3 input-group">
 						<div class="input-group-prepend">						
 							<div class="input-group-text"><b>닉네임</b></div>
 						</div>
-						<input type="text" class="form-control" placeholder="${nickName }" disabled>
+						<input type="text" class="form-control" placeholder="${user.nickName }" disabled>
 					</div>
 					
 					<div class="mt-3 input-group">

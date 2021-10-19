@@ -147,4 +147,8 @@ public class UserBO {
 	public int deleteUser(int id) {
 		return signDAO.deleteUser(id);
 	}
+	//유저 정보 불러오기
+	public User getUserInformation(String loginId) {
+		return signDAO.selectUserInformation(loginId);
+	}
 }

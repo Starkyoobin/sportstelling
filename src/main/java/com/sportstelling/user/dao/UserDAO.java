@@ -45,4 +45,6 @@ public interface UserDAO {
 			, @Param("email") String email);
 	//회원 탈퇴
 	public int deleteUser(@Param("id") int id);
+	//유저 정보 불러오기
+	public User selectUserInformation(@Param("loginId") String loginId);
 }
