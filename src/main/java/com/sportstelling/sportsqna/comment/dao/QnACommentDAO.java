@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.sportstelling.sportsqna.comment.model.Comment;
 
 @Repository
-public interface CommentDAO {
+public interface QnACommentDAO {
 	//게시물 댓글 등록
 	public int insertComment(
 			@Param("qnaId") int qnaId

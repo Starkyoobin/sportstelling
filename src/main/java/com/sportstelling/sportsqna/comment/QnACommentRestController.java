@@ -1,4 +1,4 @@
-package com.sportstelling.freepost.comment;
+package com.sportstelling.sportsqna.comment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,24 +12,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sportstelling.freepost.comment.bo.CommentBO;
+import com.sportstelling.sportsqna.comment.bo.QnACommentBO;
 
 @RestController
-@RequestMapping("/main/freepost/comment")
-public class CommentRestController {
+@RequestMapping("/main/sportsqna/comment")
+public class QnACommentRestController {
 	@Autowired
-	private CommentBO commentBO;
+	private QnACommentBO commentBO;
 	
 	@PostMapping("/create")
-	public Map<String, String> freepostCommentCreate(
-			@RequestParam("freeId") int freeId
+	public Map<String, String> qnaCommentCreate(
+			@RequestParam("qnaId") int qnaId
 			, @RequestParam("content") String content
 			, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		String userNickName = (String)session.getAttribute("userNickName");
 		
-		int count = commentBO.addComment(freeId, userId, userNickName, content);
+		int count = commentBO.addComment(qnaId, userId, userNickName, content);
 		
 		Map<String, String> result = new HashMap<>();
 		

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,36 +24,33 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">자유게시판</h2>
+				<h2 class="text-center my-3">자유게시판 게시글 수정 / 삭제</h2>
 				<!-- 제목 -->
 				<div class="d-flex form-group m-4">
 					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
-					<span>${freepost.subject }</span>
-				</div>
-				<div class="d-flex justify-content-end">				
-					<c:if test="${freepost.userId eq userId }">
-						<a type="button" href="/main/freepost/update_view?freeId=${freepost.id }" id="updateBtn" class="btn btn-secondary"><small>수정하기</small></a>
-					</c:if>
+					<input type="text" id="titleInput" class="form-control" value="${freepost.subject }">
 				</div>
 				<!-- 이미지 -->
-				<div class="d-flex justify-content-center mt-2">
+				<div class="d-flex justify-content-center">
 					<c:if test="${not empty freepost.imagePath }">
 						<img src="${freepost.imagePath }" alt="업로드한 이미지">
 					</c:if>
 				</div>
 				<!-- 내용 -->
-				<div class="m-3 d-flex">
-					<h5>${freepost.userNickName }</h5>
-					<span class="ml-5">${freepost.content }</span>
+				<div class="my-3">
+					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput">${freepost.content }</textarea>
 				</div>
-				<hr>
-				<!-- 댓글 작성 -->
-				<form id="commentForm" class="d-flex form-group">
-					<label class="col-sm-1 control-label d-flex align-items-center"><b>댓글</b></label>
-					<input type="text" id="commentInput" class="form-control">
-					<button class="btn btn-success" id="commentBtn" data-free-id="${freepost.id }">게시</button>
-				</form>
 				
+				<div class="d-flex justify-content-between m-3">
+					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
+					<input type="file" id="fileInput" class="d-none" multiple>
+					
+					<button type="button" id="uploadBtn" class="btn btn-success" data-qna-id="${freepost.id }">수정하기</button>
+				</div>
+				
+				<div class="d-flex justify-content-end m-3">
+					<button type="button" id="deleteBtn" class="btn btn-danger" data-qna-id="${freepost.id }">삭제하기</button>
+				</div>
 				
 				<div class="d-flex justify-content-center align-items-center">
 					<a href="/main/freepost/list_view" class="form-control btn btn-info">목록으로</a>
@@ -66,35 +62,5 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-	
-	<script>
-		$(document).ready(function() {
-			$("#commentBtn").on("click", function() {
-				var freeId = $(this).data("free-id");
-				var content = $("#commentInput").val();
-				
-				if(content == null || content == "") {
-					alert("댓글을 입력해주세요");
-					return;
-				}
-				
-				$.ajax({
-					type:"post",
-					url:"/main/freepost/comment/create",
-					data:{"freeId":freeId, "content":content},
-					success:function(data) {
-						if(data.result == "success") {
-							location.reload();
-						} else {
-							alert("댓글 게시 실패");
-						}
-					},
-					error:function(e) {
-						alert("error");
-					}
-				});
-			});
-		});
-	</script>
 </body>
 </html>

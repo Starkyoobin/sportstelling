@@ -2,6 +2,9 @@ package com.sportstelling.freepost;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,5 +45,20 @@ public class FreePostController {
 		model.addAttribute("freepost", freepost);
 		
 		return "main/freepost/detail";
+	}
+	//자유게시판 게시물 수정 / 삭제
+	@GetMapping("/update_view")
+	public String freeUpdateView(
+			Model model
+			, HttpServletRequest request
+			, @RequestParam("freeId") int freeId) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		Free freepost = freeBO.getFreepostByIdUserId(freeId, userId);
+		
+		model.addAttribute("freepost", freepost);
+		
+		return "main/freepost/update";
 	}
 }

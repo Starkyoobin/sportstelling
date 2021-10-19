@@ -62,4 +62,23 @@
 			`id` = #{id }
 			AND `type` = 'free'
 	</select>
+	<!-- 게시물 수정 / 삭제 데이터 가져오기 -->
+	<select id="selectFreepostByIdUserId" resultType="com.sportstelling.freepost.model.Free">
+		SELECT
+			`id`
+			, `type`
+			, `userId`
+			, `userNickName`
+			, `subject`
+			, `imagePath`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`notice_board`
+		WHERE
+			`id` = #{id }
+			AND `type` = 'free'
+			AND `userId` = #{userId }
+	</select>
 </mapper>

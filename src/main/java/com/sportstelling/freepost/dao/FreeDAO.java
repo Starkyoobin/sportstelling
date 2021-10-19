@@ -20,4 +20,8 @@ public interface FreeDAO {
 	public List<Free> selectFreepostList();
 	//자유게시판 게시물 상세
 	public Free selectFreepostByFreeId(@Param("id") int id);
+	//자유게시판 수정 / 삭제 데이터 불러오기
+	public Free selectFreepostByIdUserId(
+			@Param("id") int id
+			, @Param("userId") int userId);
 }

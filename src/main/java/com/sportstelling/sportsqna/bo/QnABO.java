@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sportstelling.common.FileManagerService;
-import com.sportstelling.sportsqna.comment.bo.CommentBO;
+import com.sportstelling.sportsqna.comment.bo.QnACommentBO;
 import com.sportstelling.sportsqna.comment.model.Comment;
 import com.sportstelling.sportsqna.dao.QnADAO;
 import com.sportstelling.sportsqna.model.QnA;
@@ -18,7 +18,7 @@ public class QnABO {
 	@Autowired
 	private QnADAO qnaDAO;
 	@Autowired
-	private CommentBO commentBO;
+	private QnACommentBO commentBO;
 	
 	//스포츠Q&A 게시물 등록
 	public int addQnA(int userId, String userNickName, String subject, MultipartFile file, String content) {

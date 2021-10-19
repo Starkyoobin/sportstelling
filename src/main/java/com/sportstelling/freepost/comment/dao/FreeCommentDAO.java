@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CommentDAO {
+public interface FreeCommentDAO {
 	public int insertComment(
 			@Param("freeId") int freeId
 			, @Param("userId") int userId

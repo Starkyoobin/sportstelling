@@ -25,7 +25,7 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">자유게시판</h2>
+				<h2 class="text-center my-3">스포츠Q&A</h2>
 				<!-- 제목 -->
 				<div class="d-flex form-group m-4">
 					<label class="col-sm-2 control-label d-flex align-items-center"><b>제목</b></label>				
@@ -81,7 +81,7 @@
 				var content = $("#commentInput").val();
 				
 				if(content == null || content == "") {
-					alert("댓글을 입력하세요");
+					alert("댓글을 입력해주세요");
 					return;
 				}
 				

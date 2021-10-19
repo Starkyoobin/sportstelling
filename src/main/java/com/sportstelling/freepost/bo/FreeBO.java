@@ -35,4 +35,8 @@ public class FreeBO {
 	public Free getFreepost(int id) {
 		return freeDAO.selectFreepostByFreeId(id);
 	}
+	//자유게시판 수정 / 삭제 데이터 불러오기
+	public Free getFreepostByIdUserId(int id, int userId) {
+		return freeDAO.selectFreepostByIdUserId(id, userId);
+	}
 }
