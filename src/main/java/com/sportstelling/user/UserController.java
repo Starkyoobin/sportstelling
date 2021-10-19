@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sportstelling.user.bo.UserBO;
 import com.sportstelling.user.model.User;
@@ -42,21 +43,22 @@ public class UserController {
 		session.removeAttribute("userLoginId");
 		session.removeAttribute("userName");
 		session.removeAttribute("userNickName");
+		session.removeAttribute("email");
 		
 		return "redirect:/sign/in_view";
 	}
-	//유저 정보
+	//회원정보 변경 화면
 	@GetMapping("/update_view")
 	public String userUpdateView(
 			Model model
 			, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String loginId = (String)session.getAttribute("loginId");
+		String loginId = (String)session.getAttribute("userLoginId");
 		
 		User user = signBO.getUserInformation(loginId);
 		
 		model.addAttribute("user", user);
 		
 		return "sign/update";
-	}
+	}	
 }

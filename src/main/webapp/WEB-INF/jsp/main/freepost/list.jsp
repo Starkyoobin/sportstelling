@@ -39,19 +39,17 @@
 				<table class="table">
 					<thead class="text-center">
 						<tr>
-							<th class="col-1">No.</th>
 							<th class="col-3">닉네임</th>
-							<th class="col-5">제목</th>
-							<th class="col-3">작성날짜</th>
+							<th class="col-7">제목</th>
+							<th class="col-2">작성날짜</th>
 						</tr>
 					</thead>
 					<tbody class="text-center">
 						<c:forEach var="freepost" items="${freepostList }">
 							<tr>
-								<td class="col-1">${freepost.id }</td>
 								<td class="col-3">${freepost.userNickName }</td>
-								<td class="col-5"><a href="/main/freepost/detail_view?id=${freepost.id }" class="text-dark">${freepost.subject }</a></td>
-								<td class="col-3">
+								<td class="col-7"><a href="/main/freepost/detail_view?id=${freepost.id }" class="text-dark">${freepost.subject }</a></td>
+								<td class="col-2">
 									<fmt:formatDate var="createdAt" value="${freepost.createdAt }" pattern="yyyy-MM-dd" />
 									${createdAt }
 								</td>

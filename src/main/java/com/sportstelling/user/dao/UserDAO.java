@@ -41,7 +41,8 @@ public interface UserDAO {
 	public List<User> selectUserByLoginId();
 	//정보 변경
 	public int updateUser(
-			@Param("password") String password
+			@Param("id") int id
+			, @Param("password") String password
 			, @Param("email") String email);
 	//회원 탈퇴
 	public int deleteUser(@Param("id") int id);

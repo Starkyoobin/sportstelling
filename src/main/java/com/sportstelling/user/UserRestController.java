@@ -83,7 +83,9 @@ public class UserRestController {
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", user.getId());
 			session.setAttribute("userLoginId", user.getLoginId());
+			session.setAttribute("userName", user.getName());
 			session.setAttribute("userNickName", user.getNickName());
+			session.setAttribute("email", user.getEmail());
 			
 			result.put("result", "success");
 		} else {
@@ -144,12 +146,16 @@ public class UserRestController {
 	@PostMapping("/update")
 	public Map<String, String> updateInformation(
 			@RequestParam("password") String password
-			, @RequestParam("email") String email) {
-		int count = signBO.updateUser(password, email);
+			, @RequestParam("email") String email
+			, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = signBO.updateUser(userId, password, email);
 		
 		Map<String, String> result = new HashMap<>();
 		
-		if(count == 1) {
+		if(count != 0) {
 			result.put("result", "success");
 		} else {
 			result.put("result", "fail");
@@ -167,8 +173,8 @@ public class UserRestController {
 		
 		Map<String, String> result = new HashMap<>();
 		
-		if(count != 0) {
-			result.put("result", "successs");
+		if(count == 1) {
+			result.put("result", "success");
 		} else {
 			result.put("result", "fail");
 		}

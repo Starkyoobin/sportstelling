@@ -132,7 +132,7 @@ public class UserBO {
 		return userInfo;
 	}
 	//정보 변경
-	public int updateUser(String password, String email) {
+	public int updateUser(int id, String password, String email) {
 		//password 암호화
 		String encryptPassword = EncryptUtils.md5(password);
 		
@@ -141,7 +141,7 @@ public class UserBO {
 			return 0;
 		}
 		
-		return signDAO.updateUser(encryptPassword, email);
+		return signDAO.updateUser(id, encryptPassword, email);
 	}
 	//회원 탈퇴
 	public int deleteUser(int id) {

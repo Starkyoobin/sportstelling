@@ -30,7 +30,7 @@
 						<div class="input-group-prepend">						
 							<div class="input-group-text"><b>아이디</b></div>
 						</div>
-						<input type="text" class="form-control" placeholder="${user.loginId }" disabled>
+						<input type="text" class="form-control" value="${user.loginId }" disabled>
 					</div>
 					
 					<div class="mt-3 input-group">
@@ -65,7 +65,7 @@
 						<div class="input-group-prepend">						
 							<div class="input-group-text"><b>이메일</b></div>
 						</div>					
-						<input type="text" id="emailInput" class="form-control" placeholder="이메일">						
+						<input type="text" id="emailInput" class="form-control" value="${user.email }">						
 					</div>
 					
 					<button type="button" class="btn btn-success form-control mt-3" id="updateBtn">정보 수정</button>
@@ -104,8 +104,30 @@
 		$(document).ready(function() {
 			$("#updateBtn").on("click", function() {
 				var password = $("#passwordInput").val();
-				var password = $("#passwordConfirmInput").val();
+				var passwordConfirm = $("#passwordConfirmInput").val();
 				var email = $("#emailInput").val();
+				
+				if(password != passwordConfirm) {
+					alert("비밀번호가 일치하지 않습니다");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/sign/update",
+					data:{"password":password, "email":email},
+					success:function(data) {
+						if(data.result == "success") {
+							alert("회원정보 변경에 성공했습니다");
+							history.go(-1);
+						} else {
+							alert("회원정보 변경 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
 			});
 			/*
 			$("#deleteBtn").on("click", function() {

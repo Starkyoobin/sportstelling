@@ -39,19 +39,17 @@
 				<table class="table">
 					<thead class="text-center">
 						<tr>
-							<th class="col-1">No.</th>
 							<th class="col-3">닉네임</th>
-							<th class="col-5">제목</th>
-							<th class="col-3">작성날짜</th>
+							<th class="col-7">제목</th>
+							<th class="col-2">작성날짜</th>
 						</tr>
 					</thead>
 					<tbody class="text-center">
 						<c:forEach var="qna" items="${qnaList }">
 							<tr>
-								<td class="col-1">${qna.id }</td>
 								<td class="col-3">${qna.userNickName }</td>
-								<td class="col-5"><a href="/main/sportsqna/detail_view?id=${qna.id }" class="text-dark">${qna.subject }</a></td>
-								<td class="col-3">
+								<td class="col-7"><a href="/main/sportsqna/detail_view?id=${qna.id }" class="text-dark">${qna.subject }</a></td>
+								<td class="col-2">
 									<fmt:formatDate var="createdAt" value="${qna.createdAt }" pattern="yyyy-MM-dd" />
 									${createdAt }
 								</td>
