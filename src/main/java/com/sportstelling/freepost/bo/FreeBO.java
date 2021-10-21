@@ -54,4 +54,10 @@ public class FreeBO {
 	public int updateFreepost(int id, int userId, String subject, String content) {
 		return freeDAO.updateFreepost(id, userId, subject, content);
 	}
+	//게시물 삭제
+	public int deleteFreepost(int id, int userId) {
+		commentBO.deleteByFreeId(id);
+		
+		return freeDAO.deleteFreepost(id, userId);
+	}
 }

@@ -38,4 +38,12 @@
 			`freeId` = #{freeId }
 		ORDER BY `id` DESC
 	</select>
+	<!-- 게시물 삭제와 동시에 댓글 모두 삭제 -->
+	<delete id="deleteByFreeId">
+		DELETE
+		FROM
+			`free_comment`
+		WHERE
+			`freeId` = #{freeId }
+	</delete>
 </mapper>

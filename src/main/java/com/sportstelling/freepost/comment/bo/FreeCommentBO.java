@@ -20,4 +20,8 @@ public class FreeCommentBO {
 	public List<FreeComment> getCommentList(int freeId) {
 		return commentDAO.selectCommentListByFreeId(freeId);
 	}
+	//게시물 삭제시 모든 댓글 삭제
+	public int deleteByFreeId(int freeId) {
+		return commentDAO.deleteByFreeId(freeId);
+	}
 }

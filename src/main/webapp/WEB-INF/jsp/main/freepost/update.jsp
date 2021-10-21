@@ -86,15 +86,36 @@
 					data:{"id":id, "subject":subject, "content":content},
 					success:function(data) {
 						if(data.result == "success") {
-							alert("수정에 성공했습니다");
-							location.href = "/main/sportsqna/list_view";
+							alert("수정 성공");
+							location.href = "/main/freepost/list_view";
 						}
 					},
 					error:function(e) {
 						alert("error");	
 					}
 				});
-			})
+			});
+			
+			$("#deleteBtn").on("click", function() {
+				var id = $(this).data("free-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/main/freepost/delete",
+					data:{"id":id},
+					success:function(data) {
+						if(data.result == "success") {
+							alert("삭제 성공");
+							location.href = "/main/freepost/list_view";
+						} else {
+							alert("삭제 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
 		});
 	</script>
 </body>

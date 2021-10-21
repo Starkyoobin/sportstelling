@@ -76,7 +76,7 @@
 					data:{"id":id, "subject":subject, "content":content},
 					success:function(data) {
 						if(data.result == "success") {
-							alert("수정에 성공했습니다");
+							alert("수정 성공");
 							location.href = "/main/sportsqna/list_view";
 						} else {
 							alert("수정 실패");
@@ -97,6 +97,7 @@
 					data:{"id":id},
 					success:function(data) {
 						if(data.result == "success") {
+							alert("삭제 성공");
 							location.href = "/main/sportsqna/list_view";
 						} else {
 							alert("게시물 삭제 실패");

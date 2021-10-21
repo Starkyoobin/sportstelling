@@ -17,4 +17,6 @@ public interface FreeCommentDAO {
 			, @Param("content") String content);
 	//등록된 댓글 보이기
 	public List<FreeComment> selectCommentListByFreeId(@Param("freeId") int freeId);
+	//게시물 삭제시 모든 댓글 삭제
+	public int deleteByFreeId(@Param("freeId") int freeId);
 }

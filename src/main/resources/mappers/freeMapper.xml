@@ -93,4 +93,14 @@
 			AND `id` = #{id }
 			AND `userId` = #{userId }
 	</update>
+	<!-- 게시물 삭제 -->
+	<delete id="deleteFreepost">
+		DELETE
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'free'
+			AND `id` = #{id }
+			AND `userId` = #{userId }
+	</delete>
 </mapper>
