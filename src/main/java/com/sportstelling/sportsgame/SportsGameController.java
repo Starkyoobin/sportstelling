@@ -1,5 +1,7 @@
 package com.sportstelling.sportsgame;
 
+import java.net.URISyntaxException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +18,7 @@ public class SportsGameController {
 	private SportsBO sportsBO;
 	@ResponseBody
 	@GetMapping("/view")
-	public String sportsgameView() {
+	public String sportsgameView() throws URISyntaxException {
 		String sports = sportsBO.getSportsGame();
 		return sports;
 //		model.addAttribute();
