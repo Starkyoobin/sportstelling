@@ -28,9 +28,9 @@
 					<h2>스포츠피드 게시글 작성</h2>			
 				</div>
 				<!-- 업로드할 이미지 미리보기 -->
-				<div class="d-flex justify-content-center" id="image-box">
+				<!-- <div class="d-flex justify-content-center" id="image-box">
 					<img id="image" alt="업로드할 이미지">
-				</div>
+				</div>	-->
 				<!-- 내용 -->
 				<div class="my-3">
 					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput"></textarea>

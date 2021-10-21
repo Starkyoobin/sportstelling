@@ -45,6 +45,11 @@
 						</tr>
 					</thead>
 					<tbody class="text-center">
+						<!-- <tr class="text-secondary text-center">
+							<td></td>
+							<td>게시물 없음</td>
+							<td></td>
+						</tr>	-->
 						<c:forEach var="qna" items="${qnaList }">
 							<tr>
 								<td class="col-3">${qna.userNickName }</td>
@@ -59,8 +64,8 @@
 				</table>
 				
 				<div class="d-flex justify-content-between m-2">
-					<button type="button" id="myPostView" class="btn btn-secondary">내 글만 보기</button>
-					<button type="button" id="myPostView" class="btn btn-secondary d-none">전체글 보기</button>
+					<button type="button" id="myPostView" class="btn btn-secondary">내 글 보기</button>
+					<button type="button" id="allPostView" class="btn btn-secondary d-none">전체 보기</button>
 					<a type="button" href="/main/sportsqna/create_view" class="btn btn-success">글쓰기</a>
 				</div>
 			</div>
@@ -74,7 +79,8 @@
 	<script>
 		$(document).ready(function() {
 			$("#myPostView").on("click", function() {
-				
+				$("#myPostView").addClass("d-none");
+				$("#allPostView").removeClass("d-none");
 			});
 		});
 	</script>

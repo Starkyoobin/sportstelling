@@ -76,6 +76,7 @@
 					data:{"id":id, "subject":subject, "content":content},
 					success:function(data) {
 						if(data.result == "success") {
+							alert("수정에 성공했습니다");
 							location.href = "/main/sportsqna/list_view";
 						} else {
 							alert("수정 실패");

@@ -62,7 +62,7 @@
 			`id` = #{id }
 			AND `type` = 'free'
 	</select>
-	<!-- 게시물 수정 / 삭제 데이터 가져오기 -->
+	<!-- 데이터 불러오기 -->
 	<select id="selectFreepostByIdUserId" resultType="com.sportstelling.freepost.model.Free">
 		SELECT
 			`id`
@@ -81,4 +81,16 @@
 			AND `type` = 'free'
 			AND `userId` = #{userId }
 	</select>
+	<!-- 게시물 수정 -->
+	<update id="updateFreepost" parameterType="map">
+		UPDATE
+			`notice_board`
+		SET
+			`subject` = #{subject }
+			, `content` = #{content }
+		WHERE
+			`type` = 'free'
+			AND `id` = #{id }
+			AND `userId` = #{userId }
+	</update>
 </mapper>

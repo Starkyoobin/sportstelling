@@ -45,11 +45,11 @@
 					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
 					<input type="file" id="fileInput" class="d-none" multiple>
 					
-					<button type="button" id="uploadBtn" class="btn btn-success" data-qna-id="${freepost.id }">수정하기</button>
+					<button type="button" id="uploadBtn" class="btn btn-success" data-free-id="${freepost.id }">수정하기</button>
 				</div>
 				
 				<div class="d-flex justify-content-end m-3">
-					<button type="button" id="deleteBtn" class="btn btn-danger" data-qna-id="${freepost.id }">삭제하기</button>
+					<button type="button" id="deleteBtn" class="btn btn-danger" data-free-id="${freepost.id }">삭제하기</button>
 				</div>
 				
 				<div class="d-flex justify-content-center align-items-center">
@@ -62,5 +62,40 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#uploadBtn").on("click", function() {
+				var id = $(this).data("free-id");
+				var subject = $("#titleInput").val();
+				var content = $("#contentInput").val();
+				
+				if(subject == null || subject == "") {
+					alert("제목을 입력해주세요");
+					return;
+				}
+				
+				if(content == null || content == "") {
+					alert("내용을 입력해주세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/main/freepost/update",
+					data:{"id":id, "subject":subject, "content":content},
+					success:function(data) {
+						if(data.result == "success") {
+							alert("수정에 성공했습니다");
+							location.href = "/main/sportsqna/list_view";
+						}
+					},
+					error:function(e) {
+						alert("error");	
+					}
+				});
+			})
+		});
+	</script>
 </body>
 </html>

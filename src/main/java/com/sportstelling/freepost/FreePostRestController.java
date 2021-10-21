@@ -21,7 +21,7 @@ public class FreePostRestController {
 	@Autowired
 	private FreeBO freeBO;
 	
-	//자유게시판 게시물 작성
+	//게시물 작성
 	@PostMapping("/create")
 	public Map<String, String> freepostCreate(
 			@RequestParam("subject") String subject
@@ -37,6 +37,28 @@ public class FreePostRestController {
 		Map<String, String> result = new HashMap<>();
 		
 		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
+	//게시물 수정
+	@PostMapping("/update")
+	public Map<String, String> updateQnA(
+			@RequestParam("id") int id
+			, @RequestParam("subject") String subject
+			, @RequestParam("content") String content
+			, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		Map<String, String> result = new HashMap<>();
+		
+		int count = freeBO.updateFreepost(id, userId, subject, content);
+		
+		if(count != 0) {
 			result.put("result", "success");
 		} else {
 			result.put("result", "fail");

@@ -36,5 +36,6 @@
 			`free_comment`
 		WHERE
 			`freeId` = #{freeId }
+		ORDER BY `id` DESC
 	</select>
 </mapper>

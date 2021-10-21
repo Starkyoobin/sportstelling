@@ -20,7 +20,7 @@ public class FreeBO {
 	@Autowired
 	private FreeCommentBO commentBO;
 	
-	//자유게시판 게시물 작성
+	//게시물 작성
 	public int addFreepost(int userId, String userNickName, String subject, MultipartFile file, String content) {
 		String filePath = null;
 		
@@ -33,11 +33,11 @@ public class FreeBO {
 		}
 		return freeDAO.insertFreepost(userId, userNickName, subject, filePath, content);
 	}
-	//자유게시판 리스트
+	//리스트
 	public List<Free> getFreepostList() {
 		return freeDAO.selectFreepostList();
 	}
-	//자유게시판 게시물 상세
+	//게시물 상세
 	public FreeDetail getFreepost(int id) {
 		List<FreeComment> commentList = commentBO.getCommentList(id);
 		
@@ -46,8 +46,12 @@ public class FreeBO {
 		freeDetail.setCommentList(commentList);
 		return freeDetail;
 	}
-	//자유게시판 수정 / 삭제 데이터 불러오기
+	//수정 / 삭제 데이터 불러오기
 	public Free getFreepostByIdUserId(int id, int userId) {
 		return freeDAO.selectFreepostByIdUserId(id, userId);
+	}
+	//게시물 수정
+	public int updateFreepost(int id, int userId, String subject, String content) {
+		return freeDAO.updateFreepost(id, userId, subject, content);
 	}
 }
