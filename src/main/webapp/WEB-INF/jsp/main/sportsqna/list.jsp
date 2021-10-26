@@ -26,15 +26,29 @@
 			
 			<div class="col-lg-8">
 				<h2 class="text-center my-3">스포츠Q&A</h2>
-				<div class="m-4 d-flex justify-content-center">
-					<select>
-						<option value="all">전체</option>
-						<option value="nickName">닉네임</option>
-						<option value="title">제목</option>
-					</select>
-					<input type="text" id="searchInput" class="form-control">
-					<button class="btn btn-info" id="searchBtn">검색</button>
-				</div>
+				<form id="searchForm">				
+					<div class="m-4 d-flex justify-content-center">
+						<select>
+							<option value="all">전체</option>
+							<option value="nickName">닉네임</option>
+							<option value="title">제목</option>
+						</select>
+						<input type="text" name="search" id="searchInput" class="form-control">
+						<input type="submit" class="btn btn-info" id="searchBtn" value="검색">
+					</div>
+				</form>
+				
+				<c:choose>
+					<c:when test="${not empty keyword }">
+						<p>
+							<strong>${keyword} </strong>키워드로 검색된
+							<strong>${totalRow }</strong>개의 파일이 있습니다.
+						</p>
+					</c:when>
+					<c:otherwise>
+						<p><strong>${totalRow }</strong>개의 파일이 있습니다.</p>
+					</c:otherwise>
+				</c:choose>
 				
 				<table class="table">
 					<thead class="text-center">
@@ -78,9 +92,16 @@
 	
 	<script>
 		$(document).ready(function() {
+			/*
 			$("#myPostView").on("click", function() {
 				$("#myPostView").addClass("d-none");
 				$("#allPostView").removeClass("d-none");
+			});	*/
+			
+			$("#searchBtn").on("click", function(e) {
+				var searchContent = $("#searchInput").val().trim();
+				
+				if(searchContent.)
 			});
 		});
 	</script>
