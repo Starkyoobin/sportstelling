@@ -1,8 +1,6 @@
 package com.sportstelling.sportsqna;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,6 +27,20 @@ public class QnAController {
 		List<QnA> qnaList = qnaBO.getQnAList();
 		
 		model.addAttribute("qnaList", qnaList);
+		
+		return "main/sportsqna/list";
+	}
+	//스포츠Q&A 게시판 내 글 보기
+	@GetMapping("/myqna_view")
+	public String myqnaView(
+			HttpServletRequest request
+			, Model model) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		List<QnA> myqnaList = qnaBO.getQnAListByUserId(userId);
+		
+		model.addAttribute("myqnaList", myqnaList);
 		
 		return "main/sportsqna/list";
 	}

@@ -129,7 +129,7 @@
 					}
 				});
 			});
-			/*
+			
 			$("#deleteBtn").on("click", function() {
 				$.ajax({
 					type:"get",
@@ -146,7 +146,7 @@
 						alert("error");
 					}
 				});
-			});	*/
+			});	
 		});
 	</script>
 </body>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,10 +58,21 @@
 								</td>
 							</tr>
 						</c:forEach>
+						<c:forEach var="qna" items="${myqnaList }">
+							<tr>
+								<td class="col-3">${qna.userNickName }</td>
+								<td class="col-7"><a href="/main/sportsqna/detail_view?id=${qna.id }" class="text-dark">${qna.subject }</a></td>
+								<td class="col-2">
+									<fmt:formatDate var="createdAt" value="${qna.createdAt }" pattern="yyyy-MM-dd" />
+									${createdAt }
+								</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				
 				<div class="d-flex justify-content-between m-2">
+				<c:set var="URL" value="${pageContext.request.requestURL}" />
 					<button type="button" id="myPostView" class="btn btn-secondary">내 글 보기</button>
 					<button type="button" id="allPostView" class="btn btn-secondary d-none">전체 보기</button>
 					<a type="button" href="/main/sportsqna/create_view" class="btn btn-success">글쓰기</a>
@@ -80,27 +92,17 @@
 				$("#myPostView").addClass("d-none");
 				$("#allPostView").removeClass("d-none");
 				
-				$.ajax({
-					type:"get",
-					url:"/main/sportsqna/myqna",
-					success:function(data) {
-						if(data.result == "success") {
-							
-						} else {
-							
-						}
-					},
-					error:function(e) {
-						alert("error");
-					}
-				});
+				location.href = "/main/sportsqna/myqna_view";
 			});
 			
 			$("#allPostView").on("click", function() {
+				$("#myPostView").removeClass("d-none");
+				$("#allPostView").addClass("d-none");
+				
 				location.href = "/main/sportsqna/list_view";
 			});
 			/*
-			$("#searchBtn").on("click", function(e) {
+			$("#searchForm").on("submit", function(e) {
 				var searchContent = $("#searchInput").val().trim();
 				
 				if(searchContent.)

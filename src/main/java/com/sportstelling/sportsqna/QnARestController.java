@@ -1,14 +1,12 @@
 package com.sportstelling.sportsqna;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sportstelling.sportsqna.bo.QnABO;
-import com.sportstelling.sportsqna.model.QnA;
 
 @RestController
 @RequestMapping("/main/sportsqna")
@@ -82,28 +79,6 @@ public class QnARestController {
 		Map<String, String> result = new HashMap<>();
 		
 		if(count != 0) {
-			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
-		}
-		
-		return result;
-	}
-	//내 글만 보기
-	@GetMapping("/myqna")
-	public Map<String, String> myqnaView(
-			Model model
-			, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		int userId = (Integer)session.getAttribute("userId");
-		
-		List<QnA> myQnAList = qnaBO.getQnAListByUserId(userId);
-		
-		model.addAttribute("myQnAList", myQnAList);
-		
-		Map<String, String> result = new HashMap<>();
-		
-		if(myQnAList != null) {
 			result.put("result", "success");
 		} else {
 			result.put("result", "fail");

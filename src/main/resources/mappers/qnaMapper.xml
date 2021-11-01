@@ -120,5 +120,6 @@
 		WHERE
 			`type` = 'qna'
 			AND `userId` = #{userId }
+		ORDER BY `id` DESC
 	</select>
 </mapper>
