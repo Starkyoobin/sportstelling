@@ -89,4 +89,26 @@ public class QnARestController {
 		
 		return result;
 	}
+	//내 글만 보기
+	@GetMapping("/myqna")
+	public Map<String, String> myqnaView(
+			Model model
+			, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		List<QnA> myQnAList = qnaBO.getQnAListByUserId(userId);
+		
+		model.addAttribute("myQnAList", myQnAList);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(myQnAList != null) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
 }

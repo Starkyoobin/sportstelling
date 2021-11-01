@@ -23,15 +23,15 @@
 					<h2 class="text-center">회원가입</h2>
 					<form id="signUpForm">
 						<div class="input-group mt-3">
-							<input type="text" id="loginIdInput" class="form-control" placeholder="아이디">
+							<input type="text" id="loginIdInput" class="form-control" name="loginId" placeholder="아이디">
 							<div class="input-group-addon">							
 								<button type="button" id="idIsDuplicateBtn" class="btn btn-primary input-group-button">중복체크</button>
 							</div>								
 						</div>
 						<div id="idDuplicateDiv" class="d-none"><small class="text-danger">중복된 ID 입니다.</small></div>
 						<div id="idNoneDuplicateDiv" class="d-none"><small class="text-success">사용 가능한 ID 입니다.</small></div>
-						<input type="password" id="passwordInput" class="form-control mt-3" placeholder="비밀번호">
-						<input type="password" id="passwordConfirmInput" class="form-control mt-3" placeholder="비밀번호 확인">
+						<input type="password" id="passwordInput" name="password" class="form-control mt-3" placeholder="비밀번호">
+						<input type="password" id="passwordConfirmInput" name="passwordConfirm" class="form-control mt-3" placeholder="비밀번호 확인">
 						
 						<input type="text" id="nameInput" class="form-control mt-3" placeholder="이름">
 						<div class="input-group mt-3">
@@ -147,6 +147,27 @@
 						alert("error");
 					}
 				});
+			});
+			//ID 영문, 숫자
+			$("input[name=loginId]").keyup(function(event) {
+				if(!(event.keyCode >= 37 && event.keyCode <= 40)) {
+					var inputVal = $(this).val();
+					$(this).val(inputVal.replace(/[^A-Za-z0-9~!@\#$%<>^&*?]/gi,''));
+				}
+			});
+			//비밀번호 영문, 숫자
+			$("input[name=password]").keyup(function(event) {
+				if(!(event.keyCode >= 37 && event.keyCode <= 40)) {
+					var inputVal = $(this).val();
+					$(this).val(inputVal.replace(/[^A-Za-z0-9~!@\#$%<>^&*?]/gi,''));
+				}
+			});
+			//비밀번호확인 영문, 숫자
+			$("input[name=passwordConfirm]").keyup(function(event) {
+				if(!(event.keyCode >= 37 && event.keyCode <= 40)) {
+					var inputVal = $(this).val();
+					$(this).val(inputVal.replace(/[^A-Za-z0-9~!@\#$%<>^&*?]/gi,''));
+				}
 			});
 			//ID 중복체크
 			$("#idIsDuplicateBtn").on("click", function() {

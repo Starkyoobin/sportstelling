@@ -13,7 +13,7 @@
 			<label><b>이메일</b></label> <br>
 			<span>${email }</span>
 		</div>
-		<a href="/sign/update_view" id="userUpdateBtn" type="button" class="mt-3 btn btn-secondary text-light d-flex justify-content-center">회원정보 변경</a>
+		<a href="/main/update_view" id="userUpdateBtn" type="button" class="mt-3 btn btn-secondary text-light d-flex justify-content-center">회원정보 변경</a>
 		<a href="/sign/out" id="signoutBtn" type="button" class="mt-3 btn btn-danger text-light d-flex justify-content-center">로그아웃</a>
 	</c:if>
 </div>

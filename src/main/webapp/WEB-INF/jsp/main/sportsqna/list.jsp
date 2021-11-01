@@ -38,18 +38,6 @@
 					</div>
 				</form>
 				
-				<c:choose>
-					<c:when test="${not empty keyword }">
-						<p>
-							<strong>${keyword} </strong>키워드로 검색된
-							<strong>${totalRow }</strong>개의 파일이 있습니다.
-						</p>
-					</c:when>
-					<c:otherwise>
-						<p><strong>${totalRow }</strong>개의 파일이 있습니다.</p>
-					</c:otherwise>
-				</c:choose>
-				
 				<table class="table">
 					<thead class="text-center">
 						<tr>
@@ -58,12 +46,7 @@
 							<th class="col-2">작성날짜</th>
 						</tr>
 					</thead>
-					<tbody class="text-center">
-						<!-- <tr class="text-secondary text-center">
-							<td></td>
-							<td>게시물 없음</td>
-							<td></td>
-						</tr>	-->
+					<tbody class="text-center"> 
 						<c:forEach var="qna" items="${qnaList }">
 							<tr>
 								<td class="col-3">${qna.userNickName }</td>
@@ -92,17 +75,36 @@
 	
 	<script>
 		$(document).ready(function() {
-			/*
+			
 			$("#myPostView").on("click", function() {
 				$("#myPostView").addClass("d-none");
 				$("#allPostView").removeClass("d-none");
-			});	*/
+				
+				$.ajax({
+					type:"get",
+					url:"/main/sportsqna/myqna",
+					success:function(data) {
+						if(data.result == "success") {
+							
+						} else {
+							
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
 			
+			$("#allPostView").on("click", function() {
+				location.href = "/main/sportsqna/list_view";
+			});
+			/*
 			$("#searchBtn").on("click", function(e) {
 				var searchContent = $("#searchInput").val().trim();
 				
 				if(searchContent.)
-			});
+			});	*/
 		});
 	</script>
 </body>

@@ -66,4 +66,5 @@ public class QnABO {
 	public List<QnA> getQnAListByUserId(int userId) {
 		return qnaDAO.selectQnAByUserId(userId);
 	}
+	//게시물 검색
 }

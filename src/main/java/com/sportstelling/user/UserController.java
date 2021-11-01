@@ -46,19 +46,5 @@ public class UserController {
 		session.removeAttribute("email");
 		
 		return "redirect:/sign/in_view";
-	}
-	//회원정보 변경 화면
-	@GetMapping("/update_view")
-	public String userUpdateView(
-			Model model
-			, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String loginId = (String)session.getAttribute("userLoginId");
-		
-		User user = signBO.getUserInformation(loginId);
-		
-		model.addAttribute("user", user);
-		
-		return "sign/update";
 	}	
 }
