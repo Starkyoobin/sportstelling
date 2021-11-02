@@ -27,10 +27,6 @@
 				<div class="d-flex justify-content-center my-3">
 					<h2>스포츠피드 게시글 작성</h2>			
 				</div>
-				<!-- 업로드할 이미지 미리보기 -->
-				<!-- <div class="d-flex justify-content-center" id="image-box">
-					<img id="image" alt="업로드할 이미지">
-				</div>	-->
 				<!-- 내용 -->
 				<div class="my-3">
 					<textarea class="form-control w-100 non-resize" rows="10" id="contentInput"></textarea>
@@ -38,7 +34,12 @@
 				
 				<div class="d-flex justify-content-between m-3">
 					<a href="#" id="imageUploadBtn"><i class="bi bi-image image-upload-icon"></i></a>
-					<input type="file" id="fileInput" class="d-none" multiple>
+					<input type="file" id="input_img" class="d-none" multiple>
+					
+					<!-- 업로드할 이미지 미리보기 -->
+					<!-- <div class="d-flex justify-content-center" id="image-box">
+						<img id="img" alt="업로드할 이미지">
+					</div> -->
 					
 					<button type="button" id="uploadBtn" class="btn btn-success">업로드</button>
 				</div>
@@ -57,7 +58,7 @@
 	<script>
 		$(document).ready(function() {
 			$("#imageUploadBtn").on("click", function() {
-				$("#fileInput").click();
+				$("#input_img").click();
 			});
 			
 			$("#uploadBtn").on("click", function() {
@@ -68,14 +69,14 @@
 					return;
 				}
 				
-				if($("#fileInput")[0].files.length == 0) {
+				if($("#input_img")[0].files.length == 0) {
 					alert("이미지 파일을 추가해주세요");
 					return;
 				}
 				
 				var formData = new FormData();
 				formData.append("content", content);
-				formData.append("file", $("#fileInput")[0].files[0]);
+				formData.append("file", $("#input_img")[0].files[0]);
 				
 				$.ajax({
 					enctype:"multipart/form-data",

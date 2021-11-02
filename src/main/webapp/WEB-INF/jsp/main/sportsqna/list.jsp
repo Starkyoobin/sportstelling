@@ -72,10 +72,19 @@
 				</table>
 				
 				<div class="d-flex justify-content-between m-2">
-					<c:set var="URL" value="${pageContext.request.requestURL}" />
 					
-					<button type="button" id="myPostView" class="btn btn-secondary">내 글 보기</button>
-					<button type="button" id="allPostView" class="btn btn-secondary d-none">전체 보기</button>
+					<!-- 현재 페이지 주소의 jsp주소 -->
+					<c:set var="URI" value="${pageContext.request.requestURI}" />
+					<!-- 현재 페이지 주소값 -->
+					<c:set var="URL" value="${requestScope['javax.servlet.forward.request_uri']}" />
+					<c:choose>
+						<c:when test="${URL eq '/main/sportsqna/list_view' }">
+							<button type="button" id="myPostView" class="btn btn-secondary">내 글 보기</button>						
+						</c:when>
+						<c:otherwise>						
+							<button type="button" id="allPostView" class="btn btn-secondary">전체 보기</button>
+						</c:otherwise>
+					</c:choose>
 					<a type="button" href="/main/sportsqna/create_view" class="btn btn-success">글쓰기</a>
 				</div>
 			</div>
