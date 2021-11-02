@@ -103,4 +103,23 @@
 			AND `id` = #{id }
 			AND `userId` = #{userId }
 	</delete>
+	<!-- 내 게시물만 보기 -->
+	<select id="selectFreePostByUserId" resultType="com.sportstelling.freepost.model.Free">
+		SELECT
+			`id`
+			, `type`
+			, `userId`
+			, `userNickName`
+			, `subject`
+			, `imagePath`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'free'
+			AND `userId` = #{userId }
+		ORDER BY `id` DESC
+	</select>
 </mapper>

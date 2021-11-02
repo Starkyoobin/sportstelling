@@ -31,6 +31,20 @@ public class FreePostController {
 		
 		return "main/freepost/list";
 	}
+	//자유게시판 게시판 내 글 보기
+	@GetMapping("/myfreepost_view")
+	public String myqnaView(
+			HttpServletRequest request
+			, Model model) {
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		List<Free> myFreePostList = freeBO.getFreePostListByUserId(userId);
+		
+		model.addAttribute("myFreePostList", myFreePostList);
+		
+		return "main/freepost/list";
+	}
 	//자유게시판 게시물 작성
 	@GetMapping("/create_view")
 	public String freeCreateView() {

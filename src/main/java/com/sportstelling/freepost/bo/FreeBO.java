@@ -33,6 +33,10 @@ public class FreeBO {
 		}
 		return freeDAO.insertFreepost(userId, userNickName, subject, filePath, content);
 	}
+	//자유게시판 내 글 보기
+	public List<Free> getFreePostListByUserId(int userId) {
+		return freeDAO.selectFreePostByUserId(userId);
+	}
 	//리스트
 	public List<Free> getFreepostList() {
 		return freeDAO.selectFreepostList();

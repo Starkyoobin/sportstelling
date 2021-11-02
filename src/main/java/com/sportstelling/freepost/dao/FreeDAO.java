@@ -34,4 +34,6 @@ public interface FreeDAO {
 	public int deleteFreepost(
 			@Param("id") int id
 			, @Param("userId") int userId);
+	//내 글만 보기
+	public List<Free> selectFreePostByUserId(@Param("userId") int userId);
 }

@@ -72,7 +72,8 @@
 				</table>
 				
 				<div class="d-flex justify-content-between m-2">
-				<c:set var="URL" value="${pageContext.request.requestURL}" />
+					<c:set var="URL" value="${pageContext.request.requestURL}" />
+					
 					<button type="button" id="myPostView" class="btn btn-secondary">내 글 보기</button>
 					<button type="button" id="allPostView" class="btn btn-secondary d-none">전체 보기</button>
 					<a type="button" href="/main/sportsqna/create_view" class="btn btn-success">글쓰기</a>

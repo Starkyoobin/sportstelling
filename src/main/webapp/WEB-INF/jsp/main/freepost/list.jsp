@@ -45,6 +45,16 @@
 						</tr>
 					</thead>
 					<tbody class="text-center">
+						<c:forEach var="freepost" items="${myFreePostList }">
+							<tr>
+								<td class="col-3">${freepost.userNickName }</td>
+								<td class="col-7"><a href="/main/freepost/detail_view?id=${freepost.id }" class="text-dark">${freepost.subject }</a></td>
+								<td class="col-2">
+									<fmt:formatDate var="createdAt" value="${freepost.createdAt }" pattern="yyyy-MM-dd" />
+									${createdAt }
+								</td>
+							</tr>
+						</c:forEach>
 						<c:forEach var="freepost" items="${freepostList }">
 							<tr>
 								<td class="col-3">${freepost.userNickName }</td>
@@ -59,7 +69,10 @@
 				</table>
 				
 				<div class="d-flex justify-content-between m-2">
+					<c:set var="URL" value="${pageContext.request.requestURL}" />
+					
 					<button type="button" id="myPostView" class="btn btn-secondary">내 글만 보기</button>
+					<button type="button" id="allPostView" class="btn btn-secondary d-none">전체 보기</button>
 					<a type="button" href="/main/freepost/create_view" class="btn btn-success">글쓰기</a>
 				</div>
 			</div>
@@ -69,5 +82,16 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#myPostView").on("click", function() {
+				$("#myPostView").addClass("d-none");
+				$("#allPostView").removeClass("d-none");
+				
+				location.href = "/main/freepost/myfreepost_view";
+			});
+		});
+	</script>
 </body>
 </html>
