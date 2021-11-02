@@ -123,9 +123,14 @@
 	<update id="updateUser">
 		UPDATE
 			`user`
-		SET
-			`password` = #{password }
-			, `email` = #{email }
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="password != null">
+				`password` = #{password },
+			</if>
+			<if test="email != null">
+				`email` = #{email }
+			</if>
+		</trim>
 		WHERE
 			`id` = #{id }
 	</update>

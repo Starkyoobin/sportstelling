@@ -70,6 +70,31 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<!-- 
+				<div class="d-flex justify-content-center">
+					<c:if test="${pagination.currentRange ne 1 }">
+	                    <a href="#" onClick="fn_paging(1)">[처음]</a> 
+	                </c:if>
+	                <c:if test="${pagination.currentPage ne 1}">
+	                    <a href="#" onClick="fn_paging('${pagination.previousPage }')">[이전]</a> 
+	                </c:if>
+	                <c:forEach var="pageNum" begin="${pagination.startPage }" end="${pagination.endPage }">
+	                    <c:choose>
+	                        <c:when test="${pageNum eq  pagination.currentPage}">
+	                            <span style="font-weight: bold;"><a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a></span> 
+	                        </c:when>
+	                        <c:otherwise>
+	                            <a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a> 
+	                        </c:otherwise>
+	                    </c:choose>
+	                </c:forEach>
+	                <c:if test="${pagination.currentPage ne pagination.pageCount && pagination.pageCount > 0}">
+	                    <a href="#" onClick="fn_paging('${pagination.nextPage }')">[다음]</a> 
+	                </c:if>
+	                <c:if test="${pagination.currentRange ne pagination.rangeCount && pagination.rangeCount > 0}">
+	                    <a href="#" onClick="fn_paging('${pagination.pageCount }')">[끝]</a> 
+	                </c:if>
+				</div>	 -->
 				
 				<div class="d-flex justify-content-between m-2">
 					

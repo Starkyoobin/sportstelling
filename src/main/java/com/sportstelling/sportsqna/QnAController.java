@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sportstelling.sportsqna.bo.QnABO;
 import com.sportstelling.sportsqna.model.QnA;
 import com.sportstelling.sportsqna.model.QnADetail;
+import com.sportstelling.sportsqna.page.QnAPagination;
 
 @Controller
 @RequestMapping("/main/sportsqna")
@@ -23,10 +24,21 @@ public class QnAController {
 	private QnABO qnaBO;
 	//스포츠Q&A 게시판
 	@GetMapping("/list_view")
-	public String qnaView(Model model) {
+	public String qnaView(
+			@RequestParam(defaultValue = "1") int currentPage
+			, Model model) {
+		//전체리스트 개수
+		int listCount = qnaBO.getQnaCount();
+		
+		QnAPagination pagination = new QnAPagination(listCount, currentPage);
+		pagination.getStartIndex();
+		pagination.getPageSize();
+		
 		List<QnA> qnaList = qnaBO.getQnAList();
 		
 		model.addAttribute("qnaList", qnaList);
+		model.addAttribute("listCount", listCount);
+		model.addAttribute("pagination", pagination);
 		
 		return "main/sportsqna/list";
 	}

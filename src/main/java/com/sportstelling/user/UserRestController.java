@@ -142,43 +142,4 @@ public class UserRestController {
 		Email dto = signBO.sendEmail(loginId, email);
 		signBO.mailSend(dto);
 	}
-	//정보 변경
-	@PostMapping("/update")
-	public Map<String, String> updateInformation(
-			@RequestParam("password") String password
-			, @RequestParam("email") String email
-			, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		int userId = (Integer)session.getAttribute("userId");
-		
-		int count = signBO.updateUser(userId, password, email);
-		
-		Map<String, String> result = new HashMap<>();
-		
-		if(count != 0) {
-			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
-		}
-		
-		return result;
-	}
-	//회원 탈퇴
-	@GetMapping("/delete")
-	public Map<String, String> deleteUser(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		int id = (Integer)session.getAttribute("id");
-		
-		int count = signBO.deleteUser(id);
-		
-		Map<String, String> result = new HashMap<>();
-		
-		if(count == 1) {
-			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
-		}
-		
-		return result;
-	}
 }

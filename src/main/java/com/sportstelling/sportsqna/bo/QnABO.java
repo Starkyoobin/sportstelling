@@ -33,6 +33,10 @@ public class QnABO {
 		}
 		return qnaDAO.insertQnA(userId, userNickName, subject, filePath, content);
 	}
+	//스포츠Q&A 전체 게시물 수
+	public int getQnaCount() {
+		return qnaDAO.selectQnaCount();
+	}
 	//스포츠Q&A 게시물 리스트
 	public List<QnA> getQnAList() {
 		return qnaDAO.selectQnAList();

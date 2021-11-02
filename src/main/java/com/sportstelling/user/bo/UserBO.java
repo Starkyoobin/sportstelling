@@ -11,6 +11,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.sportstelling.common.EncryptUtils;
+import com.sportstelling.freepost.bo.FreeBO;
+import com.sportstelling.sportsfeed.bo.PostBO;
+import com.sportstelling.sportsqna.bo.QnABO;
 import com.sportstelling.user.dao.UserDAO;
 import com.sportstelling.user.model.Email;
 import com.sportstelling.user.model.User;
@@ -22,6 +25,12 @@ import lombok.AllArgsConstructor;
 public class UserBO {
 	@Autowired
 	private UserDAO signDAO;
+	@Autowired
+	private PostBO postBO;
+	@Autowired
+	private QnABO qnaBO;
+	@Autowired
+	private FreeBO freeBO;
 	@Autowired
 	private JavaMailSender mailSender;
 	private static final String FROM_ADDRESS = "yb010626@gmail.com";

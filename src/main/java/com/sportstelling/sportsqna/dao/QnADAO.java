@@ -16,6 +16,8 @@ public interface QnADAO {
 			, @Param("subject") String subject
 			, @Param("imagePath") String imagePath
 			, @Param("content") String content);
+	//스포츠Q&A 전체 게시물 수
+	public int selectQnaCount();
 	//스포츠Q&A 게시물 리스트
 	public List<QnA> selectQnAList();
 	//스포츠Q&A 게시물 상세

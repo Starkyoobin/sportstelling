@@ -17,3 +17,24 @@
 		<a href="/sign/out" id="signoutBtn" type="button" class="mt-3 btn btn-danger text-light d-flex justify-content-center">로그아웃</a>
 	</c:if>
 </div>
+<script>
+	var idleTime = 0;
+	$(document).ready(function() {
+		var idleInterval = setInterval(timerIncrement, 60000);
+		//일정시간 움직임 있으면 초기화
+		$(this).mousemove(function(e) {
+			idleTime = 0;
+		});
+		$(this).keypress(function(e) {
+			idleTime = 0;
+		});
+	});
+	
+	function timerIncrement() {
+		idleTime = idleTime + 1;
+		
+		if(idleTime > 29) {		//30 minutes
+			location.href = "/sign/out";
+		}
+	};
+</script>

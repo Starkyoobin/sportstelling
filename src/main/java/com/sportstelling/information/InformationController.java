@@ -14,7 +14,7 @@ import com.sportstelling.user.model.User;
 
 @Controller
 @RequestMapping("/main")
-public class UserUpdate {
+public class InformationController {
 	@Autowired
 	private UserBO signBO;
 	

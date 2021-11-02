@@ -68,8 +68,8 @@
 						<input type="text" id="emailInput" class="form-control" value="${user.email }">						
 					</div>
 					
-					<button type="button" class="btn btn-success form-control mt-3" id="updateBtn">정보 수정</button>
-					<button type="button" class="btn btn-danger form-control mt-3"  data-toggle="modal" data-target="#deleteModal">회원 탈퇴</button>
+					<button type="button" class="btn btn-success form-control mt-3" id="updateBtn">정보 변경</button>
+					<!-- <button type="button" class="btn btn-danger form-control mt-3"  data-toggle="modal" data-target="#deleteModal">회원 탈퇴</button>		-->
 				</form>
 			</div>
 			
@@ -114,7 +114,7 @@
 				
 				$.ajax({
 					type:"post",
-					url:"/sign/update",
+					url:"/main/user/update",
 					data:{"password":password, "email":email},
 					success:function(data) {
 						if(data.result == "success") {
@@ -133,10 +133,11 @@
 			$("#deleteBtn").on("click", function() {
 				$.ajax({
 					type:"get",
-					url:"/sign/delete",
+					url:"/main/user/delete",
 					data:{},
 					success:function(data) {
 						if(data.result == "success") {
+							location.href = "/sign/out";
 							location.href = "/sign/in_view";
 						} else {
 							alert("회원 탈퇴 실패");

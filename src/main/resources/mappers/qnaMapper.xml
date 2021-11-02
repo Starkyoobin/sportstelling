@@ -26,6 +26,15 @@
 			, now()
 		)
 	</insert>
+	<!-- 게시물 수-->
+	<select id="selectQnaCount" resultType="int">
+		SELECT
+			count(*)
+		FROM
+			`notice_board`
+		WHERE
+			`type` = 'qna'
+	</select>
 	<!-- 게시물 리스트 -->
 	<select id="selectQnAList" resultType="com.sportstelling.sportsqna.model.QnA">
 		SELECT
