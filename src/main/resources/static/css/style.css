@@ -13,12 +13,16 @@ footer{
 	height:75px;
 }
 
+#year{
+	font-size:40px;
+}
+
 #date{
-	font-size:22px;
+	font-size:40px;
 }
 
 #time{
-	font-size:25px;
+	font-size:30px;
 }
 
 .sign-section{
@@ -49,14 +53,14 @@ nav{
 	height:50px;
 }
 
-.nav > .nav-item > .nav-link {
+#main-nav > .nav-item > .nav-link {
     background-color:blue; 
     color:white; 
     font-size:15px;
     font-weight: bold;
 }
 
-.nav > .nav-item > a:hover {
+#main-nav > .nav-item > a:hover {
     background-color:rgb(125,232,132);
 }
 

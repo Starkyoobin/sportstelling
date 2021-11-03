@@ -24,11 +24,36 @@
 			<c:import url="/WEB-INF/jsp/include/time.jsp" />
 			
 			<div class="col-lg-8">
-				<h2 class="text-center my-3">스포츠경기</h2>
-			</div>
-			
-			<div>
-				${ateamHanNm }
+				<h2 class="text-center my-3">경기결과</h2>
+				<!-- 
+				<nav>
+					<ul class="nav nav-fill" id="sport-nav">
+						<li class="nav-item"><a class="nav-link" href="#">ALL</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">축구</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">야구</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">농구</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">배구</a></li>
+					</ul>
+				</nav>
+				-->
+				<table class="table">
+					<thead class="text-center">
+						<tr>						
+							<th class="col-4">홈팀</th>
+							<th class="col-4">경기결과</th>
+							<th class="col-4">원정팀</th>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+						<c:forEach var="sport" items="${sports }">
+							<tr>							
+								<td class="col-4">${sport.hteamHanNm }</td>
+								<td class="col-4">${sport.matchEnd }</td>
+								<td class="col-4">${sport.ateamHanNm }</td>
+							</tr>
+						</c:forEach>						
+					</tbody>
+				</table>
 			</div>
 			
 			<c:import url="/WEB-INF/jsp/include/information.jsp" />

@@ -170,11 +170,18 @@
 				}
 			});
 			//ID 중복체크
-			$("#idIsDuplicateBtn").on("click", function() {
+			$("#idIsDuplicateBtn").on("click", function(e) {
+				e.preventDefault();
+				
 				var loginId = $("#loginIdInput").val();
 				
 				if(loginId == null || loginId == "") {
 					alert("아이디를 입력해주세요");
+					return;
+				}
+				
+				if(loginId.length > 16) {
+					alert("아이디를 16자 이하로 입력해주세요");
 					return;
 				}
 				
@@ -208,6 +215,11 @@
 				
 				if(nickName == null || nickName == "") {
 					alert("닉네임을 입력해주세요");
+					return;
+				}
+				
+				if(nickName.length > 32) {
+					alert("닉네임을 32자 이하로 입력해주세요");
 					return;
 				}
 				
