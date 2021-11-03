@@ -10,5 +10,11 @@
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
-### 💻 Project 설명
+### 💻 Project 설명 💻
 Sportstelling은 **스포츠 커뮤니티 사이트**입니다. 
+
+### 📝 기획 및 설계 📝
+- **UI 기획**  
+https://ovenapp.io/project/uVAIVEtjudz5TcbYhbhdu3WFsAYgffRq#qoavO
+- **DB, URL, 일정 설계**  
+https://docs.google.com/spreadsheets/d/1x_pGcri3MjROVT6lBoW3v1NM0yjyxMhDhiYOBnoqne8/edit#gid=0
