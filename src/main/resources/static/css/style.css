@@ -13,6 +13,14 @@ footer{
 	height:75px;
 }
 
+#date{
+	font-size:22px;
+}
+
+#time{
+	font-size:25px;
+}
+
 .sign-section{
 	height:500px;
 }

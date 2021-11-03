@@ -26,6 +26,11 @@ public class PermissionInterceptor implements HandlerInterceptor{
 				response.sendRedirect("/main/sportsfeed/view");
 				return false;
 			}
+		} else {
+			if(uri.startsWith("/main")) {
+				response.sendRedirect("/sign/in_view");
+				return false;
+			}
 		}
 		
 		return true;

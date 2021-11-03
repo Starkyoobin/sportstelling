@@ -34,6 +34,7 @@
 		idleTime = idleTime + 1;
 		
 		if(idleTime > 29) {		//30 minutes
+			location.reload();
 			location.href = "/sign/out";
 		}
 	};

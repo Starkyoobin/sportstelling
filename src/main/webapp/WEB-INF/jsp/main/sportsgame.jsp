@@ -27,6 +27,10 @@
 				<h2 class="text-center my-3">스포츠경기</h2>
 			</div>
 			
+			<div>
+				${ateamHanNm }
+			</div>
+			
 			<c:import url="/WEB-INF/jsp/include/information.jsp" />
 		</section>
 		

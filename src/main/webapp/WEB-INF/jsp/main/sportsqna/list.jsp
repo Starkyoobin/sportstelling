@@ -27,7 +27,7 @@
 			
 			<div class="col-lg-8">
 				<h2 class="text-center my-3">스포츠Q&A</h2>
-				<form id="searchForm">				
+				<!-- <form id="searchForm">				
 					<div class="m-4 d-flex justify-content-center">
 						<select>
 							<option value="all">전체</option>
@@ -37,7 +37,7 @@
 						<input type="text" name="search" id="searchInput" class="form-control">
 						<input type="submit" class="btn btn-info" id="searchBtn" value="검색">
 					</div>
-				</form>
+				</form>		-->
 				
 				<table class="table">
 					<thead class="text-center">

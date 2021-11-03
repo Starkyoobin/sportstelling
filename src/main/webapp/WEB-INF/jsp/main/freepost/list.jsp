@@ -26,15 +26,17 @@
 			
 			<div class="col-lg-8">
 				<h2 class="text-center my-3">자유게시판</h2>
-				<div class="m-4 d-flex justify-content-center">
-					<select>
-						<option value="all">전체</option>
-						<option value="nickName">닉네임</option>
-						<option value="title">제목</option>
-					</select>
-					<input type="text" id="searchInput" class="form-control">
-					<button class="btn btn-info" id="searchBtn">검색</button>
-				</div>
+				<!-- <form id="searchForm">				
+					<div class="m-4 d-flex justify-content-center">
+						<select>
+							<option value="all">전체</option>
+							<option value="nickName">닉네임</option>
+							<option value="title">제목</option>
+						</select>
+						<input type="text" id="searchInput" class="form-control">
+						<button class="btn btn-info" id="searchBtn">검색</button>
+					</div>
+				</form>		-->
 				
 				<table class="table">
 					<thead class="text-center">
