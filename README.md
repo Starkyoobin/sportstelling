@@ -18,3 +18,13 @@ Sportstelling은 **스포츠 커뮤니티 사이트**입니다.
 https://ovenapp.io/project/uVAIVEtjudz5TcbYhbhdu3WFsAYgffRq#qoavO
 - **DB, URL, 일정 설계**  
 https://docs.google.com/spreadsheets/d/1x_pGcri3MjROVT6lBoW3v1NM0yjyxMhDhiYOBnoqne8/edit#gid=0
+
+### 🔗 외부 라이브러리 라이센스 🔗 
+
+* Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
+* Mysql [GPLv2 or proprietary](https://www.gnu.org/licenses/gpl-3.0.html)
+* Spring framework [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+* Mybatis [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+* Bootstrap [MIT License](https://opensource.org/licenses/MIT)
+* jQuery [MIT License](https://opensource.org/licenses/MIT)
+* 이미지 출처 : [pixabay](https://pixabay.com/ko/)
