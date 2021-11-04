@@ -25,8 +25,10 @@ public class InformationController {
 			, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String loginId = (String)session.getAttribute("userLoginId");
+		session.removeAttribute("email");
 		
 		User user = signBO.getUserInformation(loginId);
+		session.setAttribute("email", user.getEmail());
 		
 		model.addAttribute("user", user);
 		

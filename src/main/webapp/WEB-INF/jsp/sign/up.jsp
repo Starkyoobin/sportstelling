@@ -43,7 +43,8 @@
 						<div id="nickNameDuplicateDiv" class="d-none"><small class="text-danger">중복된 닉네임 입니다.</small></div>
 						<div id="nickNameNoneDuplicateDiv" class="d-none"><small class="text-success">사용 가능한 닉네임 입니다.</small></div>
 						
-						<input type="text" id="emailInput" class="form-control mt-3" placeholder="이메일">						
+						<input type="text" id="emailInput" class="form-control my-3" placeholder="이메일">						
+						<small>※주의사항 : 이메일은 아이디 / 비밀번호 분실시 찾는데 필요한 정보입니다. 정확한 이메일 주소를 입력해주세요.</small>
 						
 						<button class="btn btn-success form-control mt-3" id="joinBtn">회원가입</button>
 					</form>

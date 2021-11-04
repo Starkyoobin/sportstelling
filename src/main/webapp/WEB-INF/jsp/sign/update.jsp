@@ -61,12 +61,14 @@
 						<input type="text" class="form-control" placeholder="${user.nickName }" disabled>
 					</div>
 					
-					<div class="mt-3 input-group">
+					<div class="my-3 input-group">
 						<div class="input-group-prepend">						
 							<div class="input-group-text"><b>이메일</b></div>
 						</div>					
 						<input type="text" id="emailInput" class="form-control" value="${user.email }">						
 					</div>
+					
+					<small>※주의사항 : 이메일은 아이디 / 비밀번호 분실시 찾는데 필요한 정보입니다. 정확한 이메일 주소를 입력해주세요.</small>
 					
 					<button type="button" class="btn btn-success form-control mt-3" id="updateBtn">정보 변경</button>
 					<!-- <button type="button" class="btn btn-danger form-control mt-3"  data-toggle="modal" data-target="#deleteModal">회원 탈퇴</button>		-->
@@ -106,6 +108,21 @@
 				var password = $("#passwordInput").val();
 				var passwordConfirm = $("#passwordConfirmInput").val();
 				var email = $("#emailInput").val();
+				
+				if(password == null || password == "") {
+					alert("비밀번호를 입력해주세요");
+					return;
+				}
+				
+				if(passwordConfirm == null || passwordConfirm == "") {
+					alert("비밀번호 확인을 입력해주세요");
+					return;
+				}
+				
+				if(email == null || email == "") {
+					alert("이메일을 입력해주세요");
+					return;
+				}
 				
 				if(password != passwordConfirm) {
 					alert("비밀번호가 일치하지 않습니다");
