@@ -29,3 +29,7 @@ https://docs.google.com/spreadsheets/d/1x_pGcri3MjROVT6lBoW3v1NM0yjyxMhDhiYOBnoq
 * Bootstrap [MIT License](https://opensource.org/licenses/MIT)
 * jQuery [MIT License](https://opensource.org/licenses/MIT)
 * 이미지 출처 : [pixabay](https://pixabay.com/ko/)
+
+### 📝 향후 계획
+- **회원탈퇴**
+- **
