@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sportstelling.user.bo.UserBO;
+import com.sportstelling.user.model.User;
 
 @RestController
 @RequestMapping("/main/user")
@@ -33,6 +34,7 @@ public class InformationRestController {
 		int count = signBO.updateUser(userId, password, email);
 		
 		Map<String, String> result = new HashMap<>();
+		User user = new User();
 		
 		if(count != 0) {
 			result.put("result", "success");
