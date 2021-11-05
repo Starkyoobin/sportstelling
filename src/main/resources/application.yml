@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 20MB
   mail:
     host: smtp.gmail.com
     port: 587
@@ -15,7 +19,7 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
   datasource:    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/web_sportstelling?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/sportstelling?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
-    password: dbqls1379!
+    password: root
     
