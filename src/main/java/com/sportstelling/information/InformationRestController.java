@@ -34,7 +34,6 @@ public class InformationRestController {
 		int count = signBO.updateUser(userId, password, email);
 		
 		Map<String, String> result = new HashMap<>();
-		User user = new User();
 		
 		if(count != 0) {
 			result.put("result", "success");
