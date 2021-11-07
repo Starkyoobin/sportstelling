@@ -22,6 +22,11 @@ https://ovenapp.io/project/uVAIVEtjudz5TcbYhbhdu3WFsAYgffRq#qoavO
 - **DB, URL, 일정 설계**  
 https://docs.google.com/spreadsheets/d/1x_pGcri3MjROVT6lBoW3v1NM0yjyxMhDhiYOBnoqne8/edit#gid=0
 
+### 🔧 기능 🔧
+- 회원가입
+  - package : [com.sportstelling.user.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/user)
+  - view : [/webapp/WEB-INF/jsp/user/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/sign)
+
 ### 🔗 외부 라이브러리 라이센스 🔗 
 
 * Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
