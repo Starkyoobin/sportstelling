@@ -23,9 +23,27 @@ https://ovenapp.io/project/uVAIVEtjudz5TcbYhbhdu3WFsAYgffRq#qoavO
 https://docs.google.com/spreadsheets/d/1x_pGcri3MjROVT6lBoW3v1NM0yjyxMhDhiYOBnoqne8/edit#gid=0
 
 ### 🔧 기능 🔧
-- 회원가입
+- 회원가입, 로그인
   - package : [com.sportstelling.user.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/user)
   - view : [/webapp/WEB-INF/jsp/user/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/sign)
+- 스포츠피드 이미지 첨부 글 작성
+  - package : [com.sportstelling.sportsfeed.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/sportsfeed)
+  - view : [/webapp/WEB-INF/jsp/main/sportsfeed/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/main/sportsfeed)
+- 스포츠피드 좋아요
+  - package : [com.sportstelling.sportsfeed.like.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/sportsfeed/like)
+  - view : [/webapp/WEB-INF/jsp/main/sportsfeed/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/main/sportsfeed)\
+- 스포츠Q&A 게시물 작성
+  - package : [com.sportstelling.sportqna.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/sportsqna)
+  - view : [/webapp/WEB-INF/jsp/main/sportsqna/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/main/sportsqna)
+- 스포츠Q&A 게시물 댓글 작성
+  - package : [com.sportstelling.sportsqna.comment.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/sportsqna/comment)
+  - view : [/webapp/WEB-INF/jsp/main/sportsqna/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/main/sportsqna)
+- 자유게시판 게시물 작성
+  - package : [com.sportstelling.freepost.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/freepost)
+  - view : [/webapp/WEB-INF/jsp/main/freepost/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/main/freepost)
+- 자유게시판 게시물 댓글 작성
+  - package : [com.sportstelling.sportsqna.comment.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/freepost/comment)
+  - view : [/webapp/WEB-INF/jsp/main/sportsqna/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/main/freepost)
 
 ### 🔗 외부 라이브러리 라이센스 🔗 
 
