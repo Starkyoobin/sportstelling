@@ -46,6 +46,9 @@ https://docs.google.com/spreadsheets/d/1x_pGcri3MjROVT6lBoW3v1NM0yjyxMhDhiYOBnoq
   - package : [com.sportstelling.sportsqna.comment.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/freepost/comment)
   - view : [/webapp/WEB-INF/jsp/main/sportsqna/*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/webapp/WEB-INF/jsp/main/freepost)
 
+### 🖥 미리보기 🖥
+- 로그인 및 회원가입
+
 ### 🔗 외부 라이브러리 라이센스 🔗 
 
 * Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
