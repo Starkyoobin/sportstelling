@@ -135,8 +135,9 @@
 					data:{"password":password, "email":email},
 					success:function(data) {
 						if(data.result == "success") {
-							alert("회원정보 변경에 성공했습니다");
-							history.go(-1);
+							alert("회원정보 변경에 성공했습니다. 다시 로그인을 해주세요.");
+							location.href = "/sign/out";
+							//history.go(-1);
 						} else {
 							alert("회원정보 변경 실패");
 						}

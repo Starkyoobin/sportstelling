@@ -64,6 +64,11 @@
 				var subject = $("#titleInput").val();
 				var content = $("#contentInput").val().trim();
 				
+				if(subject.length > 128) {
+					alert("제목을 줄여주세요");
+					return;
+				}
+				
 				if(subject == null || subject == "") {
 					alert("제목을 입력해주세요");
 					return;
