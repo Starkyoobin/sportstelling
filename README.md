@@ -12,7 +12,7 @@ sportstelling
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ### 🧾 포트폴리오 🧾
-[Sportstelling 포트폴리오](file:///C:/Users/yb010/Desktop/Web/WebProject/portfolio/Sportstelling.pdf)
+[Sportstelling 포트폴리오](https://github.com/Starkyoobin/sportstelling/blob/develop/Sportstelling.pdf)
 
 ### 💻 Project 설명 💻
 Sportstelling은 **스포츠 커뮤니티 사이트**입니다. 스포츠활동을 공유하고 스포츠에 대한 궁금증을 풀며 건강한 스포츠활동을 생활화했으면 좋겠습니다.
