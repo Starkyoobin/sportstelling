@@ -23,9 +23,6 @@ https://ovenapp.io/project/uVAIVEtjudz5TcbYhbhdu3WFsAYgffRq#qoavO
 - **DB, URL, 일정 설계**  
 https://docs.google.com/spreadsheets/d/1x_pGcri3MjROVT6lBoW3v1NM0yjyxMhDhiYOBnoqne8/edit#gid=0
 
-### 🖥 미리보기 🖥
-- 로그인 및 회원가입
-
 ### 🔧 기능 🔧
 - 회원가입, 로그인
   - package : [com.sportstelling.user.*](https://github.com/Starkyoobin/sportstelling/tree/develop/src/main/java/com/sportstelling/user)
